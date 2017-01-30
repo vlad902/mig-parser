@@ -5,7 +5,7 @@
 # Generated using ANTLR version: 3.5
 # Ruby runtime library version: 1.10.0
 # Input grammar file: Mig.g
-# Generated at: 2017-01-27 22:35:51
+# Generated at: 2017-01-28 11:09:05
 #
 
 # ~~~> start load path setup
@@ -2605,7 +2605,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 184:9: ':'
+      # at line 241:9: ':'
       match( 0x3a )
 
 
@@ -2632,7 +2632,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 185:8: ';'
+      # at line 242:8: ';'
       match( 0x3b )
 
 
@@ -2659,7 +2659,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 186:9: ','
+      # at line 243:9: ','
       match( 0x2c )
 
 
@@ -2686,7 +2686,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 187:8: '+'
+      # at line 244:8: '+'
       match( 0x2b )
 
 
@@ -2713,7 +2713,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 188:9: '-'
+      # at line 245:9: '-'
       match( 0x2d )
 
 
@@ -2740,7 +2740,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 189:8: '*'
+      # at line 246:8: '*'
       match( 0x2a )
 
 
@@ -2767,7 +2767,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 190:7: '/'
+      # at line 247:7: '/'
       match( 0x2f )
 
 
@@ -2794,7 +2794,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 191:10: '('
+      # at line 248:10: '('
       match( 0x28 )
 
 
@@ -2821,7 +2821,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 192:10: ')'
+      # at line 249:10: ')'
       match( 0x29 )
 
 
@@ -2848,7 +2848,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 193:9: '='
+      # at line 250:9: '='
       match( 0x3d )
 
 
@@ -2875,7 +2875,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 194:9: '^'
+      # at line 251:9: '^'
       match( 0x5e )
 
 
@@ -2902,7 +2902,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 195:9: '~'
+      # at line 252:9: '~'
       match( 0x7e )
 
 
@@ -2929,7 +2929,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 196:10: '<'
+      # at line 253:10: '<'
       match( 0x3c )
 
 
@@ -2956,7 +2956,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 197:10: '>'
+      # at line 254:10: '>'
       match( 0x3e )
 
 
@@ -2983,7 +2983,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 198:10: '['
+      # at line 255:10: '['
       match( 0x5b )
 
 
@@ -3010,7 +3010,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 199:10: ']'
+      # at line 256:10: ']'
       match( 0x5d )
 
 
@@ -3037,7 +3037,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 200:7: '|'
+      # at line 257:7: '|'
       match( 0x7c )
 
 
@@ -3064,7 +3064,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 201:5: 'of'
+      # at line 258:5: 'of'
       match( "of" )
 
 
@@ -3164,7 +3164,7 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 204:9: ( LETTER | '_' ) ( LETTER | DIGIT | '_' )*
+      # at line 261:9: ( LETTER | '_' ) ( LETTER | DIGIT | '_' )*
       if @input.peek( 1 ).between?( 0x41, 0x5a ) || @input.peek(1) == 0x5f || @input.peek( 1 ).between?( 0x61, 0x7a )
         @input.consume
       else
@@ -3175,7 +3175,7 @@ module Mig
       end
 
 
-      # at line 204:25: ( LETTER | DIGIT | '_' )*
+      # at line 261:25: ( LETTER | DIGIT | '_' )*
       while true # decision 1
         alt_1 = 2
         look_1_0 = @input.peek( 1 )
@@ -3228,8 +3228,8 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 205:10: ( DIGIT )+
-      # at file 205:10: ( DIGIT )+
+      # at line 262:10: ( DIGIT )+
+      # at file 262:10: ( DIGIT )+
       match_count_2 = 0
       while true
         alt_2 = 2
@@ -3289,11 +3289,11 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 206:16: ( '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"' )
-      # at line 206:16: ( '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"' )
-      # at line 206:17: '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"'
+      # at line 263:16: ( '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"' )
+      # at line 263:16: ( '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"' )
+      # at line 263:17: '\"' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '\"'
       match( 0x22 )
-      # at file 206:21: ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+
+      # at file 263:21: ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+
       match_count_3 = 0
       while true
         alt_3 = 2
@@ -3355,11 +3355,11 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 207:21: ( '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>' )
-      # at line 207:21: ( '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>' )
-      # at line 207:22: '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>'
+      # at line 264:21: ( '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>' )
+      # at line 264:21: ( '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>' )
+      # at line 264:22: '<' ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+ '>'
       match( 0x3c )
-      # at file 207:26: ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+
+      # at file 264:26: ( LETTER | '-' | DIGIT | '.' | '_' | '/' )+
       match_count_4 = 0
       while true
         alt_4 = 2
@@ -3421,8 +3421,8 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 208:9: ( ' ' | '\\r' '\\n' | '\\n' | '\\t' )
-      # at line 208:9: ( ' ' | '\\r' '\\n' | '\\n' | '\\t' )
+      # at line 265:9: ( ' ' | '\\r' '\\n' | '\\n' | '\\t' )
+      # at line 265:9: ( ' ' | '\\r' '\\n' | '\\n' | '\\t' )
       alt_5 = 4
       case look_5 = @input.peek( 1 )
       when 0x20 then alt_5 = 1
@@ -3435,20 +3435,20 @@ module Mig
       end
       case alt_5
       when 1
-        # at line 208:11: ' '
+        # at line 265:11: ' '
         match( 0x20 )
 
       when 2
-        # at line 208:17: '\\r' '\\n'
+        # at line 265:17: '\\r' '\\n'
         match( 0xd )
         match( 0xa )
 
       when 3
-        # at line 208:29: '\\n'
+        # at line 265:29: '\\n'
         match( 0xa )
 
       when 4
-        # at line 208:36: '\\t'
+        # at line 265:36: '\\t'
         match( 0x9 )
 
       end
@@ -3482,10 +3482,10 @@ module Mig
 
 
       # - - - - main rule block - - - -
-      # at line 212:11: '/*' ( options {greedy=false; } : . )* '*/'
+      # at line 269:11: '/*' ( options {greedy=false; } : . )* '*/'
       match( "/*" )
 
-      # at line 212:16: ( options {greedy=false; } : . )*
+      # at line 269:16: ( options {greedy=false; } : . )*
       while true # decision 6
         alt_6 = 2
         look_6_0 = @input.peek( 1 )
@@ -3505,7 +3505,7 @@ module Mig
         end
         case alt_6
         when 1
-          # at line 212:42: .
+          # at line 269:42: .
           match_any
 
         else

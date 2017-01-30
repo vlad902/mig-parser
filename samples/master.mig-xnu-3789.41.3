@@ -1,0 +1,6510 @@
+# 1 "<stdin>"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 330 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "<stdin>" 2
+# 28 "<stdin>"
+# 1 "osfmk/mach/clock.defs" 1
+# 37 "osfmk/mach/clock.defs"
+subsystem
+
+
+
+         clock 1000;
+
+
+# 1 "osfmk/mach/std_types.defs" 1
+# 68 "osfmk/mach/std_types.defs"
+type int8_t = MACH_MSG_TYPE_INTEGER_8;
+type uint8_t = MACH_MSG_TYPE_INTEGER_8;
+type int16_t = MACH_MSG_TYPE_INTEGER_16;
+type uint16_t = MACH_MSG_TYPE_INTEGER_16;
+type int32_t = MACH_MSG_TYPE_INTEGER_32;
+type uint32_t = MACH_MSG_TYPE_INTEGER_32;
+type int64_t = MACH_MSG_TYPE_INTEGER_64;
+type uint64_t = MACH_MSG_TYPE_INTEGER_64;
+
+
+
+
+
+type int32 = int32_t;
+type unsigned32 = uint32_t;
+type int64 = int64_t;
+type unsigned64 = uint64_t;
+
+
+
+
+type char = MACH_MSG_TYPE_CHAR;
+type boolean_t = MACH_MSG_TYPE_BOOLEAN;
+
+
+# 1 "osfmk/mach/machine/machine_types.defs" 1
+# 39 "osfmk/mach/machine/machine_types.defs"
+type short = int16_t;
+type int = int32_t;
+type unsigned = uint32_t;
+
+type float = MACH_MSG_TYPE_REAL_32;
+type double = MACH_MSG_TYPE_REAL_64;
+# 62 "osfmk/mach/machine/machine_types.defs"
+type uintptr_t = uint64_t;
+type intptr_t = int64_t;
+# 76 "osfmk/mach/machine/machine_types.defs"
+type register_t = int64_t;
+
+
+
+type integer_t = int32_t;
+type natural_t = uint32_t;
+
+
+
+
+
+
+
+type vm_address_t = uint64_t;
+type vm_offset_t = uint64_t;
+type vm_size_t = uint64_t;
+
+
+
+
+
+
+
+type mach_port_context_t = uint64_t;
+
+
+
+
+
+
+type mach_vm_address_t = uint64_t;
+type mach_vm_offset_t = uint64_t;
+type mach_vm_size_t = uint64_t;
+# 124 "osfmk/mach/machine/machine_types.defs"
+type vm32_address_t = uint32_t;
+type vm32_offset_t = uint32_t;
+type vm32_size_t = uint32_t;
+# 93 "osfmk/mach/std_types.defs" 2
+
+type kern_return_t = int;
+
+type pointer_t = ^array[] of MACH_MSG_TYPE_BYTE
+ ctype: vm_offset_t;
+
+
+type mach_port_t = MACH_MSG_TYPE_COPY_SEND;
+type mach_port_array_t = array[] of mach_port_t;
+
+type mach_port_name_t = MACH_MSG_TYPE_PORT_NAME;
+type mach_port_name_array_t = array[] of mach_port_name_t;
+
+type mach_port_right_t = natural_t;
+
+type mach_port_type_t = natural_t;
+type mach_port_type_array_t = array[] of mach_port_type_t;
+
+type mach_port_urefs_t = natural_t;
+type mach_port_delta_t = integer_t;
+type mach_port_seqno_t = natural_t;
+type mach_port_mscount_t = unsigned;
+type mach_port_msgcount_t = unsigned;
+type mach_port_rights_t = unsigned;
+type mach_msg_id_t = integer_t;
+type mach_msg_size_t = natural_t;
+type mach_msg_type_name_t = unsigned;
+type mach_msg_options_t = integer_t;
+
+type mach_port_move_receive_t = MACH_MSG_TYPE_MOVE_RECEIVE
+ ctype: mach_port_t;
+type mach_port_copy_send_t = MACH_MSG_TYPE_COPY_SEND
+ ctype: mach_port_t;
+type mach_port_make_send_t = MACH_MSG_TYPE_MAKE_SEND
+ ctype: mach_port_t;
+type mach_port_move_send_t = MACH_MSG_TYPE_MOVE_SEND
+ ctype: mach_port_t;
+type mach_port_make_send_once_t = MACH_MSG_TYPE_MAKE_SEND_ONCE
+ ctype: mach_port_t;
+type mach_port_move_send_once_t = MACH_MSG_TYPE_MOVE_SEND_ONCE
+ ctype: mach_port_t;
+
+type mach_port_receive_t = MACH_MSG_TYPE_PORT_RECEIVE
+ ctype: mach_port_t;
+type mach_port_send_t = MACH_MSG_TYPE_PORT_SEND
+ ctype: mach_port_t;
+type mach_port_send_once_t = MACH_MSG_TYPE_PORT_SEND_ONCE
+ ctype: mach_port_t;
+
+type mach_port_poly_t = polymorphic
+ ctype: mach_port_t;
+
+import <mach/std_types.h>;
+import <mach/mig.h>;
+# 44 "osfmk/mach/clock.defs" 2
+# 1 "osfmk/mach/mach_types.defs" 1
+# 74 "osfmk/mach/mach_types.defs"
+type memory_object_offset_t = uint64_t;
+type memory_object_size_t = uint64_t;
+type memory_object_cluster_size_t = uint32_t;
+type memory_object_fault_info_t = array[16] of integer_t;
+# 95 "osfmk/mach/mach_types.defs"
+type mach_port_status_t = struct[10] of integer_t;
+type mach_port_info_ext_t = struct[17] of integer_t;
+# 105 "osfmk/mach/mach_types.defs"
+type mach_port_flavor_t = int;
+type mach_port_info_t = array[*:17] of integer_t;
+# 119 "osfmk/mach/mach_types.defs"
+type mach_msg_trailer_type_t = int;
+type mach_msg_trailer_info_t = array[*:68] of char;
+
+type task_t = mach_port_t
+
+
+
+
+
+  ;
+
+type task_name_t = mach_port_t
+
+
+
+
+
+  ;
+
+type thread_t = mach_port_t
+
+
+
+
+
+  ;
+
+type thread_act_t = mach_port_t
+
+
+
+
+
+  ;
+
+type thread_act_consume_ref_t = mach_port_move_send_t
+  cusertype: thread_act_t
+
+
+
+
+  ;
+
+
+
+
+
+
+
+# 1 "osfmk/mach/machine/thread_state.h" 1
+# 33 "osfmk/mach/machine/thread_state.h"
+# 1 "osfmk/mach/i386/thread_state.h" 1
+# 34 "osfmk/mach/machine/thread_state.h" 2
+# 168 "osfmk/mach/mach_types.defs" 2
+type thread_state_flavor_t = int;
+type thread_state_t = array[*:(224)] of natural_t;
+
+type task_array_t = ^array[] of task_t;
+type thread_array_t = ^array[] of thread_t;
+type thread_act_array_t = ^array[] of thread_act_t;
+type act_params_t = array[6] of int;
+
+type vm_map_t = mach_port_t
+
+
+
+
+  ;
+
+type vm_task_entry_t = mach_port_t
+  cusertype: vm_map_t
+
+
+
+
+  ;
+
+type ipc_space_t = mach_port_t
+
+
+
+
+  ;
+
+type vm_prot_t = int;
+type vm_inherit_t = int;
+type vm_purgable_t = int;
+type xxx_vm_statistics_data_t = struct[13] of integer_t;
+type vm_behavior_t = int;
+type vm_statistics_data_t = struct[15] of integer_t;
+type vm_machine_attribute_t = int;
+type vm_machine_attribute_val_t = int;
+type vm_sync_t = int;
+# 217 "osfmk/mach/mach_types.defs"
+type thread_flavor_t = int;
+type thread_info_t = array[*:32] of integer_t;
+
+type thread_policy_flavor_t = natural_t;
+type thread_policy_t = array[*:16] of integer_t;
+# 241 "osfmk/mach/mach_types.defs"
+type task_flavor_t = int;
+type task_info_t = array[*:52] of integer_t;
+
+type task_purgable_info_t = struct[68] of integer_t;
+
+type task_policy_flavor_t = natural_t;
+type task_policy_t = array[*:16] of integer_t;
+
+type mem_entry_name_port_t = mach_port_t
+
+
+
+
+  ;
+
+type mem_entry_name_port_move_send_t = mach_port_move_send_t
+ cusertype: mem_entry_name_port_t
+
+
+
+
+  ;
+
+type memory_object_default_t = mach_port_t
+
+
+
+
+  ;
+
+type memory_object_t = mach_port_t
+
+
+
+
+  ;
+
+
+type memory_object_control_t = mach_port_t
+
+
+
+
+
+  ;
+
+type memory_object_name_t = mach_port_t
+  ctype: mach_port_t
+  ;
+
+
+type memory_object_copy_strategy_t = int;
+type memory_object_return_t = int;
+
+type machine_info_data_t = struct[5] of integer_t;
+type machine_slot_data_t = struct[8] of integer_t;
+
+type host_t = mach_port_t
+
+
+
+
+  ;
+
+type host_priv_t = mach_port_t
+
+
+
+  ;
+
+type host_security_t = mach_port_t
+
+
+
+  ;
+# 332 "osfmk/mach/mach_types.defs"
+type host_flavor_t = int;
+type host_info_t = array[*:68] of integer_t;
+
+
+
+
+
+
+type host_info64_t = array[*:256] of integer_t;
+
+type processor_t = mach_port_t
+
+
+
+
+  ;
+
+type processor_array_t = ^array[] of processor_t;
+# 358 "osfmk/mach/mach_types.defs"
+type processor_flavor_t = int;
+type processor_info_t = array[*:12] of integer_t;
+type processor_info_array_t = ^array[] of integer_t;
+
+type processor_set_t = mach_port_t
+
+
+
+
+
+  ;
+
+type processor_set_array_t = ^array[] of processor_set_t;
+
+type processor_set_name_t = mach_port_t
+
+
+
+
+
+  ;
+
+type processor_set_name_array_t = ^array[] of processor_set_name_t;
+# 395 "osfmk/mach/mach_types.defs"
+type processor_set_flavor_t = int;
+type processor_set_info_t = array[*:5] of integer_t;
+
+type bootstrap_t = mach_port_t;
+
+type kernel_version_t = c_string[*:512];
+type kernel_boot_info_t = c_string[*:4096];
+
+type time_value_t = struct[2] of integer_t;
+
+type mach_port_qos_t = struct[2] of integer_t;
+
+type mach_port_options_t = struct[3] of uint64_t;
+type mach_port_options_ptr_t = ^ mach_port_options_t;
+
+type emulation_vector_t = ^array[] of vm_offset_t;
+
+type inline_existence_map_t = array[*:512] of char;
+
+type policy_t = int;
+
+
+
+
+type policy_base_t = array[*:5] of integer_t;
+type policy_info_t = array[*:2] of integer_t;
+type policy_limit_t = array[*:1] of integer_t;
+
+type ledger_t = mach_port_t
+
+
+
+
+                ;
+
+type ledger_array_t = ^array[] of ledger_t;
+type ledger_item_t = integer_t;
+
+
+type ledger_amount_t = int64_t;
+
+type security_token_t = struct[2] of uint32_t;
+type audit_token_t = struct[8] of uint32_t;
+
+type msg_labels_t = mach_port_t;
+# 449 "osfmk/mach/mach_types.defs"
+type memory_object_flavor_t = int;
+type memory_object_info_t = array[*:6] of int;
+
+
+
+
+
+type vm_region_flavor_t = int;
+type vm_region_info_t = array[*:10] of int;
+type vm_region_recurse_info_t = array[*:19] of int;
+
+type vm_page_info_flavor_t = int;
+type vm_page_info_t = array[*:32] of int;
+
+type mach_vm_read_entry_t = array[512] of mach_vm_offset_t;
+type vm_read_entry_t = array[512] of vm_offset_t;
+
+type vm32_read_entry_t = array[512] of vm32_offset_t;
+
+
+type exception_mask_t = int;
+type exception_behavior_t = int;
+
+type exception_handler_t = mach_port_t;
+
+type exception_handler_array_t =
+   array[*:32] of exception_handler_t;
+
+type exception_behavior_array_t =
+   array[*:32] of exception_behavior_t;
+
+type exception_flavor_array_t =
+   array[*:32] of thread_state_flavor_t;
+
+type exception_mask_array_t =
+   array[*:32] of exception_mask_t;
+
+type semaphore_t = mach_port_t
+
+
+
+
+
+  ;
+
+type semaphore_consume_ref_t = mach_port_move_send_t
+  cusertype: semaphore_t
+
+
+
+
+  ;
+
+type lock_set_t = mach_port_t
+
+
+
+
+
+  ;
+
+type task_suspension_token_t = mach_port_move_send_once_t
+
+
+
+
+  ;
+
+
+
+
+
+type mach_voucher_t = mach_port_t;
+type mach_voucher_name_t = mach_port_name_t;
+
+type mach_voucher_attr_manager_t = mach_port_t;
+type mach_voucher_attr_control_t = mach_port_t;
+
+
+type ipc_voucher_t = mach_port_t
+
+
+
+
+
+         ;
+
+
+type ipc_voucher_attr_control_t = mach_port_t
+
+
+
+
+
+                ;
+
+type mach_voucher_attr_key_t = uint32_t;
+
+type mach_voucher_attr_command_t = uint32_t;
+type mach_voucher_attr_recipe_command_t = uint32_t;
+
+type mach_voucher_attr_content_size_t = uint32_t;
+type mach_voucher_attr_content_t = array[*:4096] of uint8_t;
+type mach_voucher_attr_content_array_t = array[*:5120] of uint8_t;
+
+type mach_voucher_attr_raw_recipe_size_t = uint32_t;
+type mach_voucher_attr_raw_recipe_t = array[*:4096] of uint8_t;
+type mach_voucher_attr_raw_recipe_array_t = array[*:5120] of uint8_t;
+
+type mach_voucher_selector_t = uint32_t;
+
+type mach_voucher_attr_value_handle_t = uint64_t;
+type mach_voucher_attr_value_handle_array_t = array[*:4] of mach_voucher_attr_value_handle_t;
+type mach_voucher_attr_value_reference_t = uint32_t;
+
+type task_inspect_flavor_t = natural_t;
+type task_inspect_data_t = array[] of char;
+
+
+type kmod_t = int;
+type kmod_control_flavor_t = int;
+
+type kmod_args_t = ^array[] of MACH_MSG_TYPE_BYTE
+ ctype: kmod_args_t;
+
+type io_master_t = mach_port_t;
+type UNDServerRef = mach_port_t;
+
+
+type dyld_kernel_image_info_t = struct[40] of MACH_MSG_TYPE_BYTE;
+type dyld_kernel_image_info_array_t = ^array[] of dyld_kernel_image_info_t;
+type dyld_kernel_process_info_t = struct[64] of MACH_MSG_TYPE_BYTE;
+# 601 "osfmk/mach/mach_types.defs"
+import <mach/mig.h>;
+import <mach/mach_types.h>;
+# 45 "osfmk/mach/clock.defs" 2
+# 1 "osfmk/mach/clock_types.defs" 1
+# 42 "osfmk/mach/clock_types.defs"
+type clock_serv_t = mach_port_t
+  cusertype: clock_serv_t
+
+
+
+
+  ;
+
+type clock_ctrl_t = mach_port_t
+  cusertype: clock_ctrl_t
+
+
+
+
+  ;
+
+type clock_reply_t = polymorphic|MACH_MSG_TYPE_MAKE_SEND_ONCE;
+
+type clock_flavor_t = int;
+type clock_attr_t = array[*:1] of int;
+type mach_timespec_t = struct[2] of int;
+type time_t = int;
+type sleep_type_t = int;
+type alarm_type_t = int;
+type clock_res_t = int;
+type clock_id_t = int;
+
+import <mach/mach_types.h>;
+# 46 "osfmk/mach/clock.defs" 2
+# 57 "osfmk/mach/clock.defs"
+routine clock_get_time(
+  clock_serv : clock_serv_t;
+ out cur_time : mach_timespec_t);
+
+
+
+
+
+routine clock_get_attributes(
+  clock_serv : clock_serv_t;
+ in flavor : clock_flavor_t;
+ out clock_attr : clock_attr_t, CountInOut);
+
+
+
+
+
+routine clock_alarm(
+  clock_serv : clock_serv_t;
+  alarm_type : alarm_type_t;
+  alarm_time : mach_timespec_t;
+                alarm_port : clock_reply_t =
+   MACH_MSG_TYPE_MAKE_SEND_ONCE|polymorphic);
+# 29 "<stdin>" 2
+# 56 "<stdin>"
+# 1 "osfmk/mach/clock_priv.defs" 1
+# 37 "osfmk/mach/clock_priv.defs"
+subsystem
+
+
+
+         clock_priv 1200;
+# 56 "osfmk/mach/clock_priv.defs"
+routine clock_set_time(
+  clock_ctrl : clock_ctrl_t;
+  new_time : mach_timespec_t);
+
+
+
+
+
+routine clock_set_attributes(
+  clock_ctrl : clock_ctrl_t;
+ in flavor : clock_flavor_t;
+ in clock_attr : clock_attr_t);
+# 57 "<stdin>" 2
+# 84 "<stdin>"
+# 1 "osfmk/mach/clock_reply.defs" 1
+# 37 "osfmk/mach/clock_reply.defs"
+subsystem
+
+
+
+       clock_reply 3125107;
+# 50 "osfmk/mach/clock_reply.defs"
+simpleroutine clock_alarm_reply(
+                alarm_port : clock_reply_t;
+  alarm_code : kern_return_t;
+  alarm_type : alarm_type_t;
+  alarm_time : mach_timespec_t);
+# 85 "<stdin>" 2
+# 113 "<stdin>"
+# 1 "osfmk/mach/exc.defs" 1
+# 63 "osfmk/mach/exc.defs"
+subsystem
+
+
+
+       exc 2401;
+
+
+
+
+ServerPrefix internal_catch_;
+
+type exception_data_t = array[*:2] of integer_t;
+type exception_type_t = int;
+
+routine exception_raise(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t
+   );
+
+routine exception_raise_state(
+
+
+
+   exception_port : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t, const;
+    inout flavor : int;
+   old_state : thread_state_t, const;
+      out new_state : thread_state_t);
+
+routine exception_raise_state_identity(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t;
+    inout flavor : int;
+   old_state : thread_state_t;
+      out new_state : thread_state_t);
+# 114 "<stdin>" 2
+# 141 "<stdin>"
+# 1 "osfmk/mach/host_priv.defs" 1
+# 62 "osfmk/mach/host_priv.defs"
+subsystem
+
+
+
+
+
+
+         host_priv 400;
+# 78 "osfmk/mach/host_priv.defs"
+# 1 "osfmk/mach_debug/mach_debug_types.defs" 1
+# 67 "osfmk/mach_debug/mach_debug_types.defs"
+type zone_name_t = struct[80] of char;
+type zone_name_array_t = array[] of zone_name_t;
+
+type zone_info_t = struct[9] of integer_t;
+type zone_info_array_t = array[] of zone_info_t;
+
+type mach_zone_name_t = struct[80] of char;
+type mach_zone_name_array_t = array[] of mach_zone_name_t;
+
+type mach_zone_info_t = struct[8] of uint64_t;
+type mach_zone_info_array_t = array[] of mach_zone_info_t;
+
+type task_zone_info_t = struct[11] of uint64_t;
+type task_zone_info_array_t = array[] of task_zone_info_t;
+
+type hash_info_bucket_t = struct[1] of natural_t;
+type hash_info_bucket_array_t = array[] of hash_info_bucket_t;
+
+type ipc_info_space_t = struct[6] of natural_t;
+type ipc_info_space_basic_t = struct[6] of natural_t;
+
+type ipc_info_name_t = struct[7] of natural_t;
+type ipc_info_name_array_t = array[] of ipc_info_name_t;
+
+type ipc_info_tree_name_t = struct[9] of natural_t;
+type ipc_info_tree_name_array_t = array[] of ipc_info_tree_name_t;
+
+type vm_info_region_t = struct[10] of natural_t;
+type vm_info_region_64_t = struct[11] of natural_t;
+type mach_vm_info_region_t = struct[14] of natural_t;
+
+type vm_info_object_t = struct[21] of natural_t;
+type vm_info_object_array_t = ^array[] of vm_info_object_t;
+
+type page_address_array_t = ^array[] of integer_t;
+
+type symtab_name_t = c_string[*:32];
+
+type lockgroup_info_t = struct[33] of uint64_t;
+type lockgroup_info_array_t = array[] of lockgroup_info_t;
+
+type mach_memory_info_t = struct[8] of uint64_t;
+type mach_memory_info_array_t = array[] of mach_memory_info_t;
+
+import <mach_debug/mach_debug_types.h>;
+# 79 "osfmk/mach/host_priv.defs" 2
+
+
+
+
+routine host_get_boot_info(
+  host_priv : host_priv_t;
+ out boot_info : kernel_boot_info_t);
+
+
+
+
+
+routine host_reboot(
+  host_priv : host_priv_t;
+  options : int);
+
+
+
+
+
+routine host_priv_statistics(
+  host_priv : host_priv_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+# 112 "osfmk/mach/host_priv.defs"
+routine host_default_memory_manager(
+  host_priv : host_priv_t;
+ inout default_manager : memory_object_default_t =
+     MACH_MSG_TYPE_MAKE_SEND;
+  cluster_size : memory_object_cluster_size_t);
+# 126 "osfmk/mach/host_priv.defs"
+routine vm_wire(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  desired_access : vm_prot_t);
+
+
+
+
+
+routine thread_wire(
+  host_priv : host_priv_t;
+  thread : thread_act_t;
+  wired : boolean_t);
+# 160 "osfmk/mach/host_priv.defs"
+routine vm_allocate_cpm(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+ inout address : vm_address_t;
+  size : vm_size_t;
+  flags : int);
+
+
+
+
+routine host_processors(
+  host_priv : host_priv_t;
+ out out_processor_list : processor_array_t);
+
+
+
+
+
+
+routine host_get_clock_control(
+  host_priv : host_priv_t;
+  clock_id : clock_id_t;
+ out clock_ctrl : clock_ctrl_t);
+
+
+
+
+
+
+
+routine kmod_create(
+  host_priv : host_priv_t;
+  info : vm_address_t;
+ out module : kmod_t);
+
+routine kmod_destroy(
+  host_priv : host_priv_t;
+  module : kmod_t);
+
+routine kmod_control(
+  host_priv : host_priv_t;
+  module : kmod_t;
+  flavor : kmod_control_flavor_t;
+ inout data : kmod_args_t);
+
+
+
+
+
+
+
+routine host_get_special_port(
+                host_priv : host_priv_t;
+                node : int;
+                which : int;
+        out port : mach_port_t);
+
+
+
+
+
+routine host_set_special_port(
+                host_priv : host_priv_t;
+                which : int;
+                port : mach_port_t);
+
+
+
+
+
+
+
+routine host_set_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t);
+
+
+
+
+
+routine host_get_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+   out masks : exception_mask_array_t;
+   out old_handlers : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+
+routine host_swap_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t;
+   out masks : exception_mask_array_t;
+   out old_handlerss : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+skip;
+# 277 "osfmk/mach/host_priv.defs"
+routine mach_vm_wire(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  desired_access : vm_prot_t);
+# 291 "osfmk/mach/host_priv.defs"
+routine host_processor_sets(
+  host_priv : host_priv_t;
+ out processor_sets : processor_set_name_array_t);
+
+
+
+
+routine host_processor_set_priv(
+  host_priv : host_priv_t;
+  set_name : processor_set_name_t;
+ out set : processor_set_t);
+# 315 "osfmk/mach/host_priv.defs"
+routine set_dp_control_port(
+  host : host_priv_t;
+ in control_port : mach_port_t);
+
+
+
+
+
+
+routine get_dp_control_port(
+  host : host_priv_t;
+ out contorl_port :mach_port_t);
+
+
+
+
+
+
+routine host_set_UNDServer(
+  host : host_priv_t;
+ in server : UNDServerRef);
+# 347 "osfmk/mach/host_priv.defs"
+routine host_get_UNDServer(
+  host : host_priv_t;
+ out server : UNDServerRef);
+# 361 "osfmk/mach/host_priv.defs"
+routine kext_request(
+        host_priv : host_priv_t;
+    in user_log_flags : uint32_t;
+    in request_data : pointer_t;
+    out response_data : pointer_t;
+    out log_data : pointer_t;
+    out op_result : kern_return_t);
+# 142 "<stdin>" 2
+# 169 "<stdin>"
+# 1 "osfmk/mach/host_security.defs" 1
+# 65 "osfmk/mach/host_security.defs"
+subsystem
+
+
+
+        host_security 600;
+# 81 "osfmk/mach/host_security.defs"
+routine host_security_create_task_token(
+  host_security : host_security_t;
+  parent_task : task_t;
+  sec_token : security_token_t;
+  audit_token : audit_token_t;
+  host : host_t;
+  ledgers : ledger_array_t;
+  inherit_memory : boolean_t;
+ out child_task : task_t);
+
+
+
+
+routine host_security_set_task_token(
+  host_security : host_security_t;
+  target_task : task_t;
+  sec_token : security_token_t;
+  audit_token : audit_token_t;
+  host : host_t);
+# 170 "<stdin>" 2
+# 197 "<stdin>"
+# 1 "osfmk/mach/ledger.defs" 1
+# 32 "osfmk/mach/ledger.defs"
+subsystem
+
+
+
+
+
+
+         ledger 5000;
+# 198 "<stdin>" 2
+# 225 "<stdin>"
+# 1 "osfmk/mach/lock_set.defs" 1
+# 40 "osfmk/mach/lock_set.defs"
+subsystem
+
+
+
+   lock_set 617000;
+# 59 "osfmk/mach/lock_set.defs"
+routine lock_acquire(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_release(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_try(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_make_stable(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff_accept(
+  lock_set : lock_set_t;
+  lock_id : int);
+# 226 "<stdin>" 2
+# 253 "<stdin>"
+# 1 "osfmk/mach/mach_host.defs" 1
+# 67 "osfmk/mach/mach_host.defs"
+subsystem
+
+
+
+         mach_host 200;
+# 90 "osfmk/mach/mach_host.defs"
+routine host_info(
+  host : host_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+
+
+
+
+routine host_kernel_version(
+  host : host_t;
+ out kernel_version : kernel_version_t);
+
+
+
+
+
+
+
+routine host_page_size(
+
+
+
+  host : host_t;
+ out out_page_size : vm_size_t);
+
+
+
+
+
+
+routine mach_memory_object_memory_entry(
+  host :host_t;
+  internal :boolean_t;
+  size :vm_size_t;
+  permission :vm_prot_t;
+  pager :memory_object_t;
+ out entry_handle :mach_port_move_send_t);
+
+
+
+
+
+
+routine host_processor_info(
+  host : host_t;
+                flavor : processor_flavor_t;
+ out out_processor_count : natural_t;
+        out out_processor_info : processor_info_array_t);
+
+
+
+
+routine host_get_io_master(
+                host : host_t;
+        out io_master : io_master_t);
+
+
+
+
+
+routine host_get_clock_service(
+  host : host_t;
+  clock_id : clock_id_t;
+ out clock_serv : clock_serv_t);
+
+
+
+
+
+
+routine kmod_get_info(
+  host : host_t;
+ out modules : kmod_args_t);
+
+
+
+
+
+
+
+routine host_zone_info(
+  host : host_priv_t;
+ out names : zone_name_array_t,
+     Dealloc;
+ out info : zone_info_array_t,
+     Dealloc);
+
+
+
+
+
+
+routine host_virtual_physical_table_info(
+  host : host_t;
+ out info : hash_info_bucket_array_t,
+     Dealloc);
+
+
+skip;
+skip;
+skip;
+# 199 "osfmk/mach/mach_host.defs"
+routine processor_set_default(
+  host : host_t;
+ out default_set : processor_set_name_t);
+
+
+
+
+
+routine processor_set_create(
+  host : host_t;
+ out new_set : processor_set_t;
+ out new_name : processor_set_name_t);
+
+
+
+
+
+routine mach_memory_object_memory_entry_64(
+  host :host_t;
+  internal :boolean_t;
+  size :memory_object_size_t;
+  permission :vm_prot_t;
+  pager :memory_object_t;
+ out entry_handle :mach_port_move_send_t);
+
+
+
+
+routine host_statistics(
+  host_priv : host_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+
+routine host_request_notification(
+  host : host_t;
+  notify_type : host_flavor_t;
+  notify_port : mach_port_make_send_once_t);
+
+routine host_lockgroup_info(
+  host : host_t;
+ out lockgroup_info : lockgroup_info_array_t,
+     Dealloc);
+
+
+
+
+routine host_statistics64(
+  host_priv : host_t;
+  flavor : host_flavor_t;
+ out host_info64_out : host_info64_t, CountInOut);
+
+
+
+
+
+
+routine mach_zone_info(
+  host : host_priv_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : mach_zone_info_array_t,
+     Dealloc);
+# 271 "osfmk/mach/mach_host.defs"
+skip;
+# 281 "osfmk/mach/mach_host.defs"
+routine host_create_mach_voucher(
+
+  host : host_t;
+  recipes : mach_voucher_attr_raw_recipe_array_t;
+ out voucher : ipc_voucher_t);
+
+
+
+
+routine host_register_mach_voucher_attr_manager(
+  host : host_t;
+  attr_manager : mach_voucher_attr_manager_t;
+  default_value : mach_voucher_attr_value_handle_t;
+ out new_key : mach_voucher_attr_key_t;
+ out new_attr_control: ipc_voucher_attr_control_t);
+
+
+
+
+routine host_register_well_known_mach_voucher_attr_manager(
+  host : host_t;
+  attr_manager : mach_voucher_attr_manager_t;
+  default_value : mach_voucher_attr_value_handle_t;
+  key : mach_voucher_attr_key_t;
+ out new_attr_control: ipc_voucher_attr_control_t);
+
+
+
+
+
+routine host_set_atm_diagnostic_flag(
+        host_priv : host_priv_t;
+    in diagnostic_flag : uint32_t);
+
+
+
+
+
+
+skip;
+
+
+routine mach_memory_info(
+  host : host_priv_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : mach_zone_info_array_t,
+     Dealloc;
+ out memory_info : mach_memory_info_array_t,
+     Dealloc);
+
+
+
+
+routine host_set_multiuser_config_flags(
+  host_priv : host_priv_t;
+ in multiuser_flags : uint32_t);
+
+
+
+
+
+
+skip;
+
+
+
+
+
+
+
+skip;
+# 254 "<stdin>" 2
+
+import <mach/mach_init.h>;
+# 283 "<stdin>"
+# 1 "osfmk/mach/mach_port.defs" 1
+# 65 "osfmk/mach/mach_port.defs"
+subsystem
+
+
+
+   mach_port 3200;
+# 85 "osfmk/mach/mach_port.defs"
+routine mach_port_names(
+  task : ipc_space_t;
+ out names : mach_port_name_array_t;
+ out types : mach_port_type_array_t);
+
+
+
+
+
+
+
+routine mach_port_type(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out ptype : mach_port_type_t);
+# 110 "osfmk/mach/mach_port.defs"
+routine mach_port_rename(
+  task : ipc_space_t;
+  old_name : mach_port_name_t;
+  new_name : mach_port_name_t);
+# 127 "osfmk/mach/mach_port.defs"
+routine mach_port_allocate_name(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+  name : mach_port_name_t);
+# 142 "osfmk/mach/mach_port.defs"
+routine mach_port_allocate(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+ out name : mach_port_name_t);
+# 154 "osfmk/mach/mach_port.defs"
+routine mach_port_destroy(
+  task : ipc_space_t;
+  name : mach_port_name_t);
+# 166 "osfmk/mach/mach_port.defs"
+routine mach_port_deallocate(
+  task : ipc_space_t;
+  name : mach_port_name_t);
+# 184 "osfmk/mach/mach_port.defs"
+routine mach_port_get_refs(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  right : mach_port_right_t;
+ out refs : mach_port_urefs_t);
+# 205 "osfmk/mach/mach_port.defs"
+routine mach_port_mod_refs(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  right : mach_port_right_t;
+  delta : mach_port_delta_t);
+# 227 "osfmk/mach/mach_port.defs"
+routine mach_port_peek(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  trailer_type : mach_msg_trailer_type_t;
+ inout request_seqnop : mach_port_seqno_t;
+ out msg_sizep : mach_msg_size_t;
+ out msg_idp : mach_msg_id_t;
+ out trailer_infop : mach_msg_trailer_info_t, CountInOut);
+
+
+
+
+
+routine mach_port_set_mscount(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  mscount : mach_port_mscount_t);
+
+
+
+
+
+
+routine mach_port_get_set_status(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out members : mach_port_name_array_t);
+# 263 "osfmk/mach/mach_port.defs"
+routine mach_port_move_member(
+  task : ipc_space_t;
+  member : mach_port_name_t;
+  after : mach_port_name_t);
+# 301 "osfmk/mach/mach_port.defs"
+routine mach_port_request_notification(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  msgid : mach_msg_id_t;
+  sync : mach_port_mscount_t;
+  notify : mach_port_send_once_t;
+ out previous : mach_port_move_send_once_t);
+# 317 "osfmk/mach/mach_port.defs"
+routine mach_port_insert_right(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  poly : mach_port_poly_t);
+# 336 "osfmk/mach/mach_port.defs"
+routine mach_port_extract_right(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  msgt_name : mach_msg_type_name_t;
+ out poly : mach_port_poly_t);
+
+
+
+
+
+
+routine mach_port_set_seqno(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  seqno : mach_port_seqno_t);
+
+
+
+
+
+routine mach_port_get_attributes(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  flavor : mach_port_flavor_t;
+ out port_info_out : mach_port_info_t, CountInOut);
+
+
+
+
+
+routine mach_port_set_attributes(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  flavor : mach_port_flavor_t;
+  port_info : mach_port_info_t);
+# 381 "osfmk/mach/mach_port.defs"
+routine mach_port_allocate_qos(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+ inout qos : mach_port_qos_t;
+ out name : mach_port_name_t);
+# 394 "osfmk/mach/mach_port.defs"
+routine mach_port_allocate_full(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+  proto : mach_port_t;
+ inout qos : mach_port_qos_t;
+ inout name : mach_port_name_t);
+
+
+
+
+
+routine task_set_port_space(
+  task : ipc_space_t;
+  table_entries : int);
+# 416 "osfmk/mach/mach_port.defs"
+routine mach_port_get_srights(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out srights : mach_port_rights_t);
+
+
+
+
+
+
+
+routine mach_port_space_info(
+  task : ipc_space_t;
+ out space_info : ipc_info_space_t;
+ out table_info : ipc_info_name_array_t;
+ out tree_info : ipc_info_tree_name_array_t);
+
+
+
+
+
+
+
+routine mach_port_dnrequest_info(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out dnr_total : unsigned;
+ out dnr_used : unsigned);
+# 454 "osfmk/mach/mach_port.defs"
+routine mach_port_kernel_object(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out object_type : unsigned;
+ out object_addr : unsigned);
+# 476 "osfmk/mach/mach_port.defs"
+routine mach_port_insert_member(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  pset : mach_port_name_t);
+# 495 "osfmk/mach/mach_port.defs"
+routine mach_port_extract_member(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  pset : mach_port_name_t);
+
+
+
+
+
+
+routine mach_port_get_context(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+ out context : mach_vm_address_t
+
+ );
+
+
+
+
+
+
+routine mach_port_set_context(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  context : mach_vm_address_t
+
+  );
+
+
+
+
+
+
+
+routine mach_port_kobject(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out object_type : natural_t;
+ out object_addr : mach_vm_address_t);
+# 549 "osfmk/mach/mach_port.defs"
+routine mach_port_construct(
+  task : ipc_space_t;
+  options : mach_port_options_ptr_t;
+
+
+
+  context : uint64_t;
+
+ out name : mach_port_name_t);
+
+
+
+
+
+
+routine mach_port_destruct(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  srdelta : mach_port_delta_t;
+
+
+
+  guard : uint64_t
+
+  );
+
+
+
+
+
+
+routine mach_port_guard(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  guard : uint64_t;
+
+  strict : boolean_t);
+
+
+
+
+
+
+routine mach_port_unguard(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  guard : uint64_t
+
+  );
+
+
+
+
+
+
+routine mach_port_space_basic_info(
+  task : ipc_space_t;
+ out basic_info : ipc_info_space_basic_t);
+# 284 "<stdin>" 2
+# 311 "<stdin>"
+# 1 "osfmk/mach/mach_vm.defs" 1
+# 64 "osfmk/mach/mach_vm.defs"
+subsystem
+
+
+
+
+   mach_vm
+
+
+
+   4800;
+# 93 "osfmk/mach/mach_vm.defs"
+routine mach_vm_allocate (
+  target : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  flags : int);
+# 120 "osfmk/mach/mach_vm.defs"
+routine mach_vm_deallocate (
+  target : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t);
+# 149 "osfmk/mach/mach_vm.defs"
+routine mach_vm_protect (
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  set_maximum : boolean_t;
+  new_protection : vm_prot_t);
+# 182 "osfmk/mach/mach_vm.defs"
+routine mach_vm_inherit(
+
+
+
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_inheritance : vm_inherit_t);
+# 199 "osfmk/mach/mach_vm.defs"
+routine mach_vm_read (
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+ out data : pointer_t);
+
+
+
+
+
+
+routine mach_vm_read_list(
+
+
+
+  target_task : vm_map_t;
+ inout data_list : mach_vm_read_entry_t;
+  count : natural_t);
+# 229 "osfmk/mach/mach_vm.defs"
+routine mach_vm_write(
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  data : pointer_t);
+# 248 "osfmk/mach/mach_vm.defs"
+routine mach_vm_copy(
+
+
+
+  target_task : vm_map_t;
+  source_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  dest_address : mach_vm_address_t);
+# 266 "osfmk/mach/mach_vm.defs"
+routine mach_vm_read_overwrite(
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  data : mach_vm_address_t;
+ out outsize : mach_vm_size_t);
+
+
+
+routine mach_vm_msync(
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  sync_flags : vm_sync_t );
+# 295 "osfmk/mach/mach_vm.defs"
+routine mach_vm_behavior_set(
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_behavior : vm_behavior_t);
+# 336 "osfmk/mach/mach_vm.defs"
+routine mach_vm_map (
+
+
+
+
+
+
+
+  target_task : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : memory_object_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+
+
+
+
+
+
+routine mach_vm_machine_attribute(
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  attribute : vm_machine_attribute_t;
+ inout value : vm_machine_attribute_val_t);
+
+
+
+
+
+routine mach_vm_remap (
+
+
+
+  target_task : vm_map_t;
+ inout target_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  src_task : vm_map_t;
+  src_address : mach_vm_address_t;
+  copy : boolean_t;
+ out cur_protection : vm_prot_t;
+ out max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+
+
+
+
+
+routine mach_vm_page_query(
+
+
+
+                target_map :vm_map_t;
+                offset :mach_vm_offset_t;
+        out disposition :integer_t;
+        out ref_count :integer_t);
+
+
+
+routine mach_vm_region_recurse(
+
+
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+# 430 "osfmk/mach/mach_vm.defs"
+routine mach_vm_region(
+
+
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+# 455 "osfmk/mach/mach_vm.defs"
+routine mach_make_memory_entry(
+
+
+
+
+  target_task :vm_map_t;
+ inout size :memory_object_size_t;
+  offset :memory_object_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mem_entry_name_port_move_send_t;
+  parent_handle :mem_entry_name_port_t);
+# 475 "osfmk/mach/mach_vm.defs"
+routine mach_vm_purgable_control (
+
+
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  control : vm_purgable_t;
+ inout state : int);
+
+
+
+routine mach_vm_page_info(
+   target_task : vm_map_t;
+   address : mach_vm_address_t;
+   flavor : vm_page_info_flavor_t;
+ out info : vm_page_info_t, CountInOut);
+# 312 "<stdin>" 2
+# 339 "<stdin>"
+# 1 "osfmk/mach/mach_voucher.defs" 1
+# 29 "osfmk/mach/mach_voucher.defs"
+subsystem
+
+
+
+         mach_voucher 5400;
+
+
+
+
+
+routine mach_voucher_extract_attr_content(
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+ out content : mach_voucher_attr_content_t, CountInOut);
+
+
+
+
+
+routine mach_voucher_extract_attr_recipe(
+
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+ out recipe : mach_voucher_attr_raw_recipe_t, CountInOut);
+
+
+routine mach_voucher_extract_all_attr_recipes(
+  voucher : ipc_voucher_t;
+ out recipes : mach_voucher_attr_raw_recipe_array_t, CountInOut);
+
+
+routine mach_voucher_attr_command(
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+  command : mach_voucher_attr_command_t;
+  in_content : mach_voucher_attr_content_t;
+ out out_content : mach_voucher_attr_content_t, CountInOut);
+
+
+routine mach_voucher_debug_info(
+  task : ipc_space_t;
+  voucher_name: mach_port_name_t;
+ out recipes : mach_voucher_attr_raw_recipe_array_t, CountInOut);
+# 340 "<stdin>" 2
+# 367 "<stdin>"
+# 1 "osfmk/mach/notify.defs" 1
+# 59 "osfmk/mach/notify.defs"
+subsystem
+
+
+
+ notify 64;
+
+
+
+
+
+
+
+serverprefix do_;
+serverdemux notify_server;
+
+
+
+skip;
+
+
+simpleroutine mach_notify_port_deleted(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 95 "osfmk/mach/notify.defs"
+skip;
+
+
+skip;
+
+skip;
+
+
+simpleroutine mach_notify_port_destroyed(
+  notify : mach_port_move_send_once_t;
+
+
+
+  rights : mach_port_move_receive_t);
+
+
+simpleroutine mach_notify_no_senders(
+  notify : mach_port_move_send_once_t;
+
+
+
+  mscount : mach_port_mscount_t);
+
+
+simpleroutine mach_notify_send_once(
+  notify : mach_port_move_send_once_t
+
+
+
+  );
+
+
+simpleroutine mach_notify_dead_name(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 368 "<stdin>" 2
+# 395 "<stdin>"
+# 1 "osfmk/mach/processor.defs" 1
+# 65 "osfmk/mach/processor.defs"
+subsystem
+
+
+
+   processor 3000;
+# 81 "osfmk/mach/processor.defs"
+routine processor_start(
+  processor : processor_t);
+
+
+
+
+
+routine processor_exit(
+  processor : processor_t);
+
+
+
+
+routine processor_info(
+  processor : processor_t;
+  flavor : processor_flavor_t;
+ out host : host_t;
+ out processor_info_out: processor_info_t, CountInOut);
+
+
+
+
+
+routine processor_control(
+  processor : processor_t;
+  processor_cmd : processor_info_t);
+# 116 "osfmk/mach/processor.defs"
+routine processor_assign(
+  processor : processor_t;
+  new_set : processor_set_t;
+  wait : boolean_t);
+
+
+
+
+routine processor_get_assignment(
+  processor : processor_t;
+ out assigned_set : processor_set_name_t);
+# 396 "<stdin>" 2
+# 423 "<stdin>"
+# 1 "osfmk/mach/processor_set.defs" 1
+# 65 "osfmk/mach/processor_set.defs"
+subsystem
+
+
+
+   processor_set 4000;
+
+
+
+
+
+
+
+routine processor_set_statistics(
+         pset : processor_set_name_t;
+         flavor : processor_set_flavor_t;
+ out info_out : processor_set_info_t, CountInOut);
+
+
+
+
+
+routine processor_set_destroy(
+  set : processor_set_t);
+
+
+
+
+
+routine processor_set_max_priority(
+  processor_set : processor_set_t;
+  max_priority : int;
+  change_threads : boolean_t);
+
+
+
+
+routine processor_set_policy_enable(
+  processor_set : processor_set_t;
+  policy : int);
+
+
+
+
+routine processor_set_policy_disable(
+  processor_set : processor_set_t;
+  policy : int;
+  change_threads : boolean_t);
+
+
+
+
+routine processor_set_tasks(
+  processor_set : processor_set_t;
+ out task_list : task_array_t);
+
+
+
+
+routine processor_set_threads(
+  processor_set : processor_set_t;
+ out thread_list : thread_act_array_t);
+
+
+
+
+
+
+routine processor_set_policy_control(
+ pset : processor_set_t;
+ flavor : processor_set_flavor_t;
+ policy_info : processor_set_info_t;
+ change : boolean_t);
+
+
+
+
+
+
+
+routine processor_set_stack_usage(
+  pset : processor_set_t;
+ out ltotal : unsigned;
+ out space : vm_size_t;
+ out resident : vm_size_t;
+ out maxusage : vm_size_t;
+ out maxstack : vm_offset_t);
+
+
+
+
+routine processor_set_info(
+                set_name : processor_set_name_t;
+                flavor : int;
+        out host : host_t;
+        out info_out : processor_set_info_t, CountInOut);
+# 424 "<stdin>" 2
+# 474 "<stdin>"
+import <servers/netname_defs.h>;
+
+subsystem netname 1040;
+
+serverprefix _;
+
+
+type netname_name_t = c_string[*:80];
+
+routine netname_check_in(server_port : mach_port_t;
+   port_name : netname_name_t;
+   signature : mach_port_t;
+   port_id : mach_port_t);
+
+routine netname_look_up(server_port : mach_port_t;
+   host_name : netname_name_t;
+   port_name : netname_name_t;
+      out port_id : mach_port_t);
+
+routine netname_check_out(server_port : mach_port_t;
+   port_name : netname_name_t;
+   signature : mach_port_t);
+
+routine netname_version(server_port : mach_port_t;
+      out version : netname_name_t);
+# 527 "<stdin>"
+# 1 "osfmk/mach/task.defs" 1
+# 65 "osfmk/mach/task.defs"
+subsystem
+
+
+
+   task 3400;
+# 80 "osfmk/mach/task.defs"
+routine task_create(
+  target_task : task_t;
+  ledgers : ledger_array_t;
+  inherit_memory : boolean_t;
+ out child_task : task_t);
+
+
+
+
+
+
+routine task_terminate(
+  target_task : task_t);
+
+
+
+
+routine task_threads(
+  target_task : task_t;
+ out act_list : thread_act_array_t);
+
+
+
+
+
+routine mach_ports_register(
+  target_task : task_t;
+  init_port_set : mach_port_array_t =
+     ^array[] of mach_port_t);
+
+
+
+
+routine mach_ports_lookup(
+  target_task : task_t;
+ out init_port_set : mach_port_array_t =
+     ^array[] of mach_port_t);
+
+
+
+
+routine task_info(
+                target_task : task_name_t;
+                flavor : task_flavor_t;
+        out task_info_out : task_info_t, CountInOut);
+
+
+
+
+routine task_set_info(
+  target_task : task_t;
+  flavor : task_flavor_t;
+  task_info_in : task_info_t);
+
+
+
+
+
+
+routine task_suspend(
+  target_task : task_t);
+# 149 "osfmk/mach/task.defs"
+routine task_resume(
+  target_task : task_t);
+
+
+
+
+
+routine task_get_special_port(
+  task : task_t;
+  which_port : int;
+ out special_port : mach_port_t);
+
+
+
+
+
+routine task_set_special_port(
+  task : task_t;
+  which_port : int;
+  special_port : mach_port_t);
+
+
+
+
+
+
+routine
+
+
+
+thread_create(
+
+  parent_task : task_t;
+ out child_act : thread_act_t);
+# 191 "osfmk/mach/task.defs"
+routine
+
+
+
+thread_create_running(
+
+                parent_task : task_t;
+                flavor : thread_state_flavor_t;
+                new_state : thread_state_t;
+        out child_act : thread_act_t);
+
+
+
+
+
+
+
+routine task_set_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t);
+
+
+
+
+
+routine task_get_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+   out masks : exception_mask_array_t;
+   out old_handlers : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+
+routine task_swap_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t;
+   out masks : exception_mask_array_t;
+   out old_handlerss : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+routine lock_set_create(
+  task : task_t;
+ out new_lock_set : lock_set_t;
+  n_ulocks : int;
+  policy : int);
+
+
+
+
+routine lock_set_destroy(
+  task : task_t;
+  lock_set : lock_set_t);
+
+
+
+
+
+
+routine semaphore_create(
+  task : task_t;
+ out semaphore : semaphore_t;
+  policy : int;
+  value : int);
+
+routine semaphore_destroy(
+  task : task_t;
+  semaphore : semaphore_consume_ref_t);
+
+
+
+
+
+
+routine task_policy_set(
+ task : task_t;
+ flavor : task_policy_flavor_t;
+ policy_info : task_policy_t);
+
+routine task_policy_get(
+ task : task_t;
+ flavor : task_policy_flavor_t;
+out policy_info : task_policy_t, CountInOut;
+inout get_default : boolean_t);
+
+
+
+
+
+
+
+routine task_sample(
+  task : task_t;
+  reply : mach_port_make_send_t);
+# 308 "osfmk/mach/task.defs"
+routine task_policy(
+ task : task_t;
+ policy : policy_t;
+ base : policy_base_t;
+ set_limit : boolean_t;
+ change : boolean_t);
+
+
+
+
+
+
+routine task_set_emulation(
+  target_port : task_t;
+  routine_entry_pt: vm_address_t;
+  routine_number : int);
+
+
+
+
+
+routine task_get_emulation_vector(
+  task : task_t;
+ out vector_start : int;
+ out emulation_vector: emulation_vector_t);
+
+
+
+
+
+
+routine task_set_emulation_vector(
+  task : task_t;
+  vector_start : int;
+  emulation_vector: emulation_vector_t);
+
+
+
+
+
+routine task_set_ras_pc(
+  target_task : task_t;
+  basepc : vm_address_t;
+  boundspc : vm_address_t);
+
+
+
+
+
+routine task_zone_info(
+  target_task : task_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : task_zone_info_array_t,
+     Dealloc);
+# 372 "osfmk/mach/task.defs"
+routine task_assign(
+  task : task_t;
+  new_set : processor_set_t;
+  assign_threads : boolean_t);
+
+
+
+
+routine task_assign_default(
+  task : task_t;
+  assign_threads : boolean_t);
+
+
+
+
+routine task_get_assignment(
+  task : task_t;
+ out assigned_set : processor_set_name_t);
+
+
+
+
+routine task_set_policy(
+ task : task_t;
+ pset : processor_set_t;
+ policy : policy_t;
+ base : policy_base_t;
+ limit : policy_limit_t;
+ change : boolean_t);
+
+
+
+
+
+routine task_get_state(
+  task : task_t;
+  flavor : thread_state_flavor_t;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+routine task_set_state(
+  task : task_t;
+  flavor : thread_state_flavor_t;
+  new_state : thread_state_t);
+
+
+
+
+routine task_set_phys_footprint_limit(
+  task : task_t;
+  new_limit : int;
+ out old_limit : int);
+
+routine task_suspend2(
+  target_task : task_t;
+ out suspend_token : task_suspension_token_t);
+
+routine task_resume2(
+  suspend_token : task_suspension_token_t);
+
+routine task_purgable_info(
+  task : task_t;
+ out stats : task_purgable_info_t);
+
+routine task_get_mach_voucher(
+  task : task_t;
+  which : mach_voucher_selector_t;
+ out voucher : ipc_voucher_t);
+
+routine task_set_mach_voucher(
+  task : task_t;
+  voucher : ipc_voucher_t);
+
+routine task_swap_mach_voucher(
+  task : task_t;
+  new_voucher : ipc_voucher_t;
+ inout old_voucher : ipc_voucher_t);
+
+routine task_generate_corpse(
+  task :task_t;
+ out corpse_task_port:mach_port_t);
+
+routine task_map_corpse_info(
+  task :task_t;
+  corspe_task :task_t;
+ out kcd_addr_begin :vm_address_t;
+ out kcd_size :uint32_t);
+
+routine task_register_dyld_image_infos(
+        task :task_t;
+        dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_unregister_dyld_image_infos(
+        task :task_t;
+        dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_get_dyld_image_infos(
+        task :task_t;
+    out dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_register_dyld_shared_cache_image_info(
+        task :task_t;
+        dyld_cache_image :dyld_kernel_image_info_t;
+        no_cache :boolean_t;
+        private_cache :boolean_t);
+
+routine task_register_dyld_set_dyld_state(
+        task :task_t;
+        dyld_state :uint8_t);
+
+routine task_register_dyld_get_process_state(
+        task :task_t;
+    out dyld_process_state :dyld_kernel_process_info_t);
+
+routine task_map_corpse_info_64(
+  task :task_t;
+  corspe_task :task_t;
+ out kcd_addr_begin :mach_vm_address_t;
+ out kcd_size :mach_vm_size_t);
+# 528 "<stdin>" 2
+# 555 "<stdin>"
+# 1 "osfmk/mach/thread_act.defs" 1
+# 65 "osfmk/mach/thread_act.defs"
+subsystem
+
+
+
+   thread_act 3600;
+# 89 "osfmk/mach/thread_act.defs"
+routine thread_terminate(
+  target_act : thread_act_consume_ref_t);
+# 99 "osfmk/mach/thread_act.defs"
+routine act_get_state(
+  target_act : thread_act_t;
+  flavor : int;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+
+routine
+
+
+
+act_set_state(
+
+  target_act : thread_act_t;
+  flavor : int;
+  new_state : thread_state_t);
+# 128 "osfmk/mach/thread_act.defs"
+routine thread_get_state(
+  target_act : thread_act_t;
+  flavor : thread_state_flavor_t;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+
+routine
+
+
+
+thread_set_state(
+
+  target_act : thread_act_t;
+  flavor : thread_state_flavor_t;
+  new_state : thread_state_t);
+# 156 "osfmk/mach/thread_act.defs"
+routine thread_suspend(
+  target_act : thread_act_t);
+
+
+
+
+
+routine thread_resume(
+  target_act : thread_act_t);
+# 175 "osfmk/mach/thread_act.defs"
+routine thread_abort(
+  target_act : thread_act_t);
+# 190 "osfmk/mach/thread_act.defs"
+routine thread_abort_safely(
+  target_act : thread_act_t);
+
+
+routine thread_depress_abort(
+  thread : thread_act_t);
+
+
+
+
+
+
+routine thread_get_special_port(
+  thr_act : thread_act_t;
+  which_port : int;
+ out special_port : mach_port_t);
+
+
+
+
+
+routine thread_set_special_port(
+  thr_act : thread_act_t;
+  which_port : int;
+  special_port : mach_port_t);
+
+
+
+
+routine thread_info(
+                target_act : thread_act_t;
+                flavor : thread_flavor_t;
+        out thread_info_out : thread_info_t, CountInOut);
+
+
+
+
+routine thread_set_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+   new_port : mach_port_t;
+   behavior : exception_behavior_t;
+   new_flavor : thread_state_flavor_t);
+
+
+
+
+routine thread_get_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+    out masks : exception_mask_array_t;
+    out old_handlers : exception_handler_array_t, SameCount;
+    out old_behaviors : exception_behavior_array_t, SameCount;
+    out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+routine thread_swap_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+   new_port : mach_port_t;
+   behavior : exception_behavior_t;
+   new_flavor : thread_state_flavor_t;
+    out masks : exception_mask_array_t;
+    out old_handlers : exception_handler_array_t, SameCount;
+    out old_behaviors : exception_behavior_array_t, SameCount;
+    out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+routine thread_policy(
+ thr_act : thread_act_t;
+ policy : policy_t;
+ base : policy_base_t;
+ set_limit : boolean_t);
+
+
+
+
+
+
+routine thread_policy_set(
+ thread : thread_act_t;
+ flavor : thread_policy_flavor_t;
+ policy_info : thread_policy_t);
+
+routine thread_policy_get(
+ thread : thread_act_t;
+ flavor : thread_policy_flavor_t;
+out policy_info : thread_policy_t, CountInOut;
+inout get_default : boolean_t);
+
+
+
+
+
+
+
+routine thread_sample(
+  thread : thread_act_t;
+  reply : mach_port_make_send_t);
+# 303 "osfmk/mach/thread_act.defs"
+routine etap_trace_thread(
+  target_act : thread_act_t;
+  trace_status : boolean_t);
+
+
+
+
+
+routine thread_assign(
+  thread : thread_act_t;
+  new_set : processor_set_t);
+
+
+
+
+routine thread_assign_default(
+  thread : thread_act_t);
+
+
+
+
+routine thread_get_assignment(
+  thread : thread_act_t;
+ out assigned_set : processor_set_name_t);
+
+
+
+
+
+routine thread_set_policy(
+  thr_act : thread_act_t;
+  pset : processor_set_t;
+  policy : policy_t;
+  base : policy_base_t;
+  limit : policy_limit_t);
+
+routine thread_get_mach_voucher(
+  thr_act : thread_act_t;
+  which : mach_voucher_selector_t;
+ out voucher : ipc_voucher_t);
+
+routine thread_set_mach_voucher(
+  thr_act : thread_act_t;
+  voucher : ipc_voucher_t);
+
+routine thread_swap_mach_voucher(
+  thr_act : thread_act_t;
+  new_voucher : ipc_voucher_t;
+ inout old_voucher : ipc_voucher_t);
+# 556 "<stdin>" 2
+# 595 "<stdin>"
+# 1 "osfmk/mach/mach_vm.defs" 1
+# 64 "osfmk/mach/mach_vm.defs"
+subsystem
+
+
+
+
+
+
+   vm_map_lp64_local
+
+   4800;
+# 104 "osfmk/mach/mach_vm.defs"
+routine vm_allocate (
+  target : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  flags : int);
+# 130 "osfmk/mach/mach_vm.defs"
+routine vm_deallocate (
+  target : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t);
+# 163 "osfmk/mach/mach_vm.defs"
+routine vm_protect (
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  set_maximum : boolean_t;
+  new_protection : vm_prot_t);
+# 184 "osfmk/mach/mach_vm.defs"
+routine vm_inherit(
+
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_inheritance : vm_inherit_t);
+# 201 "osfmk/mach/mach_vm.defs"
+routine vm_read (
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+ out data : pointer_t);
+# 215 "osfmk/mach/mach_vm.defs"
+routine vm_read_list(
+
+  target_task : vm_map_t;
+ inout data_list : mach_vm_read_entry_t;
+  count : natural_t);
+# 231 "osfmk/mach/mach_vm.defs"
+routine vm_write(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  data : pointer_t);
+# 250 "osfmk/mach/mach_vm.defs"
+routine vm_copy(
+
+  target_task : vm_map_t;
+  source_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  dest_address : mach_vm_address_t);
+# 268 "osfmk/mach/mach_vm.defs"
+routine vm_read_overwrite(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  data : mach_vm_address_t;
+ out outsize : mach_vm_size_t);
+
+
+
+
+
+routine vm_msync(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  sync_flags : vm_sync_t );
+# 297 "osfmk/mach/mach_vm.defs"
+routine vm_behavior_set(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_behavior : vm_behavior_t);
+# 341 "osfmk/mach/mach_vm.defs"
+routine vm_map (
+
+
+  target_task : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : memory_object_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+# 364 "osfmk/mach/mach_vm.defs"
+routine vm_machine_attribute(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  attribute : vm_machine_attribute_t;
+ inout value : vm_machine_attribute_val_t);
+
+
+
+
+
+
+
+routine vm_remap (
+
+  target_task : vm_map_t;
+ inout target_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  src_task : vm_map_t;
+  src_address : mach_vm_address_t;
+  copy : boolean_t;
+ out cur_protection : vm_prot_t;
+ out max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+# 399 "osfmk/mach/mach_vm.defs"
+routine vm_map_page_query(
+
+                target_map :vm_map_t;
+                offset :mach_vm_offset_t;
+        out disposition :integer_t;
+        out ref_count :integer_t);
+
+
+
+
+
+routine vm_region_recurse_64(
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+# 432 "osfmk/mach/mach_vm.defs"
+routine vm_region_64(
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+# 458 "osfmk/mach/mach_vm.defs"
+routine mach_make_memory_entry_64(
+
+  target_task :vm_map_t;
+ inout size :memory_object_size_t;
+  offset :memory_object_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mem_entry_name_port_move_send_t;
+  parent_handle :mem_entry_name_port_t);
+# 477 "osfmk/mach/mach_vm.defs"
+routine vm_purgable_control (
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  control : vm_purgable_t;
+ inout state : int);
+# 492 "osfmk/mach/mach_vm.defs"
+skip;
+# 596 "<stdin>" 2
+# 631 "<stdin>"
+subsystem
+
+
+
+    atm_notification 11500;
+
+
+
+
+# 1 "osfmk/atm/atm_types.defs" 1
+# 38 "osfmk/atm/atm_types.defs"
+type aid_t = uint64_t;
+type atm_aid_t = uint64_t;
+type mach_atm_subaid_t = uint64_t;
+
+type atm_memory_descriptor_array_t = array[*:512] of mach_port_t;
+type atm_memory_size_array_t = array[*:512] of uint64_t;
+
+import <atm/atm_types.h>;
+# 640 "<stdin>" 2
+
+
+
+
+simpleroutine atm_collect_trace_info(
+  atm_port : mach_port_move_send_t;
+  activity_trace_id : atm_aid_t;
+  sub_activity_id : mach_atm_subaid_t;
+  flags : uint32_t;
+  memory_buffers : atm_memory_descriptor_array_t;
+  buffer_sizes : atm_memory_size_array_t
+  );
+
+simpleroutine atm_inspect_process_buffer(
+  atm_port : mach_port_move_send_t;
+  proc_pid : uint32_t;
+  proc_uniqueid : uint64_t;
+  buffer_size : uint64_t;
+  trace_buffer : mach_port_t
+);
+# 774 "<stdin>"
+subsystem
+
+
+
+         iokit 2800;
+# 793 "<stdin>"
+import <device/device_types.h>;
+
+serverprefix is_;
+
+type reply_port_t = MACH_MSG_TYPE_MAKE_SEND_ONCE | polymorphic
+ ctype: mach_port_t;
+# 1597 "<stdin>"
+type recnum_t = uint32_t;
+type dev_mode_t = uint32_t;
+type dev_flavor_t = uint32_t;
+type dev_name_t = c_string[*:128];
+type dev_status_t = array[*:1024] of int;
+type io_buf_len_t = integer_t;
+type io_buf_ptr_t = ^array[] of MACH_MSG_TYPE_INTEGER_8;
+type io_buf_ptr_inband_t= array[*:128] of char;
+type filter_t = short;
+type filter_array_t = array[*:64] of filter_t;
+
+type device_t = mach_port_t
+  ctype: mach_port_t
+
+
+
+
+
+  ;
+
+type io_done_queue_t = mach_port_t
+  ctype: mach_port_t
+
+
+
+
+  ;
+
+import <device/device_types.h>;
+# 1662 "<stdin>"
+import <gssd/gssd_mach_types.h>;
+
+
+
+
+type gssd_mechtype = int32_t;
+type gssd_nametype = int32_t;
+type gssd_string = c_string[*:1024];
+type gssd_dstring = c_string[*:128];
+type gssd_byte_buffer = array [] of uint8_t;
+type gssd_verifier = uint64_t;
+type gssd_gid_list = array [*:16] of uint32_t;
+type gssd_ctx = uint64_t;
+type gssd_cred = uint64_t;
+type gssd_etype_list = array [*:64] of int32_t;
+
+subsystem
+
+
+
+gssd_mach 999;
+
+serverprefix svc_;
+
+Routine mach_gss_init_sec_context(
+ server : mach_port_t;
+ in mech : gssd_mechtype;
+ in intoken : gssd_byte_buffer;
+ in uid : uint32_t;
+ in princ_namestr : gssd_string;
+ in svc_namestr : gssd_string;
+ in flags : uint32_t;
+ in gssd_flags : uint32_t;
+ inout context : gssd_ctx;
+ inout cred_handle : gssd_cred;
+ ServerAuditToken atoken : audit_token_t;
+ out ret_flags : uint32_t;
+ out key : gssd_byte_buffer, dealloc;
+ out outtoken : gssd_byte_buffer, dealloc;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_accept_sec_context(
+ server : mach_port_t;
+ in intoken : gssd_byte_buffer;
+ in svc_namestr : gssd_string;
+ in gssd_flags : uint32_t;
+ inout context : gssd_ctx;
+ inout cred_handle : gssd_cred;
+ ServerAuditToken atoken : audit_token_t;
+ out flags : uint32_t;
+ out uid : uint32_t;
+ out gids : gssd_gid_list;
+ out key : gssd_byte_buffer, dealloc;
+ out outtoken : gssd_byte_buffer, dealloc;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+simpleroutine mach_gss_log_error(
+ server : mach_port_t;
+ in mnt : gssd_string;
+ in uid : uint32_t;
+ in source : gssd_string;
+ in major_stat : uint32_t;
+ in minor_stat : uint32_t;
+ ServerAuditToken atoken : audit_token_t
+);
+
+routine mach_gss_init_sec_context_v2(
+ server : mach_port_t;
+ in mech : gssd_mechtype;
+ in intoken : gssd_byte_buffer;
+ in uid : uint32_t;
+ in clnt_nt : gssd_nametype;
+ in clnt_princ : gssd_byte_buffer;
+ in svc_nt : gssd_nametype;
+ in svc_princ : gssd_byte_buffer;
+ in flags : uint32_t;
+ inout gssd_flags : uint32_t;
+ inout context : gssd_ctx;
+ inout cred_handle : gssd_cred;
+ ServerAuditToken atoken : audit_token_t;
+ out ret_flags : uint32_t;
+ out key : gssd_byte_buffer, dealloc;
+ out outtoken : gssd_byte_buffer, dealloc;
+ out displayname : gssd_dstring;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_accept_sec_context_v2(
+ server : mach_port_t;
+ in intoken : gssd_byte_buffer;
+ in svc_nt : gssd_nametype;
+ in svc_princ : gssd_byte_buffer;
+ inout gssd_flags : uint32_t;
+ inout context : gssd_ctx;
+ inout cred_handle : gssd_cred;
+ ServerAuditToken atoken : audit_token_t;
+ out flags : uint32_t;
+ out uid : uint32_t;
+ out gids : gssd_gid_list;
+ out key : gssd_byte_buffer, dealloc;
+ out outtoken : gssd_byte_buffer, dealloc;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_init_sec_context_v3(
+ server : mach_port_t;
+ in mech : gssd_mechtype;
+ in intoken : gssd_byte_buffer;
+ in uid : uint32_t;
+ in clnt_nt : gssd_nametype;
+ in clnt_princ : gssd_byte_buffer;
+ in svc_nt : gssd_nametype;
+ in svc_princ : gssd_byte_buffer;
+ in flags : uint32_t;
+ in etypes : gssd_etype_list;
+ inout gssd_flags : uint32_t;
+ inout context : gssd_ctx;
+ inout cred_handle : gssd_cred;
+ ServerAuditToken atoken : audit_token_t;
+ out ret_flags : uint32_t;
+ out key : gssd_byte_buffer, dealloc;
+ out outtoken : gssd_byte_buffer, dealloc;
+ out displayname : gssd_dstring;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_hold_cred(
+ server : mach_port_t;
+ in mech : gssd_mechtype;
+ in nt : gssd_nametype;
+ in princ : gssd_byte_buffer;
+ ServerAuditToken atoken : audit_token_t;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_unhold_cred(
+ server : mach_port_t;
+ in mech : gssd_mechtype;
+ in nt : gssd_nametype;
+ in princ : gssd_byte_buffer;
+ ServerAuditToken atoken : audit_token_t;
+ out major_stat : uint32_t;
+ out minor_stat : uint32_t
+);
+
+routine mach_gss_lookup(
+ server : mach_port_t;
+ in uid : uint32_t;
+ in asid : int32_t;
+ ServerAuditToken atoken : audit_token_t;
+ out gssd_session_port : mach_port_t
+);
+# 1854 "<stdin>"
+subsystem
+
+
+
+kextd_kernel_request 77000;
+
+serverprefix svc_;
+
+
+simpleroutine kextd_ping(
+ server : mach_port_t
+);
+# 1899 "<stdin>"
+import <lockd/lockd_mach_types.h>;
+
+
+
+
+type sock_storage = array [32] of uint32_t;
+type xcred = array [19] of uint32_t;
+type nfs_handle = array [64] of uint8_t;
+
+subsystem
+
+
+
+lockd_mach 1023;
+
+serverprefix svc_;
+
+simpleroutine lockd_request(
+ server : mach_port_t;
+ vers : uint32_t;
+ flags : uint32_t;
+ xid : uint64_t;
+ flk_start : int64_t;
+ flk_len : int64_t;
+ flk_pid : int32_t;
+ flk_type : int32_t;
+ flk_whence : int32_t;
+ sock_address : sock_storage;
+ cred : xcred;
+ fh_len : uint32_t;
+ fh : nfs_handle
+);
+
+
+routine lockd_ping(
+ server : mach_port_t
+);
+
+
+simpleroutine lockd_shutdown(
+ server : mach_port_t
+);
+# 1978 "<stdin>"
+subsystem
+
+
+
+    audit_triggers 123;
+
+
+
+
+simpleroutine audit_triggers(
+  audit_port : mach_port_t;
+ in flags : int);
+# 2027 "<stdin>"
+subsystem
+
+
+
+         clock 1000;
+# 2047 "<stdin>"
+routine clock_get_time(
+  clock_serv : clock_serv_t;
+ out cur_time : mach_timespec_t);
+
+
+
+
+
+routine clock_get_attributes(
+  clock_serv : clock_serv_t;
+ in flavor : clock_flavor_t;
+ out clock_attr : clock_attr_t, CountInOut);
+
+
+
+
+
+routine clock_alarm(
+  clock_serv : clock_serv_t;
+  alarm_type : alarm_type_t;
+  alarm_time : mach_timespec_t;
+                alarm_port : clock_reply_t =
+   MACH_MSG_TYPE_MAKE_SEND_ONCE|polymorphic);
+# 2108 "<stdin>"
+subsystem
+
+
+
+         clock_priv 1200;
+# 2127 "<stdin>"
+routine clock_set_time(
+  clock_ctrl : clock_ctrl_t;
+  new_time : mach_timespec_t);
+
+
+
+
+
+routine clock_set_attributes(
+  clock_ctrl : clock_ctrl_t;
+ in flavor : clock_flavor_t;
+ in clock_attr : clock_attr_t);
+# 2177 "<stdin>"
+subsystem
+
+
+
+       clock_reply 3125107;
+# 2190 "<stdin>"
+simpleroutine clock_alarm_reply(
+                alarm_port : clock_reply_t;
+  alarm_code : kern_return_t;
+  alarm_type : alarm_type_t;
+  alarm_time : mach_timespec_t);
+# 2278 "<stdin>"
+subsystem
+
+
+
+    coalition_notification 5300;
+
+
+
+
+
+simpleroutine coalition_notification(
+ RequestPort coalition_port : mach_port_t;
+ in id : uint64_t;
+ in flags : uint32_t);
+# 2354 "<stdin>"
+subsystem
+
+
+
+       exc 2401;
+
+
+
+
+ServerPrefix internal_catch_;
+
+type exception_data_t = array[*:2] of integer_t;
+type exception_type_t = int;
+
+routine exception_raise(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t
+   );
+
+routine exception_raise_state(
+
+
+
+   exception_port : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t, const;
+    inout flavor : int;
+   old_state : thread_state_t, const;
+      out new_state : thread_state_t);
+
+routine exception_raise_state_identity(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : exception_data_t;
+    inout flavor : int;
+   old_state : thread_state_t;
+      out new_state : thread_state_t);
+# 2439 "<stdin>"
+subsystem
+
+
+
+   host_notify_reply 950;
+
+
+
+simpleroutine host_calendar_changed(
+  notify_port : mach_port_move_send_once_t);
+
+simpleroutine host_calendar_set(
+  notify_port : mach_port_move_send_once_t);
+# 2515 "<stdin>"
+subsystem
+
+
+
+
+
+
+         host_priv 400;
+# 2536 "<stdin>"
+routine host_get_boot_info(
+  host_priv : host_priv_t;
+ out boot_info : kernel_boot_info_t);
+
+
+
+
+
+routine host_reboot(
+  host_priv : host_priv_t;
+  options : int);
+
+
+
+
+
+routine host_priv_statistics(
+  host_priv : host_priv_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+# 2565 "<stdin>"
+routine host_default_memory_manager(
+  host_priv : host_priv_t;
+ inout default_manager : memory_object_default_t =
+     MACH_MSG_TYPE_MAKE_SEND;
+  cluster_size : memory_object_cluster_size_t);
+# 2579 "<stdin>"
+routine vm_wire(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  desired_access : vm_prot_t);
+
+
+
+
+
+routine thread_wire(
+  host_priv : host_priv_t;
+  thread : thread_act_t;
+  wired : boolean_t);
+# 2613 "<stdin>"
+routine vm_allocate_cpm(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+ inout address : vm_address_t;
+  size : vm_size_t;
+  flags : int);
+
+
+
+
+routine host_processors(
+  host_priv : host_priv_t;
+ out out_processor_list : processor_array_t);
+
+
+
+
+
+
+routine host_get_clock_control(
+  host_priv : host_priv_t;
+  clock_id : clock_id_t;
+ out clock_ctrl : clock_ctrl_t);
+
+
+
+
+
+
+
+routine kmod_create(
+  host_priv : host_priv_t;
+  info : vm_address_t;
+ out module : kmod_t);
+
+routine kmod_destroy(
+  host_priv : host_priv_t;
+  module : kmod_t);
+
+routine kmod_control(
+  host_priv : host_priv_t;
+  module : kmod_t;
+  flavor : kmod_control_flavor_t;
+ inout data : kmod_args_t);
+
+
+
+
+
+
+
+routine host_get_special_port(
+                host_priv : host_priv_t;
+                node : int;
+                which : int;
+        out port : mach_port_t);
+
+
+
+
+
+routine host_set_special_port(
+                host_priv : host_priv_t;
+                which : int;
+                port : mach_port_t);
+
+
+
+
+
+
+
+routine host_set_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t);
+
+
+
+
+
+routine host_get_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+   out masks : exception_mask_array_t;
+   out old_handlers : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+
+routine host_swap_exception_ports(
+  host_priv : host_priv_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t;
+   out masks : exception_mask_array_t;
+   out old_handlerss : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+skip;
+# 2730 "<stdin>"
+routine mach_vm_wire(
+  host_priv : host_priv_t;
+  task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  desired_access : vm_prot_t);
+# 2744 "<stdin>"
+routine host_processor_sets(
+  host_priv : host_priv_t;
+ out processor_sets : processor_set_name_array_t);
+
+
+
+
+routine host_processor_set_priv(
+  host_priv : host_priv_t;
+  set_name : processor_set_name_t;
+ out set : processor_set_t);
+# 2768 "<stdin>"
+routine set_dp_control_port(
+  host : host_priv_t;
+ in control_port : mach_port_t);
+
+
+
+
+
+
+routine get_dp_control_port(
+  host : host_priv_t;
+ out contorl_port :mach_port_t);
+
+
+
+
+
+
+routine host_set_UNDServer(
+  host : host_priv_t;
+ in server : UNDServerRef);
+# 2800 "<stdin>"
+routine host_get_UNDServer(
+  host : host_priv_t;
+ out server : UNDServerRef);
+# 2814 "<stdin>"
+routine kext_request(
+        host_priv : host_priv_t;
+    in user_log_flags : uint32_t;
+    in request_data : pointer_t;
+    out response_data : pointer_t;
+    out log_data : pointer_t;
+    out op_result : kern_return_t);
+# 2887 "<stdin>"
+subsystem
+
+
+
+        host_security 600;
+# 2903 "<stdin>"
+routine host_security_create_task_token(
+  host_security : host_security_t;
+  parent_task : task_t;
+  sec_token : security_token_t;
+  audit_token : audit_token_t;
+  host : host_t;
+  ledgers : ledger_array_t;
+  inherit_memory : boolean_t;
+ out child_task : task_t);
+
+
+
+
+routine host_security_set_task_token(
+  host_security : host_security_t;
+  target_task : task_t;
+  sec_token : security_token_t;
+  audit_token : audit_token_t;
+  host : host_t);
+# 2957 "<stdin>"
+subsystem
+
+
+
+    ktrace_background 670;
+
+
+
+
+serverprefix receive_;
+userprefix send_;
+
+simpleroutine ktrace_background_available(
+              ktrace_background_port : mach_port_t);
+# 3004 "<stdin>"
+subsystem
+
+
+
+
+
+
+         ledger 5000;
+# 3060 "<stdin>"
+subsystem
+
+
+
+   lock_set 617000;
+# 3079 "<stdin>"
+routine lock_acquire(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_release(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_try(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_make_stable(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff_accept(
+  lock_set : lock_set_t;
+  lock_id : int);
+# 3166 "<stdin>"
+subsystem
+
+
+
+       mach_exc 2405;
+
+
+
+
+ServerPrefix internal_catch_;
+
+type mach_exception_data_t = array[*:2] of int64_t;
+type exception_type_t = int;
+
+routine mach_exception_raise(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : mach_exception_data_t
+   );
+
+routine mach_exception_raise_state(
+
+
+
+   exception_port : mach_port_t;
+
+   exception : exception_type_t;
+   code : mach_exception_data_t, const;
+    inout flavor : int;
+   old_state : thread_state_t, const;
+      out new_state : thread_state_t);
+
+routine mach_exception_raise_state_identity(
+
+
+
+
+
+   exception_port : mach_port_t;
+   thread : mach_port_t;
+   task : mach_port_t;
+
+   exception : exception_type_t;
+   code : mach_exception_data_t;
+    inout flavor : int;
+   old_state : thread_state_t;
+      out new_state : thread_state_t);
+# 3289 "<stdin>"
+subsystem
+
+
+
+         mach_host 200;
+# 3312 "<stdin>"
+routine host_info(
+  host : host_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+
+
+
+
+routine host_kernel_version(
+  host : host_t;
+ out kernel_version : kernel_version_t);
+
+
+
+
+
+
+
+routine host_page_size(
+
+
+
+  host : host_t;
+ out out_page_size : vm_size_t);
+
+
+
+
+
+
+routine mach_memory_object_memory_entry(
+  host :host_t;
+  internal :boolean_t;
+  size :vm_size_t;
+  permission :vm_prot_t;
+  pager :memory_object_t;
+ out entry_handle :mach_port_move_send_t);
+
+
+
+
+
+
+routine host_processor_info(
+  host : host_t;
+                flavor : processor_flavor_t;
+ out out_processor_count : natural_t;
+        out out_processor_info : processor_info_array_t);
+
+
+
+
+routine host_get_io_master(
+                host : host_t;
+        out io_master : io_master_t);
+
+
+
+
+
+routine host_get_clock_service(
+  host : host_t;
+  clock_id : clock_id_t;
+ out clock_serv : clock_serv_t);
+
+
+
+
+
+
+routine kmod_get_info(
+  host : host_t;
+ out modules : kmod_args_t);
+
+
+
+
+
+
+
+routine host_zone_info(
+  host : host_priv_t;
+ out names : zone_name_array_t,
+     Dealloc;
+ out info : zone_info_array_t,
+     Dealloc);
+
+
+
+
+
+
+routine host_virtual_physical_table_info(
+  host : host_t;
+ out info : hash_info_bucket_array_t,
+     Dealloc);
+
+
+skip;
+skip;
+skip;
+# 3421 "<stdin>"
+routine processor_set_default(
+  host : host_t;
+ out default_set : processor_set_name_t);
+
+
+
+
+
+routine processor_set_create(
+  host : host_t;
+ out new_set : processor_set_t;
+ out new_name : processor_set_name_t);
+
+
+
+
+
+routine mach_memory_object_memory_entry_64(
+  host :host_t;
+  internal :boolean_t;
+  size :memory_object_size_t;
+  permission :vm_prot_t;
+  pager :memory_object_t;
+ out entry_handle :mach_port_move_send_t);
+
+
+
+
+routine host_statistics(
+  host_priv : host_t;
+  flavor : host_flavor_t;
+ out host_info_out : host_info_t, CountInOut);
+
+routine host_request_notification(
+  host : host_t;
+  notify_type : host_flavor_t;
+  notify_port : mach_port_make_send_once_t);
+
+routine host_lockgroup_info(
+  host : host_t;
+ out lockgroup_info : lockgroup_info_array_t,
+     Dealloc);
+
+
+
+
+routine host_statistics64(
+  host_priv : host_t;
+  flavor : host_flavor_t;
+ out host_info64_out : host_info64_t, CountInOut);
+
+
+
+
+
+
+routine mach_zone_info(
+  host : host_priv_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : mach_zone_info_array_t,
+     Dealloc);
+# 3493 "<stdin>"
+skip;
+# 3503 "<stdin>"
+routine host_create_mach_voucher(
+
+  host : host_t;
+  recipes : mach_voucher_attr_raw_recipe_array_t;
+ out voucher : ipc_voucher_t);
+
+
+
+
+routine host_register_mach_voucher_attr_manager(
+  host : host_t;
+  attr_manager : mach_voucher_attr_manager_t;
+  default_value : mach_voucher_attr_value_handle_t;
+ out new_key : mach_voucher_attr_key_t;
+ out new_attr_control: ipc_voucher_attr_control_t);
+
+
+
+
+routine host_register_well_known_mach_voucher_attr_manager(
+  host : host_t;
+  attr_manager : mach_voucher_attr_manager_t;
+  default_value : mach_voucher_attr_value_handle_t;
+  key : mach_voucher_attr_key_t;
+ out new_attr_control: ipc_voucher_attr_control_t);
+
+
+
+
+
+routine host_set_atm_diagnostic_flag(
+        host_priv : host_priv_t;
+    in diagnostic_flag : uint32_t);
+
+
+
+
+
+
+skip;
+
+
+routine mach_memory_info(
+  host : host_priv_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : mach_zone_info_array_t,
+     Dealloc;
+ out memory_info : mach_memory_info_array_t,
+     Dealloc);
+
+
+
+
+routine host_set_multiuser_config_flags(
+  host_priv : host_priv_t;
+ in multiuser_flags : uint32_t);
+
+
+
+
+
+
+skip;
+
+
+
+
+
+
+
+skip;
+# 3613 "<stdin>"
+# 1 "osfmk/mach/notify.defs" 1
+# 59 "osfmk/mach/notify.defs"
+subsystem
+
+
+
+ notify 64;
+
+
+
+
+
+
+
+serverprefix do_;
+serverdemux notify_server;
+
+
+
+skip;
+
+
+simpleroutine mach_notify_port_deleted(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 95 "osfmk/mach/notify.defs"
+skip;
+
+
+skip;
+
+skip;
+
+
+simpleroutine mach_notify_port_destroyed(
+  notify : mach_port_move_send_once_t;
+
+
+
+  rights : mach_port_move_receive_t);
+
+
+simpleroutine mach_notify_no_senders(
+  notify : mach_port_move_send_once_t;
+
+
+
+  mscount : mach_port_mscount_t);
+
+
+simpleroutine mach_notify_send_once(
+  notify : mach_port_move_send_once_t
+
+
+
+  );
+
+
+simpleroutine mach_notify_dead_name(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 3614 "<stdin>" 2
+# 3680 "<stdin>"
+subsystem
+
+
+
+   mach_port 3200;
+# 3700 "<stdin>"
+routine mach_port_names(
+  task : ipc_space_t;
+ out names : mach_port_name_array_t;
+ out types : mach_port_type_array_t);
+
+
+
+
+
+
+
+routine mach_port_type(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out ptype : mach_port_type_t);
+# 3725 "<stdin>"
+routine mach_port_rename(
+  task : ipc_space_t;
+  old_name : mach_port_name_t;
+  new_name : mach_port_name_t);
+# 3742 "<stdin>"
+routine mach_port_allocate_name(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+  name : mach_port_name_t);
+# 3757 "<stdin>"
+routine mach_port_allocate(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+ out name : mach_port_name_t);
+# 3769 "<stdin>"
+routine mach_port_destroy(
+  task : ipc_space_t;
+  name : mach_port_name_t);
+# 3781 "<stdin>"
+routine mach_port_deallocate(
+  task : ipc_space_t;
+  name : mach_port_name_t);
+# 3799 "<stdin>"
+routine mach_port_get_refs(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  right : mach_port_right_t;
+ out refs : mach_port_urefs_t);
+# 3820 "<stdin>"
+routine mach_port_mod_refs(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  right : mach_port_right_t;
+  delta : mach_port_delta_t);
+# 3842 "<stdin>"
+routine mach_port_peek(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  trailer_type : mach_msg_trailer_type_t;
+ inout request_seqnop : mach_port_seqno_t;
+ out msg_sizep : mach_msg_size_t;
+ out msg_idp : mach_msg_id_t;
+ out trailer_infop : mach_msg_trailer_info_t, CountInOut);
+
+
+
+
+
+routine mach_port_set_mscount(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  mscount : mach_port_mscount_t);
+
+
+
+
+
+
+routine mach_port_get_set_status(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out members : mach_port_name_array_t);
+# 3878 "<stdin>"
+routine mach_port_move_member(
+  task : ipc_space_t;
+  member : mach_port_name_t;
+  after : mach_port_name_t);
+# 3916 "<stdin>"
+routine mach_port_request_notification(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  msgid : mach_msg_id_t;
+  sync : mach_port_mscount_t;
+  notify : mach_port_send_once_t;
+ out previous : mach_port_move_send_once_t);
+# 3932 "<stdin>"
+routine mach_port_insert_right(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  poly : mach_port_poly_t);
+# 3951 "<stdin>"
+routine mach_port_extract_right(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  msgt_name : mach_msg_type_name_t;
+ out poly : mach_port_poly_t);
+
+
+
+
+
+
+routine mach_port_set_seqno(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  seqno : mach_port_seqno_t);
+
+
+
+
+
+routine mach_port_get_attributes(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  flavor : mach_port_flavor_t;
+ out port_info_out : mach_port_info_t, CountInOut);
+
+
+
+
+
+routine mach_port_set_attributes(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  flavor : mach_port_flavor_t;
+  port_info : mach_port_info_t);
+# 3996 "<stdin>"
+routine mach_port_allocate_qos(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+ inout qos : mach_port_qos_t;
+ out name : mach_port_name_t);
+# 4009 "<stdin>"
+routine mach_port_allocate_full(
+  task : ipc_space_t;
+  right : mach_port_right_t;
+  proto : mach_port_t;
+ inout qos : mach_port_qos_t;
+ inout name : mach_port_name_t);
+
+
+
+
+
+routine task_set_port_space(
+  task : ipc_space_t;
+  table_entries : int);
+# 4031 "<stdin>"
+routine mach_port_get_srights(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out srights : mach_port_rights_t);
+
+
+
+
+
+
+
+routine mach_port_space_info(
+  task : ipc_space_t;
+ out space_info : ipc_info_space_t;
+ out table_info : ipc_info_name_array_t;
+ out tree_info : ipc_info_tree_name_array_t);
+
+
+
+
+
+
+
+routine mach_port_dnrequest_info(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out dnr_total : unsigned;
+ out dnr_used : unsigned);
+# 4069 "<stdin>"
+routine mach_port_kernel_object(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out object_type : unsigned;
+ out object_addr : unsigned);
+# 4091 "<stdin>"
+routine mach_port_insert_member(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  pset : mach_port_name_t);
+# 4110 "<stdin>"
+routine mach_port_extract_member(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  pset : mach_port_name_t);
+
+
+
+
+
+
+routine mach_port_get_context(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+ out context : mach_vm_address_t
+
+ );
+
+
+
+
+
+
+routine mach_port_set_context(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  context : mach_vm_address_t
+
+  );
+
+
+
+
+
+
+
+routine mach_port_kobject(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+ out object_type : natural_t;
+ out object_addr : mach_vm_address_t);
+# 4164 "<stdin>"
+routine mach_port_construct(
+  task : ipc_space_t;
+  options : mach_port_options_ptr_t;
+
+
+
+  context : uint64_t;
+
+ out name : mach_port_name_t);
+
+
+
+
+
+
+routine mach_port_destruct(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+  srdelta : mach_port_delta_t;
+
+
+
+  guard : uint64_t
+
+  );
+
+
+
+
+
+
+routine mach_port_guard(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  guard : uint64_t;
+
+  strict : boolean_t);
+
+
+
+
+
+
+routine mach_port_unguard(
+  task : ipc_space_t;
+  name : mach_port_name_t;
+
+
+
+  guard : uint64_t
+
+  );
+
+
+
+
+
+
+routine mach_port_space_basic_info(
+  task : ipc_space_t;
+ out basic_info : ipc_info_space_basic_t);
+# 4899 "<stdin>"
+subsystem
+
+
+
+
+
+
+   vm_map_lp64_local
+
+   4800;
+# 4939 "<stdin>"
+routine vm_allocate (
+  target : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  flags : int);
+# 4965 "<stdin>"
+routine vm_deallocate (
+  target : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t);
+# 4998 "<stdin>"
+routine vm_protect (
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  set_maximum : boolean_t;
+  new_protection : vm_prot_t);
+# 5019 "<stdin>"
+routine vm_inherit(
+
+  target_task : vm_task_entry_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_inheritance : vm_inherit_t);
+# 5036 "<stdin>"
+routine vm_read (
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+ out data : pointer_t);
+# 5050 "<stdin>"
+routine vm_read_list(
+
+  target_task : vm_map_t;
+ inout data_list : mach_vm_read_entry_t;
+  count : natural_t);
+# 5066 "<stdin>"
+routine vm_write(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  data : pointer_t);
+# 5085 "<stdin>"
+routine vm_copy(
+
+  target_task : vm_map_t;
+  source_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  dest_address : mach_vm_address_t);
+# 5103 "<stdin>"
+routine vm_read_overwrite(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  data : mach_vm_address_t;
+ out outsize : mach_vm_size_t);
+
+
+
+
+
+routine vm_msync(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  sync_flags : vm_sync_t );
+# 5132 "<stdin>"
+routine vm_behavior_set(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  new_behavior : vm_behavior_t);
+# 5176 "<stdin>"
+routine vm_map (
+
+
+  target_task : vm_task_entry_t;
+ inout address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : memory_object_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+# 5199 "<stdin>"
+routine vm_machine_attribute(
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  attribute : vm_machine_attribute_t;
+ inout value : vm_machine_attribute_val_t);
+
+
+
+
+
+
+
+routine vm_remap (
+
+  target_task : vm_map_t;
+ inout target_address : mach_vm_address_t;
+  size : mach_vm_size_t;
+  mask : mach_vm_offset_t;
+  flags : int;
+  src_task : vm_map_t;
+  src_address : mach_vm_address_t;
+  copy : boolean_t;
+ out cur_protection : vm_prot_t;
+ out max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+# 5234 "<stdin>"
+routine vm_map_page_query(
+
+                target_map :vm_map_t;
+                offset :mach_vm_offset_t;
+        out disposition :integer_t;
+        out ref_count :integer_t);
+
+
+
+
+
+routine vm_region_recurse_64(
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+# 5267 "<stdin>"
+routine vm_region_64(
+
+                target_task : vm_map_t;
+ inout address : mach_vm_address_t;
+        out size : mach_vm_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+# 5293 "<stdin>"
+routine mach_make_memory_entry_64(
+
+  target_task :vm_map_t;
+ inout size :memory_object_size_t;
+  offset :memory_object_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mem_entry_name_port_move_send_t;
+  parent_handle :mem_entry_name_port_t);
+# 5312 "<stdin>"
+routine vm_purgable_control (
+
+  target_task : vm_map_t;
+  address : mach_vm_address_t;
+  control : vm_purgable_t;
+ inout state : int);
+# 5327 "<stdin>"
+skip;
+# 5392 "<stdin>"
+subsystem
+
+
+
+         mach_voucher 5400;
+
+
+
+
+
+routine mach_voucher_extract_attr_content(
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+ out content : mach_voucher_attr_content_t, CountInOut);
+
+
+
+
+
+routine mach_voucher_extract_attr_recipe(
+
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+ out recipe : mach_voucher_attr_raw_recipe_t, CountInOut);
+
+
+routine mach_voucher_extract_all_attr_recipes(
+  voucher : ipc_voucher_t;
+ out recipes : mach_voucher_attr_raw_recipe_array_t, CountInOut);
+
+
+routine mach_voucher_attr_command(
+  voucher : ipc_voucher_t;
+  key : mach_voucher_attr_key_t;
+  command : mach_voucher_attr_command_t;
+  in_content : mach_voucher_attr_content_t;
+ out out_content : mach_voucher_attr_content_t, CountInOut);
+
+
+routine mach_voucher_debug_info(
+  task : ipc_space_t;
+  voucher_name: mach_port_name_t;
+ out recipes : mach_voucher_attr_raw_recipe_array_t, CountInOut);
+# 5465 "<stdin>"
+subsystem
+
+
+
+         mach_voucher_attr_control 5600;
+
+
+
+
+
+routine mach_voucher_attr_control_get_values(
+  control : ipc_voucher_attr_control_t;
+  voucher : ipc_voucher_t;
+ out value_handles : mach_voucher_attr_value_handle_array_t, CountInOut);
+
+
+routine mach_voucher_attr_control_create_mach_voucher(
+  control : ipc_voucher_attr_control_t;
+  recipes : mach_voucher_attr_raw_recipe_array_t;
+ out voucher : ipc_voucher_t);
+# 5679 "<stdin>"
+subsystem
+
+
+
+
+
+
+       memory_object 2200;
+# 5705 "<stdin>"
+routine memory_object_init(
+  memory_object : memory_object_t;
+  memory_control : memory_object_control_t;
+  memory_object_page_size : memory_object_cluster_size_t);
+# 5722 "<stdin>"
+routine memory_object_terminate(
+  memory_object : memory_object_t);
+# 5732 "<stdin>"
+routine memory_object_data_request(
+  memory_object : memory_object_t;
+  offset : memory_object_offset_t;
+  length : memory_object_cluster_size_t;
+  desired_access : vm_prot_t;
+  fault_info : memory_object_fault_info_t);
+# 5750 "<stdin>"
+routine memory_object_data_return(
+  memory_object : memory_object_t;
+  offset : memory_object_offset_t;
+  size : memory_object_cluster_size_t;
+ out resid_offset : memory_object_offset_t;
+ out io_error : int;
+  dirty : boolean_t;
+  kernel_copy : boolean_t;
+  upl_flags : int);
+# 5768 "<stdin>"
+routine memory_object_data_initialize(
+  memory_object : memory_object_t;
+  offset : memory_object_offset_t;
+  size : memory_object_cluster_size_t);
+# 5781 "<stdin>"
+routine memory_object_data_unlock(
+  memory_object : memory_object_t;
+  offset : memory_object_offset_t;
+  size : memory_object_size_t;
+  desired_access : vm_prot_t);
+# 5796 "<stdin>"
+routine memory_object_synchronize(
+  memory_object : memory_object_t;
+  offset : memory_object_offset_t;
+  size : memory_object_size_t;
+  sync_flags : vm_sync_t );
+# 5810 "<stdin>"
+routine memory_object_map(
+  memory_object : memory_object_t;
+  prot : vm_prot_t);
+routine memory_object_last_unmap(
+  memory_object : memory_object_t);
+
+routine memory_object_data_reclaim(
+  memory_object : memory_object_t;
+  reclaim_backing_store : boolean_t);
+# 5885 "<stdin>"
+subsystem
+
+
+
+
+
+
+       memory_object_control 2000;
+# 5901 "<stdin>"
+routine memory_object_get_attributes(
+                memory_control : memory_object_control_t;
+  flavor : memory_object_flavor_t;
+ out attributes : memory_object_info_t, CountInOut);
+
+
+routine memory_object_change_attributes(
+                memory_control : memory_object_control_t;
+                flavor : memory_object_flavor_t;
+         attributes : memory_object_info_t
+  );
+
+routine memory_object_synchronize_completed (
+  memory_control : memory_object_control_t;
+  offset : memory_object_offset_t;
+  length : memory_object_size_t);
+# 5935 "<stdin>"
+routine memory_object_lock_request(
+  memory_control : memory_object_control_t;
+  offset : memory_object_offset_t;
+  size : memory_object_size_t;
+ out resid_offset : memory_object_offset_t;
+ out io_errno : integer_t;
+  should_return : memory_object_return_t;
+  flags : integer_t;
+  lock_value : vm_prot_t
+  );
+
+
+
+
+routine memory_object_destroy(
+  memory_control : memory_object_control_t;
+  reason : kern_return_t);
+# 5964 "<stdin>"
+routine memory_object_upl_request(
+  memory_control : memory_object_control_t;
+ in offset : memory_object_offset_t;
+ in size : upl_size_t;
+ out upl : upl_t;
+ out page_list : upl_page_info_array_t, CountInOut;
+ in cntrl_flags : integer_t);
+
+routine memory_object_super_upl_request(
+  memory_control : memory_object_control_t;
+ in offset : memory_object_offset_t;
+ in size : upl_size_t;
+ in super_size : upl_size_t;
+ out upl : upl_t;
+ out page_list : upl_page_info_array_t, CountInOut;
+ in cntrl_flags : integer_t);
+
+
+routine memory_object_cluster_size(
+  control : memory_object_control_t;
+ out start : memory_object_offset_t;
+ out length : vm_size_t;
+ out io_streaming : uint32_t;
+ in fault_info : memory_object_fault_info_t);
+
+
+
+
+
+routine memory_object_page_op(
+  memory_control : memory_object_control_t;
+ in offset : memory_object_offset_t;
+ in ops : integer_t;
+ out phys_entry : uint32_t;
+ out flags : integer_t);
+
+routine memory_object_recover_named(
+  memory_control : memory_object_control_t;
+ in wait_on_terminating : boolean_t);
+
+routine memory_object_release_name(
+  memory_control : memory_object_control_t;
+  flags : integer_t);
+
+routine memory_object_range_op(
+  memory_control : memory_object_control_t;
+ in offset_beg : memory_object_offset_t;
+ in offset_end : memory_object_offset_t;
+ in ops : integer_t;
+ out range : integer_t);
+# 6081 "<stdin>"
+subsystem
+
+
+
+
+
+
+       memory_object_default 2250;
+# 6104 "<stdin>"
+routine memory_object_create(
+  default_memory_manager : memory_object_default_t;
+  new_memory_object_size : vm_size_t;
+ out new_memory_object : memory_object_t);
+# 6168 "<stdin>"
+subsystem
+
+
+
+ notify 64;
+
+
+
+
+
+
+
+serverprefix do_;
+serverdemux notify_server;
+
+
+
+skip;
+
+
+simpleroutine mach_notify_port_deleted(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 6204 "<stdin>"
+skip;
+
+
+skip;
+
+skip;
+
+
+simpleroutine mach_notify_port_destroyed(
+  notify : mach_port_move_send_once_t;
+
+
+
+  rights : mach_port_move_receive_t);
+
+
+simpleroutine mach_notify_no_senders(
+  notify : mach_port_move_send_once_t;
+
+
+
+  mscount : mach_port_mscount_t);
+
+
+simpleroutine mach_notify_send_once(
+  notify : mach_port_move_send_once_t
+
+
+
+  );
+
+
+simpleroutine mach_notify_dead_name(
+  notify : mach_port_move_send_once_t;
+
+
+
+  name : mach_port_name_t);
+# 6308 "<stdin>"
+subsystem
+
+
+
+   processor 3000;
+# 6324 "<stdin>"
+routine processor_start(
+  processor : processor_t);
+
+
+
+
+
+routine processor_exit(
+  processor : processor_t);
+
+
+
+
+routine processor_info(
+  processor : processor_t;
+  flavor : processor_flavor_t;
+ out host : host_t;
+ out processor_info_out: processor_info_t, CountInOut);
+
+
+
+
+
+routine processor_control(
+  processor : processor_t;
+  processor_cmd : processor_info_t);
+# 6359 "<stdin>"
+routine processor_assign(
+  processor : processor_t;
+  new_set : processor_set_t;
+  wait : boolean_t);
+
+
+
+
+routine processor_get_assignment(
+  processor : processor_t;
+ out assigned_set : processor_set_name_t);
+# 6436 "<stdin>"
+subsystem
+
+
+
+   processor_set 4000;
+
+
+
+
+
+
+
+routine processor_set_statistics(
+         pset : processor_set_name_t;
+         flavor : processor_set_flavor_t;
+ out info_out : processor_set_info_t, CountInOut);
+
+
+
+
+
+routine processor_set_destroy(
+  set : processor_set_t);
+
+
+
+
+
+routine processor_set_max_priority(
+  processor_set : processor_set_t;
+  max_priority : int;
+  change_threads : boolean_t);
+
+
+
+
+routine processor_set_policy_enable(
+  processor_set : processor_set_t;
+  policy : int);
+
+
+
+
+routine processor_set_policy_disable(
+  processor_set : processor_set_t;
+  policy : int;
+  change_threads : boolean_t);
+
+
+
+
+routine processor_set_tasks(
+  processor_set : processor_set_t;
+ out task_list : task_array_t);
+
+
+
+
+routine processor_set_threads(
+  processor_set : processor_set_t;
+ out thread_list : thread_act_array_t);
+
+
+
+
+
+
+routine processor_set_policy_control(
+ pset : processor_set_t;
+ flavor : processor_set_flavor_t;
+ policy_info : processor_set_info_t;
+ change : boolean_t);
+
+
+
+
+
+
+
+routine processor_set_stack_usage(
+  pset : processor_set_t;
+ out ltotal : unsigned;
+ out space : vm_size_t;
+ out resident : vm_size_t;
+ out maxusage : vm_size_t;
+ out maxstack : vm_offset_t);
+
+
+
+
+routine processor_set_info(
+                set_name : processor_set_name_t;
+                flavor : int;
+        out host : host_t;
+        out info_out : processor_set_info_t, CountInOut);
+# 6644 "<stdin>"
+subsystem
+
+
+
+  prof 2450;
+
+
+
+
+ServerPrefix receive_;
+UserPrefix send_;
+
+type sample_array_t = array[*:1024] of unsigned;
+
+simpleroutine samples(
+   reply_port : mach_port_t;
+   samples : sample_array_t);
+
+simpleroutine notices(
+   reply_port : mach_port_t;
+   samples : sample_array_t;
+ msgoption options : mach_msg_options_t);
+# 6703 "<stdin>"
+import <System/mach/resource_monitors.h>;
+import <System/mach/clock_types.h>;
+
+
+
+
+type proc_name_t = array [2*16 +1] of char;
+type posix_path_t = array [512] of char;
+type resource_notify_flags_t = uint64_t;
+
+
+
+subsystem
+
+
+
+        resource_notify 827800;
+
+UserPrefix send_;
+ServerPrefix receive_;
+
+
+SimpleRoutine cpu_usage_violation(
+    receiver : mach_port_t;
+
+
+    procname : proc_name_t;
+    pid : int;
+    killed_proc_path : posix_path_t;
+
+
+    timestamp : mach_timespec_t;
+    observed_cpu_nsecs : int64_t;
+    observation_nsecs : int64_t;
+
+
+    cpu_nsecs_allowed : int64_t;
+    limit_window_nsecs : int64_t;
+
+    flags : resource_notify_flags_t
+);
+
+SimpleRoutine cpu_wakes_violation(
+    receiver : mach_port_t;
+
+
+    procname : proc_name_t;
+    pid : int;
+    killed_proc_path : posix_path_t;
+
+
+    timestamp : mach_timespec_t;
+    observed_cpu_wakes : int64_t;
+    observation_nsecs : int64_t;
+
+
+    cpu_wakes_allowed : int64_t;
+    limit_window_nsecs : int64_t;
+
+    flags : resource_notify_flags_t
+);
+
+SimpleRoutine disk_writes_violation(
+    receiver : mach_port_t;
+
+
+    procname : proc_name_t;
+    pid : int;
+    killed_proc_path : posix_path_t;
+
+
+    timestamp : mach_timespec_t;
+    observed_bytes_dirtied : int64_t;
+    observation_nsecs : int64_t;
+
+
+    bytes_dirtied_allowed : int64_t;
+    limit_window_nsecs : int64_t;
+
+    flags : resource_notify_flags_t
+);
+# 6823 "<stdin>"
+subsystem
+
+
+
+   semaphore 617200;
+# 6839 "<stdin>"
+routine semaphore_signal(
+  semaphore : semaphore_t);
+
+routine semaphore_signal_all(
+  semaphore : semaphore_t);
+
+routine semaphore_wait(
+  semaphore : semaphore_t);
+
+
+routine semaphore_signal_thread(
+  semaphore : semaphore_t;
+  thread : thread_act_t);
+
+routine semaphore_timedwait(
+  semaphore : semaphore_t;
+  wait_time : mach_timespec_t);
+
+routine semaphore_wait_signal(
+  wait_semaphore : semaphore_t;
+  signal_semaphore: semaphore_t);
+
+routine semaphore_timedwait_signal(
+  wait_semaphore : semaphore_t;
+  signal_semaphore: semaphore_t;
+  wait_time : mach_timespec_t);
+# 7056 "<stdin>"
+subsystem
+
+
+
+   sync 617000;
+# 7073 "<stdin>"
+type semaphore_t = mach_port_t
+  ctype: mach_port_t
+
+
+
+
+
+  ;
+
+type semaphore_consume_ref_t = mach_port_move_send_t
+  ctype: mach_port_t
+
+
+
+
+  ;
+
+type lock_set_t = mach_port_t
+  ctype: mach_port_t
+
+
+
+
+
+  ;
+
+
+routine semaphore_create(
+  task : task_t;
+ out semaphore : semaphore_t;
+  policy : int;
+  value : int);
+
+routine semaphore_destroy(
+  task : task_t;
+  semaphore : semaphore_consume_ref_t);
+
+routine semaphore_signal(
+  semaphore : semaphore_t);
+
+routine semaphore_signal_all(
+  semaphore : semaphore_t);
+
+routine semaphore_wait(
+  semaphore : semaphore_t);
+
+routine lock_set_create(
+  task : task_t;
+ out new_lock_set : lock_set_t;
+  n_ulocks : int;
+  policy : int);
+
+routine lock_set_destroy(
+  task : task_t;
+  lock_set : lock_set_t);
+
+routine lock_acquire(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_release(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_try(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_make_stable(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine lock_handoff_accept(
+  lock_set : lock_set_t;
+  lock_id : int);
+
+routine semaphore_signal_thread(
+  semaphore : semaphore_t;
+  thread : thread_act_t);
+
+routine semaphore_timedwait(
+  semaphore : semaphore_t;
+  wait_time : mach_timespec_t);
+# 7194 "<stdin>"
+subsystem
+
+
+
+    sysdiagnose_notification 31337;
+
+
+
+
+
+ServerPrefix receive_;
+UserPrefix send_;
+
+simpleroutine sysdiagnose_notification(
+              sysdiagnose_port : mach_port_t;
+              flags : uint32_t);
+# 7276 "<stdin>"
+subsystem
+
+
+
+   task 3400;
+# 7291 "<stdin>"
+routine task_create(
+  target_task : task_t;
+  ledgers : ledger_array_t;
+  inherit_memory : boolean_t;
+ out child_task : task_t);
+
+
+
+
+
+
+routine task_terminate(
+  target_task : task_t);
+
+
+
+
+routine task_threads(
+  target_task : task_t;
+ out act_list : thread_act_array_t);
+
+
+
+
+
+routine mach_ports_register(
+  target_task : task_t;
+  init_port_set : mach_port_array_t =
+     ^array[] of mach_port_t);
+
+
+
+
+routine mach_ports_lookup(
+  target_task : task_t;
+ out init_port_set : mach_port_array_t =
+     ^array[] of mach_port_t);
+
+
+
+
+routine task_info(
+                target_task : task_name_t;
+                flavor : task_flavor_t;
+        out task_info_out : task_info_t, CountInOut);
+
+
+
+
+routine task_set_info(
+  target_task : task_t;
+  flavor : task_flavor_t;
+  task_info_in : task_info_t);
+
+
+
+
+
+
+routine task_suspend(
+  target_task : task_t);
+# 7360 "<stdin>"
+routine task_resume(
+  target_task : task_t);
+
+
+
+
+
+routine task_get_special_port(
+  task : task_t;
+  which_port : int;
+ out special_port : mach_port_t);
+
+
+
+
+
+routine task_set_special_port(
+  task : task_t;
+  which_port : int;
+  special_port : mach_port_t);
+
+
+
+
+
+
+routine
+
+
+
+thread_create(
+
+  parent_task : task_t;
+ out child_act : thread_act_t);
+# 7402 "<stdin>"
+routine
+
+
+
+thread_create_running(
+
+                parent_task : task_t;
+                flavor : thread_state_flavor_t;
+                new_state : thread_state_t;
+        out child_act : thread_act_t);
+
+
+
+
+
+
+
+routine task_set_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t);
+
+
+
+
+
+routine task_get_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+   out masks : exception_mask_array_t;
+   out old_handlers : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+
+routine task_swap_exception_ports(
+  task : task_t;
+  exception_mask : exception_mask_t;
+  new_port : mach_port_t;
+  behavior : exception_behavior_t;
+  new_flavor : thread_state_flavor_t;
+   out masks : exception_mask_array_t;
+   out old_handlerss : exception_handler_array_t, SameCount;
+   out old_behaviors : exception_behavior_array_t, SameCount;
+   out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+routine lock_set_create(
+  task : task_t;
+ out new_lock_set : lock_set_t;
+  n_ulocks : int;
+  policy : int);
+
+
+
+
+routine lock_set_destroy(
+  task : task_t;
+  lock_set : lock_set_t);
+
+
+
+
+
+
+routine semaphore_create(
+  task : task_t;
+ out semaphore : semaphore_t;
+  policy : int;
+  value : int);
+
+routine semaphore_destroy(
+  task : task_t;
+  semaphore : semaphore_consume_ref_t);
+
+
+
+
+
+
+routine task_policy_set(
+ task : task_t;
+ flavor : task_policy_flavor_t;
+ policy_info : task_policy_t);
+
+routine task_policy_get(
+ task : task_t;
+ flavor : task_policy_flavor_t;
+out policy_info : task_policy_t, CountInOut;
+inout get_default : boolean_t);
+
+
+
+
+
+
+
+routine task_sample(
+  task : task_t;
+  reply : mach_port_make_send_t);
+# 7519 "<stdin>"
+routine task_policy(
+ task : task_t;
+ policy : policy_t;
+ base : policy_base_t;
+ set_limit : boolean_t;
+ change : boolean_t);
+
+
+
+
+
+
+routine task_set_emulation(
+  target_port : task_t;
+  routine_entry_pt: vm_address_t;
+  routine_number : int);
+
+
+
+
+
+routine task_get_emulation_vector(
+  task : task_t;
+ out vector_start : int;
+ out emulation_vector: emulation_vector_t);
+
+
+
+
+
+
+routine task_set_emulation_vector(
+  task : task_t;
+  vector_start : int;
+  emulation_vector: emulation_vector_t);
+
+
+
+
+
+routine task_set_ras_pc(
+  target_task : task_t;
+  basepc : vm_address_t;
+  boundspc : vm_address_t);
+
+
+
+
+
+routine task_zone_info(
+  target_task : task_t;
+ out names : mach_zone_name_array_t,
+     Dealloc;
+ out info : task_zone_info_array_t,
+     Dealloc);
+# 7583 "<stdin>"
+routine task_assign(
+  task : task_t;
+  new_set : processor_set_t;
+  assign_threads : boolean_t);
+
+
+
+
+routine task_assign_default(
+  task : task_t;
+  assign_threads : boolean_t);
+
+
+
+
+routine task_get_assignment(
+  task : task_t;
+ out assigned_set : processor_set_name_t);
+
+
+
+
+routine task_set_policy(
+ task : task_t;
+ pset : processor_set_t;
+ policy : policy_t;
+ base : policy_base_t;
+ limit : policy_limit_t;
+ change : boolean_t);
+
+
+
+
+
+routine task_get_state(
+  task : task_t;
+  flavor : thread_state_flavor_t;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+routine task_set_state(
+  task : task_t;
+  flavor : thread_state_flavor_t;
+  new_state : thread_state_t);
+
+
+
+
+routine task_set_phys_footprint_limit(
+  task : task_t;
+  new_limit : int;
+ out old_limit : int);
+
+routine task_suspend2(
+  target_task : task_t;
+ out suspend_token : task_suspension_token_t);
+
+routine task_resume2(
+  suspend_token : task_suspension_token_t);
+
+routine task_purgable_info(
+  task : task_t;
+ out stats : task_purgable_info_t);
+
+routine task_get_mach_voucher(
+  task : task_t;
+  which : mach_voucher_selector_t;
+ out voucher : ipc_voucher_t);
+
+routine task_set_mach_voucher(
+  task : task_t;
+  voucher : ipc_voucher_t);
+
+routine task_swap_mach_voucher(
+  task : task_t;
+  new_voucher : ipc_voucher_t;
+ inout old_voucher : ipc_voucher_t);
+
+routine task_generate_corpse(
+  task :task_t;
+ out corpse_task_port:mach_port_t);
+
+routine task_map_corpse_info(
+  task :task_t;
+  corspe_task :task_t;
+ out kcd_addr_begin :vm_address_t;
+ out kcd_size :uint32_t);
+
+routine task_register_dyld_image_infos(
+        task :task_t;
+        dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_unregister_dyld_image_infos(
+        task :task_t;
+        dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_get_dyld_image_infos(
+        task :task_t;
+    out dyld_images :dyld_kernel_image_info_array_t);
+
+routine task_register_dyld_shared_cache_image_info(
+        task :task_t;
+        dyld_cache_image :dyld_kernel_image_info_t;
+        no_cache :boolean_t;
+        private_cache :boolean_t);
+
+routine task_register_dyld_set_dyld_state(
+        task :task_t;
+        dyld_state :uint8_t);
+
+routine task_register_dyld_get_process_state(
+        task :task_t;
+    out dyld_process_state :dyld_kernel_process_info_t);
+
+routine task_map_corpse_info_64(
+  task :task_t;
+  corspe_task :task_t;
+ out kcd_addr_begin :mach_vm_address_t;
+ out kcd_size :mach_vm_size_t);
+# 7739 "<stdin>"
+subsystem
+
+
+
+   task_access 27000;
+# 7752 "<stdin>"
+routine check_task_access(
+  task_access_port : mach_port_t;
+  calling_pid : int32_t;
+  calling_gid : uint32_t;
+  target_pid : int32_t;
+  ServerAuditToken caller_cred : audit_token_t);
+
+
+
+
+routine find_code_signature(
+  task_access_port : mach_port_t;
+  new_pid : int32_t);
+# 7775 "<stdin>"
+subsystem
+
+
+
+    telemetry_notification 5100;
+
+
+
+
+simpleroutine telemetry_notification(
+ RequestPort telemetry_port : mach_port_t;
+ in flags : uint32_t);
+# 7851 "<stdin>"
+subsystem
+
+
+
+   thread_act 3600;
+# 7875 "<stdin>"
+routine thread_terminate(
+  target_act : thread_act_consume_ref_t);
+# 7885 "<stdin>"
+routine act_get_state(
+  target_act : thread_act_t;
+  flavor : int;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+
+routine
+
+
+
+act_set_state(
+
+  target_act : thread_act_t;
+  flavor : int;
+  new_state : thread_state_t);
+# 7914 "<stdin>"
+routine thread_get_state(
+  target_act : thread_act_t;
+  flavor : thread_state_flavor_t;
+ out old_state : thread_state_t, CountInOut);
+
+
+
+
+
+
+routine
+
+
+
+thread_set_state(
+
+  target_act : thread_act_t;
+  flavor : thread_state_flavor_t;
+  new_state : thread_state_t);
+# 7942 "<stdin>"
+routine thread_suspend(
+  target_act : thread_act_t);
+
+
+
+
+
+routine thread_resume(
+  target_act : thread_act_t);
+# 7961 "<stdin>"
+routine thread_abort(
+  target_act : thread_act_t);
+# 7976 "<stdin>"
+routine thread_abort_safely(
+  target_act : thread_act_t);
+
+
+routine thread_depress_abort(
+  thread : thread_act_t);
+
+
+
+
+
+
+routine thread_get_special_port(
+  thr_act : thread_act_t;
+  which_port : int;
+ out special_port : mach_port_t);
+
+
+
+
+
+routine thread_set_special_port(
+  thr_act : thread_act_t;
+  which_port : int;
+  special_port : mach_port_t);
+
+
+
+
+routine thread_info(
+                target_act : thread_act_t;
+                flavor : thread_flavor_t;
+        out thread_info_out : thread_info_t, CountInOut);
+
+
+
+
+routine thread_set_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+   new_port : mach_port_t;
+   behavior : exception_behavior_t;
+   new_flavor : thread_state_flavor_t);
+
+
+
+
+routine thread_get_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+    out masks : exception_mask_array_t;
+    out old_handlers : exception_handler_array_t, SameCount;
+    out old_behaviors : exception_behavior_array_t, SameCount;
+    out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+
+
+routine thread_swap_exception_ports(
+   thread : thread_act_t;
+   exception_mask : exception_mask_t;
+   new_port : mach_port_t;
+   behavior : exception_behavior_t;
+   new_flavor : thread_state_flavor_t;
+    out masks : exception_mask_array_t;
+    out old_handlers : exception_handler_array_t, SameCount;
+    out old_behaviors : exception_behavior_array_t, SameCount;
+    out old_flavors : exception_flavor_array_t, SameCount);
+
+
+
+
+routine thread_policy(
+ thr_act : thread_act_t;
+ policy : policy_t;
+ base : policy_base_t;
+ set_limit : boolean_t);
+
+
+
+
+
+
+routine thread_policy_set(
+ thread : thread_act_t;
+ flavor : thread_policy_flavor_t;
+ policy_info : thread_policy_t);
+
+routine thread_policy_get(
+ thread : thread_act_t;
+ flavor : thread_policy_flavor_t;
+out policy_info : thread_policy_t, CountInOut;
+inout get_default : boolean_t);
+
+
+
+
+
+
+
+routine thread_sample(
+  thread : thread_act_t;
+  reply : mach_port_make_send_t);
+# 8089 "<stdin>"
+routine etap_trace_thread(
+  target_act : thread_act_t;
+  trace_status : boolean_t);
+
+
+
+
+
+routine thread_assign(
+  thread : thread_act_t;
+  new_set : processor_set_t);
+
+
+
+
+routine thread_assign_default(
+  thread : thread_act_t);
+
+
+
+
+routine thread_get_assignment(
+  thread : thread_act_t;
+ out assigned_set : processor_set_name_t);
+
+
+
+
+
+routine thread_set_policy(
+  thr_act : thread_act_t;
+  pset : processor_set_t;
+  policy : policy_t;
+  base : policy_base_t;
+  limit : policy_limit_t);
+
+routine thread_get_mach_voucher(
+  thr_act : thread_act_t;
+  which : mach_voucher_selector_t;
+ out voucher : ipc_voucher_t);
+
+routine thread_set_mach_voucher(
+  thr_act : thread_act_t;
+  voucher : ipc_voucher_t);
+
+routine thread_swap_mach_voucher(
+  thr_act : thread_act_t;
+  new_voucher : ipc_voucher_t;
+ inout old_voucher : ipc_voucher_t);
+# 8204 "<stdin>"
+subsystem
+
+
+
+
+
+
+       upl 2050;
+
+
+
+
+routine upl_abort(
+  upl_object : upl_t;
+ in abort_cond : integer_t);
+
+routine upl_abort_range(
+  upl_object : upl_t;
+  offset : upl_offset_t;
+  size : upl_size_t;
+ in abort_cond : integer_t;
+ out empty : boolean_t);
+
+routine upl_commit(
+  upl_object : upl_t;
+ in page_list : upl_page_info_array_t);
+
+routine upl_commit_range(
+  upl_object : upl_t;
+  offset : upl_offset_t;
+  size : upl_size_t;
+ in cntrl_flags : integer_t;
+ in page_list : upl_page_info_array_t;
+ out empty : boolean_t);
+# 8303 "<stdin>"
+subsystem
+
+
+
+   map 3800;
+
+serverprefix vm32_;
+# 8319 "<stdin>"
+routine region(
+                target_task : vm_map_t;
+ inout address : vm32_address_t;
+        out size : vm32_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+
+routine allocate(
+  target_task : vm_task_entry_t;
+ inout address : vm32_address_t;
+  size : vm32_size_t;
+  flags : int);
+
+routine deallocate(
+  target_task : vm_task_entry_t;
+  address : vm32_address_t;
+  size : vm32_size_t);
+
+routine protect(
+  target_task : vm_task_entry_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  set_maximum : boolean_t;
+  new_protection : vm_prot_t);
+
+routine inherit(
+  target_task : vm_task_entry_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  new_inheritance : vm_inherit_t);
+
+routine read(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+ out data : pointer_t);
+
+routine read_list(
+  target_task : vm_map_t;
+ inout data_list : vm32_read_entry_t;
+  count : natural_t);
+
+routine write(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  data : pointer_t);
+
+routine copy(
+  target_task : vm_map_t;
+  source_address : vm32_address_t;
+  size : vm32_size_t;
+  dest_address : vm32_address_t);
+
+routine read_overwrite(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  data : vm32_address_t;
+ out outsize : vm32_size_t);
+
+
+routine msync(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  sync_flags : vm_sync_t );
+
+routine behavior_set(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  new_behavior : vm_behavior_t);
+
+routine map(
+  target_task : vm_task_entry_t;
+ inout address : vm32_address_t;
+  size : vm32_size_t;
+  mask : vm32_address_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : vm32_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+routine machine_attribute(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  size : vm32_size_t;
+  attribute : vm_machine_attribute_t;
+ inout value : vm_machine_attribute_val_t);
+
+routine remap(
+  target_task : vm_map_t;
+ inout target_address : vm32_address_t;
+  size : vm32_size_t;
+  mask : vm32_address_t;
+  anywhere : boolean_t;
+  src_task : vm_map_t;
+  src_address : vm32_address_t;
+  copy : boolean_t;
+ out cur_protection : vm_prot_t;
+ out max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+routine _task_wire(
+  target_task : vm_map_t;
+  must_wire : boolean_t);
+
+routine make_memory_entry(
+  target_task :vm_map_t;
+ inout size :vm32_size_t;
+  offset :vm32_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mem_entry_name_port_move_send_t;
+  parent_entry :mem_entry_name_port_t);
+
+routine map_page_query(
+                target_map :vm_map_t;
+                offset :vm32_offset_t;
+        out disposition :integer_t;
+        out ref_count :integer_t);
+
+routine region_info(
+  task : vm_map_t;
+  address : vm32_address_t;
+ out region : vm_info_region_t;
+ out objects : vm_info_object_array_t);
+
+routine mapped_pages_info(
+  task : vm_map_t;
+ out pages : page_address_array_t);
+
+skip;
+
+routine region_recurse(
+                target_task : vm_map_t;
+ inout address : vm32_address_t;
+        out size : vm32_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+
+routine region_recurse_64(
+                target_task : vm_map_t;
+ inout address : vm32_address_t;
+        out size : vm32_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+
+routine region_info_64(
+  task : vm_map_t;
+  address : vm32_address_t;
+ out region : vm_info_region_64_t;
+ out objects : vm_info_object_array_t);
+
+routine region_64(
+                target_task : vm_map_t;
+ inout address : vm32_address_t;
+        out size : vm32_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+
+routine make_memory_entry_64(
+  target_task :vm_map_t;
+ inout size :memory_object_size_t;
+  offset :memory_object_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mach_port_move_send_t;
+  parent_entry :mem_entry_name_port_t);
+
+
+
+routine map_64(
+  target_task : vm_task_entry_t;
+ inout address : vm32_address_t;
+  size : vm32_size_t;
+  mask : vm32_address_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : memory_object_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+skip;
+skip;
+skip;
+
+routine purgable_control(
+  target_task : vm_map_t;
+  address : vm32_address_t;
+  control : vm_purgable_t;
+ inout state : int);
+# 8587 "<stdin>"
+subsystem
+
+
+
+   vm_map 3800;
+# 8614 "<stdin>"
+routine vm_region(
+                target_task : vm_map_t;
+ inout address : vm_address_t;
+        out size : vm_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+# 8635 "<stdin>"
+routine vm_allocate(
+  target_task : vm_task_entry_t;
+ inout address : vm_address_t;
+  size : vm_size_t;
+  flags : int);
+# 8651 "<stdin>"
+routine vm_deallocate(
+  target_task : vm_task_entry_t;
+  address : vm_address_t;
+  size : vm_size_t);
+# 8672 "<stdin>"
+routine vm_protect(
+  target_task : vm_task_entry_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  set_maximum : boolean_t;
+  new_protection : vm_prot_t);
+# 8687 "<stdin>"
+routine vm_inherit(
+  target_task : vm_task_entry_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  new_inheritance : vm_inherit_t);
+# 8700 "<stdin>"
+routine vm_read (
+  target_task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+ out data : pointer_t);
+
+
+
+
+
+routine vm_read_list(
+  target_task : vm_map_t;
+ inout data_list : vm_read_entry_t;
+  count : natural_t);
+# 8722 "<stdin>"
+routine vm_write(
+  target_task : vm_map_t;
+  address : vm_address_t;
+  data : pointer_t);
+# 8737 "<stdin>"
+routine vm_copy(
+  target_task : vm_map_t;
+  source_address : vm_address_t;
+  size : vm_size_t;
+  dest_address : vm_address_t);
+# 8751 "<stdin>"
+routine vm_read_overwrite(
+  target_task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  data : vm_address_t;
+ out outsize : vm_size_t);
+
+
+routine vm_msync(
+  target_task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  sync_flags : vm_sync_t );
+# 8772 "<stdin>"
+routine vm_behavior_set(
+  target_task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  new_behavior : vm_behavior_t);
+# 8809 "<stdin>"
+routine vm_map (
+  target_task : vm_task_entry_t;
+ inout address : vm_address_t;
+  size : vm_size_t;
+  mask : vm_address_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : vm_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+
+
+
+
+
+routine vm_machine_attribute(
+  target_task : vm_map_t;
+  address : vm_address_t;
+  size : vm_size_t;
+  attribute : vm_machine_attribute_t;
+ inout value : vm_machine_attribute_val_t);
+
+
+
+
+routine vm_remap (
+  target_task : vm_map_t;
+ inout target_address : vm_address_t;
+  size : vm_size_t;
+  mask : vm_address_t;
+  flags : int;
+  src_task : vm_map_t;
+  src_address : vm_address_t;
+  copy : boolean_t;
+ out cur_protection : vm_prot_t;
+ out max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+
+
+
+
+
+
+routine task_wire(
+  target_task : vm_map_t;
+  must_wire : boolean_t);
+# 8867 "<stdin>"
+routine mach_make_memory_entry(
+  target_task :vm_map_t;
+ inout size :vm_size_t;
+  offset :vm_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mem_entry_name_port_move_send_t;
+  parent_entry :mem_entry_name_port_t);
+
+
+
+
+
+routine vm_map_page_query(
+                target_map :vm_map_t;
+                offset :vm_offset_t;
+        out disposition :integer_t;
+        out ref_count :integer_t);
+
+
+
+
+
+
+
+routine mach_vm_region_info(
+  task : vm_map_t;
+  address : vm_address_t;
+ out region : vm_info_region_t;
+ out objects : vm_info_object_array_t);
+
+routine vm_mapped_pages_info(
+  task : vm_map_t;
+ out pages : page_address_array_t);
+# 8914 "<stdin>"
+skip;
+
+
+
+
+
+
+routine vm_region_recurse(
+                target_task : vm_map_t;
+ inout address : vm_address_t;
+        out size : vm_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+# 8935 "<stdin>"
+routine vm_region_recurse_64(
+                target_task : vm_map_t;
+ inout address : vm_address_t;
+        out size : vm_size_t;
+ inout nesting_depth : natural_t;
+ out info : vm_region_recurse_info_t,CountInOut);
+
+routine mach_vm_region_info_64(
+  task : vm_map_t;
+  address : vm_address_t;
+ out region : vm_info_region_64_t;
+ out objects : vm_info_object_array_t);
+
+routine vm_region_64(
+                target_task : vm_map_t;
+ inout address : vm_address_t;
+        out size : vm_size_t;
+  flavor : vm_region_flavor_t;
+ out info : vm_region_info_t, CountInOut;
+        out object_name : memory_object_name_t =
+                                        MACH_MSG_TYPE_MOVE_SEND
+                                        ctype: mach_port_t);
+
+routine mach_make_memory_entry_64(
+  target_task :vm_map_t;
+ inout size :memory_object_size_t;
+  offset :memory_object_offset_t;
+  permission :vm_prot_t;
+ out object_handle :mach_port_move_send_t;
+  parent_entry :mem_entry_name_port_t);
+
+
+
+routine vm_map_64(
+  target_task : vm_task_entry_t;
+ inout address : vm_address_t;
+  size : vm_size_t;
+  mask : vm_address_t;
+  flags : int;
+  object : mem_entry_name_port_t;
+  offset : memory_object_offset_t;
+  copy : boolean_t;
+  cur_protection : vm_prot_t;
+  max_protection : vm_prot_t;
+  inheritance : vm_inherit_t);
+# 9003 "<stdin>"
+skip;
+skip;
+skip;
+# 9015 "<stdin>"
+routine vm_purgable_control (
+  target_task : vm_map_t;
+  address : vm_address_t;
+  control : vm_purgable_t;
+ inout state : int);
+# 9165 "<stdin>"
+subsystem
+
+
+
+ UNDReply 6200;
+
+
+
+# 1 "osfmk/UserNotification/UNDTypes.defs" 1
+# 38 "osfmk/UserNotification/UNDTypes.defs"
+type UNDMessage = c_string[*:1024];
+type UNDLabel = c_string[*:128];
+
+type UNDKey = c_string[*:128];
+type UNDPath = c_string[*:1024];
+
+type UNDXMLDict = c_string[*:2048];
+
+
+
+
+type xmlData = ^ array [] of MACH_MSG_TYPE_BYTE
+ ctype : xmlData_t;
+
+
+type UNDServerRef = mach_port_t;
+
+type UNDReplyRef = mach_port_t
+
+
+
+
+
+
+  ;
+
+import <UserNotification/UNDTypes.h>;
+# 9173 "<stdin>" 2
+
+simpleroutine UNDAlertCompletedWithResult_rpc(
+    reply: UNDReplyRef;
+   in result: int;
+   in data: xmlData);
+
+simpleroutine UNDNotificationCreated_rpc(
+    reply: UNDReplyRef;
+   in userLandNotificationKey: int);
+# 9212 "<stdin>"
+subsystem
+
+
+
+ UNDRequest 6000;
+# 9227 "<stdin>"
+simpleroutine UNDExecute_rpc(
+    server: UNDServerRef;
+   in executionPath: UNDPath;
+   in uid: int;
+   in gid: int);
+
+
+
+simpleroutine UNDDisplayNoticeFromBundle_rpc(
+    server: UNDServerRef;
+   in reply: UNDReplyRef;
+   in bundlePath: UNDPath;
+   in fileName: UNDPath;
+   in fileExtension: UNDPath;
+   in messageKey: UNDKey);
+
+simpleroutine UNDDisplayAlertFromBundle_rpc(
+    server: UNDServerRef;
+   in reply: UNDReplyRef;
+   in bundlePath: UNDPath;
+   in fileName: UNDKey;
+   in fileExtension: UNDKey;
+   in messageKey: UNDKey);
+
+simpleroutine UNDDisplayCustomFromBundle_rpc(
+    server: UNDServerRef;
+   in reply: UNDReplyRef;
+   in bundlePath: UNDPath;
+   in fileName: UNDKey;
+   in fileExtension: UNDKey;
+   in messageKey: UNDKey;
+   in tokenKey: UNDPath);
+
+skip;
+
+simpleroutine UNDCancelNotification_rpc(
+    server: UNDServerRef;
+   in userLandNotificationKey: int);
+
+
+
+
+
+simpleroutine UNDDisplayNoticeSimple_rpc(
+    server: UNDServerRef;
+                        in rpctimeout: int;
+                        in flags: unsigned;
+                        in iconPath:UNDLabel;
+                        in soundPath:UNDLabel;
+                        in localizationPath:UNDLabel;
+   in header: UNDLabel;
+   in message: UNDMessage;
+                        in defaultButtonTitle:UNDLabel);
+
+
+
+
+
+
+
+routine UNDDisplayAlertSimple_rpc(
+    server: UNDServerRef;
+                        in rpctimeout: int;
+                        in flags: unsigned;
+                        in iconPath:UNDLabel;
+                        in soundPath:UNDLabel;
+                        in localizationPath:UNDLabel;
+   in header: UNDLabel;
+   in message: UNDMessage;
+                        in defaultButtonTitle:UNDLabel;
+                        in alternateButtonTitle:UNDLabel;
+                        in otherButtonTitle:UNDLabel;
+   out response: unsigned);

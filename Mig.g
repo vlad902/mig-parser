@@ -202,7 +202,7 @@ arguments: LPAREN! (argument_list)? RPAREN! ;
 argument_list : argument (SEMI! argument_list)?
 	| trailer (SEMI! argument_list)?
 	;
-argument : (direction)? identifier argument_type (ipc_flags)? -> ^(ARG_DEF identifier argument_type direction?);
+argument : (direction)? identifier argument_type (ipc_flags)? -> ^(ARG_DEF identifier direction?);
 identifier: IDENT;
 trailer : tr_impl_keyword IDENT argument_type ;
 direction : 'in'
