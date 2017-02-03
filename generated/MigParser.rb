@@ -5,7 +5,7 @@
 # Generated using ANTLR version: 3.5
 # Ruby runtime library version: 1.10.0
 # Input grammar file: Mig.g
-# Generated at: 2017-01-28 11:09:05
+# Generated at: 2017-01-30 21:14:17
 #
 
 # ~~~> start load path setup
@@ -65,9 +65,7 @@ module Mig
   module TokenData
 
     # define the token constants
-    define_tokens( :EOF => -1, :T__32 => 32, :T__33 => 33, :T__34 => 34, 
-                   :T__35 => 35, :T__36 => 36, :T__37 => 37, :T__38 => 38, 
-                   :T__39 => 39, :T__40 => 40, :T__41 => 41, :T__42 => 42, 
+    define_tokens( :EOF => -1, :T__40 => 40, :T__41 => 41, :T__42 => 42, 
                    :T__43 => 43, :T__44 => 44, :T__45 => 45, :T__46 => 46, 
                    :T__47 => 47, :T__48 => 48, :T__49 => 49, :T__50 => 50, 
                    :T__51 => 51, :T__52 => 52, :T__53 => 53, :T__54 => 54, 
@@ -87,13 +85,18 @@ module Mig
                    :T__107 => 107, :T__108 => 108, :T__109 => 109, :T__110 => 110, 
                    :T__111 => 111, :T__112 => 112, :T__113 => 113, :T__114 => 114, 
                    :T__115 => 115, :T__116 => 116, :T__117 => 117, :T__118 => 118, 
-                   :ANGLEQUOTEDSTRING => 4, :ARG_DEF => 5, :BAR => 6, :CARET => 7, 
-                   :COLON => 8, :COMMA => 9, :COMMENT => 10, :DIGIT => 11, 
-                   :DIV => 12, :EQUAL => 13, :IDENT => 14, :LANGLE => 15, 
-                   :LBRACK => 16, :LETTER => 17, :LPAREN => 18, :MINUS => 19, 
-                   :NUMBER => 20, :OF => 21, :PLUS => 22, :QUOTEDSTRING => 23, 
-                   :RANGLE => 24, :RBRACK => 25, :ROUTINE_DEF => 26, :RPAREN => 27, 
-                   :SEMI => 28, :STAR => 29, :TILDE => 30, :WS => 31 )
+                   :T__119 => 119, :T__120 => 120, :T__121 => 121, :T__122 => 122, 
+                   :T__123 => 123, :T__124 => 124, :T__125 => 125, :T__126 => 126, 
+                   :T__127 => 127, :ANGLEQUOTEDSTRING => 4, :ARG_DEF => 5, 
+                   :ARG_TYPE => 6, :ARRAY => 7, :BAR => 8, :CARET => 9, 
+                   :COLON => 10, :COMMA => 11, :COMMENT => 12, :DIGIT => 13, 
+                   :DIRECTION => 14, :DIV => 15, :EQUAL => 16, :FIXED_SIZE => 17, 
+                   :IDENT => 18, :IPC_FLAGS => 19, :LANGLE => 20, :LBRACK => 21, 
+                   :LETTER => 22, :LPAREN => 23, :MINUS => 24, :NUMBER => 25, 
+                   :OF => 26, :PLUS => 27, :QUOTEDSTRING => 28, :RANGLE => 29, 
+                   :RBRACK => 30, :ROUTINE_DEF => 31, :RPAREN => 32, :SEMI => 33, 
+                   :STAR => 34, :TILDE => 35, :TYPE_DEF => 36, :UNLIMITED_SIZE => 37, 
+                   :VARIABLE_SIZE => 38, :WS => 39 )
 
 
     # register the proper human-readable name or literal value
@@ -102,34 +105,36 @@ module Mig
     # this is necessary because anonymous tokens, which are
     # created from literal values in the grammar, do not
     # have descriptive names
-    register_names( "ANGLEQUOTEDSTRING", "ARG_DEF", "BAR", "CARET", "COLON", 
-                    "COMMA", "COMMENT", "DIGIT", "DIV", "EQUAL", "IDENT", 
-                    "LANGLE", "LBRACK", "LETTER", "LPAREN", "MINUS", "NUMBER", 
-                    "OF", "PLUS", "QUOTEDSTRING", "RANGLE", "RBRACK", "ROUTINE_DEF", 
-                    "RPAREN", "SEMI", "STAR", "TILDE", "WS", "'CountInOut'", 
-                    "'Dealloc'", "'KernelServer'", "'KernelUser'", "'MACH_MSG_TYPE_BIT'", 
-                    "'MACH_MSG_TYPE_BOOLEAN'", "'MACH_MSG_TYPE_BYTE'", "'MACH_MSG_TYPE_CHAR'", 
-                    "'MACH_MSG_TYPE_COPY_SEND'", "'MACH_MSG_TYPE_INTEGER_16'", 
-                    "'MACH_MSG_TYPE_INTEGER_32'", "'MACH_MSG_TYPE_INTEGER_64'", 
-                    "'MACH_MSG_TYPE_INTEGER_8'", "'MACH_MSG_TYPE_MAKE_SEND'", 
-                    "'MACH_MSG_TYPE_MAKE_SEND_ONCE'", "'MACH_MSG_TYPE_MOVE_RECEIVE'", 
-                    "'MACH_MSG_TYPE_MOVE_SEND'", "'MACH_MSG_TYPE_MOVE_SEND_ONCE'", 
-                    "'MACH_MSG_TYPE_POLYMORPHIC'", "'MACH_MSG_TYPE_PORT_NAME'", 
-                    "'MACH_MSG_TYPE_PORT_RECEIVE'", "'MACH_MSG_TYPE_PORT_SEND'", 
-                    "'MACH_MSG_TYPE_PORT_SEND_ONCE'", "'MACH_MSG_TYPE_REAL'", 
-                    "'MACH_MSG_TYPE_REAL_32'", "'MACH_MSG_TYPE_REAL_64'", 
+    register_names( "ANGLEQUOTEDSTRING", "ARG_DEF", "ARG_TYPE", "ARRAY", 
+                    "BAR", "CARET", "COLON", "COMMA", "COMMENT", "DIGIT", 
+                    "DIRECTION", "DIV", "EQUAL", "FIXED_SIZE", "IDENT", 
+                    "IPC_FLAGS", "LANGLE", "LBRACK", "LETTER", "LPAREN", 
+                    "MINUS", "NUMBER", "OF", "PLUS", "QUOTEDSTRING", "RANGLE", 
+                    "RBRACK", "ROUTINE_DEF", "RPAREN", "SEMI", "STAR", "TILDE", 
+                    "TYPE_DEF", "UNLIMITED_SIZE", "VARIABLE_SIZE", "WS", 
+                    "'CountInOut'", "'Dealloc'", "'KernelServer'", "'KernelUser'", 
+                    "'MACH_MSG_TYPE_BIT'", "'MACH_MSG_TYPE_BOOLEAN'", "'MACH_MSG_TYPE_BYTE'", 
+                    "'MACH_MSG_TYPE_CHAR'", "'MACH_MSG_TYPE_COPY_SEND'", 
+                    "'MACH_MSG_TYPE_INTEGER_16'", "'MACH_MSG_TYPE_INTEGER_32'", 
+                    "'MACH_MSG_TYPE_INTEGER_64'", "'MACH_MSG_TYPE_INTEGER_8'", 
+                    "'MACH_MSG_TYPE_MAKE_SEND'", "'MACH_MSG_TYPE_MAKE_SEND_ONCE'", 
+                    "'MACH_MSG_TYPE_MOVE_RECEIVE'", "'MACH_MSG_TYPE_MOVE_SEND'", 
+                    "'MACH_MSG_TYPE_MOVE_SEND_ONCE'", "'MACH_MSG_TYPE_POLYMORPHIC'", 
+                    "'MACH_MSG_TYPE_PORT_NAME'", "'MACH_MSG_TYPE_PORT_RECEIVE'", 
+                    "'MACH_MSG_TYPE_PORT_SEND'", "'MACH_MSG_TYPE_PORT_SEND_ONCE'", 
+                    "'MACH_MSG_TYPE_REAL'", "'MACH_MSG_TYPE_REAL_32'", "'MACH_MSG_TYPE_REAL_64'", 
                     "'MACH_MSG_TYPE_STRING'", "'MACH_MSG_TYPE_STRING_C'", 
                     "'MACH_MSG_TYPE_UNSTRUCTURED'", "'OnStackLimit'", "'PointerTo'", 
                     "'PointerToIfNot'", "'SameCount'", "'ServerPrefix'", 
                     "'UserPrefix'", "'UserTypeLimit'", "'ValueOf'", "'array'", 
                     "'audittoken'", "'auto'", "'c_string'", "'const'", "'cservertype'", 
-                    "'ctype'", "'cusertype'", "'destructor'", "'dimport'", 
-                    "'error'", "'iimport'", "'import'", "'in'", "'inout'", 
-                    "'intran'", "'kernelserver'", "'kerneluser'", "'msgoption'", 
-                    "'msgseqno'", "'notdealloc'", "'out'", "'outtran'", 
-                    "'overwrite'", "'physicalcopy'", "'polymorphic'", "'replyport'", 
-                    "'requestport'", "'retcode'", "'routine'", "'sectoken'", 
-                    "'sendtime'", "'serveraudittoken'", "'servercopy'", 
+                    "'ctype'", "'cusertype'", "'dealloc'", "'destructor'", 
+                    "'dimport'", "'error'", "'iimport'", "'import'", "'in'", 
+                    "'inout'", "'intran'", "'kernelserver'", "'kerneluser'", 
+                    "'msgoption'", "'msgseqno'", "'notdealloc'", "'out'", 
+                    "'outtran'", "'overwrite'", "'physicalcopy'", "'polymorphic'", 
+                    "'replyport'", "'requestport'", "'retcode'", "'routine'", 
+                    "'sectoken'", "'sendtime'", "'serveraudittoken'", "'servercopy'", 
                     "'serverdemux'", "'serverimpl'", "'serversectoken'", 
                     "'simpleroutine'", "'simport'", "'skip'", "'sreplyport'", 
                     "'struct'", "'subsystem'", "'type'", "'uimport'", "'ureplyport'", 
@@ -154,8 +159,8 @@ module Mig
                      :var_array_head, :array_head, :struct_head, :c_string_spec, 
                      :type_phrase, :int_exp, :routine_decl, :routine, :simple_routine, 
                      :arguments, :argument_list, :argument, :identifier, 
-                     :trailer, :direction, :tr_impl_keyword, :argument_type, 
-                     :ipc_flags, :ipc_flag ].freeze
+                     :trailer, :direction, :direction_flag, :tr_impl_keyword, 
+                     :argument_type, :ipc_flags, :ipc_flag ].freeze
 
     include TokenData
 
@@ -175,7 +180,7 @@ module Mig
     # parser rule statements
     #
     # (in Mig.g)
-    # 74:1: statements : ( statement )* ;
+    # 83:1: statements : ( statement )* ;
     #
     def statements
       # -> uncomment the next line to manually enable rule tracing
@@ -198,20 +203,20 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 74:14: ( statement )*
-      # at line 74:14: ( statement )*
+      # at line 83:14: ( statement )*
+      # at line 83:14: ( statement )*
       while true # decision 1
         alt_1 = 2
         look_1_0 = @input.peek( 1 )
 
-        if ( look_1_0 == SEMI || look_1_0 == T__61 || look_1_0.between?( T__65, T__67 ) || look_1_0.between?( T__78, T__81 ) || look_1_0 == T__98 || look_1_0 == T__103 || look_1_0.between?( T__106, T__108 ) || look_1_0.between?( T__111, T__113 ) )
+        if ( look_1_0 == SEMI || look_1_0 == T__69 || look_1_0.between?( T__73, T__75 ) || look_1_0.between?( T__87, T__90 ) || look_1_0 == T__107 || look_1_0 == T__112 || look_1_0.between?( T__115, T__117 ) || look_1_0.between?( T__120, T__122 ) )
           alt_1 = 1
 
         end
         case alt_1
         when 1
-          # at line 74:15: statement
-          @state.following.push( TOKENS_FOLLOWING_statement_IN_statements_56 )
+          # at line 83:15: statement
+          @state.following.push( TOKENS_FOLLOWING_statement_IN_statements_97 )
           statement1 = statement
           @state.following.pop
           @adaptor.add_child( root_0, statement1.tree )
@@ -253,7 +258,7 @@ module Mig
     # parser rule statement
     #
     # (in Mig.g)
-    # 76:1: statement : ( subsystem SEMI !| user_type_limit SEMI !| on_stack_limit SEMI !| error SEMI !| server_prefix SEMI !| user_prefix SEMI !| server_demux SEMI !| type_decl SEMI !| routine_decl SEMI !| 'skip' SEMI !| import_decl SEMI !| SEMI !);
+    # 85:1: statement : ( subsystem SEMI !| user_type_limit SEMI !| on_stack_limit SEMI !| error SEMI !| server_prefix SEMI !| user_prefix SEMI !| server_demux SEMI !| type_decl SEMI !| routine_decl SEMI !| 'skip' SEMI !| import_decl SEMI !| SEMI !);
     #
     def statement
       # -> uncomment the next line to manually enable rule tracing
@@ -308,20 +313,20 @@ module Mig
       tree_for_SEMI24 = nil
 
       begin
-      # at line 76:11: ( subsystem SEMI !| user_type_limit SEMI !| on_stack_limit SEMI !| error SEMI !| server_prefix SEMI !| user_prefix SEMI !| server_demux SEMI !| type_decl SEMI !| routine_decl SEMI !| 'skip' SEMI !| import_decl SEMI !| SEMI !)
+      # at line 85:11: ( subsystem SEMI !| user_type_limit SEMI !| on_stack_limit SEMI !| error SEMI !| server_prefix SEMI !| user_prefix SEMI !| server_demux SEMI !| type_decl SEMI !| routine_decl SEMI !| 'skip' SEMI !| import_decl SEMI !| SEMI !)
       alt_2 = 12
       case look_2 = @input.peek( 1 )
-      when T__111 then alt_2 = 1
-      when T__67 then alt_2 = 2
-      when T__61 then alt_2 = 3
-      when T__79 then alt_2 = 4
-      when T__65 then alt_2 = 5
-      when T__66 then alt_2 = 6
-      when T__103 then alt_2 = 7
-      when T__112 then alt_2 = 8
-      when T__98, T__106 then alt_2 = 9
-      when T__108 then alt_2 = 10
-      when T__78, T__80, T__81, T__107, T__113 then alt_2 = 11
+      when T__120 then alt_2 = 1
+      when T__75 then alt_2 = 2
+      when T__69 then alt_2 = 3
+      when T__88 then alt_2 = 4
+      when T__73 then alt_2 = 5
+      when T__74 then alt_2 = 6
+      when T__112 then alt_2 = 7
+      when T__121 then alt_2 = 8
+      when T__107, T__115 then alt_2 = 9
+      when T__117 then alt_2 = 10
+      when T__87, T__89, T__90, T__116, T__122 then alt_2 = 11
       when SEMI then alt_2 = 12
       else
         raise NoViableAlternative( "", 2, 0 )
@@ -332,140 +337,140 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 76:13: subsystem SEMI !
-        @state.following.push( TOKENS_FOLLOWING_subsystem_IN_statement_67 )
+        # at line 85:13: subsystem SEMI !
+        @state.following.push( TOKENS_FOLLOWING_subsystem_IN_statement_108 )
         subsystem2 = subsystem
         @state.following.pop
         @adaptor.add_child( root_0, subsystem2.tree )
 
-        __SEMI3__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_69 )
+        __SEMI3__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_110 )
 
       when 2
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 79:5: user_type_limit SEMI !
-        @state.following.push( TOKENS_FOLLOWING_user_type_limit_IN_statement_78 )
+        # at line 88:5: user_type_limit SEMI !
+        @state.following.push( TOKENS_FOLLOWING_user_type_limit_IN_statement_119 )
         user_type_limit4 = user_type_limit
         @state.following.pop
         @adaptor.add_child( root_0, user_type_limit4.tree )
 
-        __SEMI5__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_80 )
+        __SEMI5__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_121 )
 
       when 3
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 80:5: on_stack_limit SEMI !
-        @state.following.push( TOKENS_FOLLOWING_on_stack_limit_IN_statement_87 )
+        # at line 89:5: on_stack_limit SEMI !
+        @state.following.push( TOKENS_FOLLOWING_on_stack_limit_IN_statement_128 )
         on_stack_limit6 = on_stack_limit
         @state.following.pop
         @adaptor.add_child( root_0, on_stack_limit6.tree )
 
-        __SEMI7__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_89 )
+        __SEMI7__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_130 )
 
       when 4
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 81:5: error SEMI !
-        @state.following.push( TOKENS_FOLLOWING_error_IN_statement_96 )
+        # at line 90:5: error SEMI !
+        @state.following.push( TOKENS_FOLLOWING_error_IN_statement_137 )
         error8 = error
         @state.following.pop
         @adaptor.add_child( root_0, error8.tree )
 
-        __SEMI9__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_98 )
+        __SEMI9__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_139 )
 
       when 5
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 82:5: server_prefix SEMI !
-        @state.following.push( TOKENS_FOLLOWING_server_prefix_IN_statement_105 )
+        # at line 91:5: server_prefix SEMI !
+        @state.following.push( TOKENS_FOLLOWING_server_prefix_IN_statement_146 )
         server_prefix10 = server_prefix
         @state.following.pop
         @adaptor.add_child( root_0, server_prefix10.tree )
 
-        __SEMI11__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_107 )
+        __SEMI11__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_148 )
 
       when 6
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 83:5: user_prefix SEMI !
-        @state.following.push( TOKENS_FOLLOWING_user_prefix_IN_statement_114 )
+        # at line 92:5: user_prefix SEMI !
+        @state.following.push( TOKENS_FOLLOWING_user_prefix_IN_statement_155 )
         user_prefix12 = user_prefix
         @state.following.pop
         @adaptor.add_child( root_0, user_prefix12.tree )
 
-        __SEMI13__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_116 )
+        __SEMI13__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_157 )
 
       when 7
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 84:5: server_demux SEMI !
-        @state.following.push( TOKENS_FOLLOWING_server_demux_IN_statement_123 )
+        # at line 93:5: server_demux SEMI !
+        @state.following.push( TOKENS_FOLLOWING_server_demux_IN_statement_164 )
         server_demux14 = server_demux
         @state.following.pop
         @adaptor.add_child( root_0, server_demux14.tree )
 
-        __SEMI15__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_125 )
+        __SEMI15__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_166 )
 
       when 8
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 85:5: type_decl SEMI !
-        @state.following.push( TOKENS_FOLLOWING_type_decl_IN_statement_132 )
+        # at line 94:5: type_decl SEMI !
+        @state.following.push( TOKENS_FOLLOWING_type_decl_IN_statement_173 )
         type_decl16 = type_decl
         @state.following.pop
         @adaptor.add_child( root_0, type_decl16.tree )
 
-        __SEMI17__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_134 )
+        __SEMI17__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_175 )
 
       when 9
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 86:5: routine_decl SEMI !
-        @state.following.push( TOKENS_FOLLOWING_routine_decl_IN_statement_141 )
+        # at line 95:5: routine_decl SEMI !
+        @state.following.push( TOKENS_FOLLOWING_routine_decl_IN_statement_182 )
         routine_decl18 = routine_decl
         @state.following.pop
         @adaptor.add_child( root_0, routine_decl18.tree )
 
-        __SEMI19__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_143 )
+        __SEMI19__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_184 )
 
       when 10
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 87:5: 'skip' SEMI !
-        string_literal20 = match( T__108, TOKENS_FOLLOWING_T__108_IN_statement_150 )
+        # at line 96:5: 'skip' SEMI !
+        string_literal20 = match( T__117, TOKENS_FOLLOWING_T__117_IN_statement_191 )
         tree_for_string_literal20 = @adaptor.create_with_payload( string_literal20 )
         @adaptor.add_child( root_0, tree_for_string_literal20 )
 
 
-        __SEMI21__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_152 )
+        __SEMI21__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_193 )
 
       when 11
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 88:5: import_decl SEMI !
-        @state.following.push( TOKENS_FOLLOWING_import_decl_IN_statement_159 )
+        # at line 97:5: import_decl SEMI !
+        @state.following.push( TOKENS_FOLLOWING_import_decl_IN_statement_200 )
         import_decl22 = import_decl
         @state.following.pop
         @adaptor.add_child( root_0, import_decl22.tree )
 
-        __SEMI23__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_161 )
+        __SEMI23__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_202 )
 
       when 12
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 90:5: SEMI !
-        __SEMI24__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_169 )
+        # at line 99:5: SEMI !
+        __SEMI24__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_statement_210 )
 
       end
       # - - - - - - - rule clean up - - - - - - - -
@@ -498,7 +503,7 @@ module Mig
     # parser rule subsystem
     #
     # (in Mig.g)
-    # 92:1: subsystem : 'subsystem' ! subsystem_mods subsystem_name subsystem_base ;
+    # 101:1: subsystem : 'subsystem' ! subsystem_mods subsystem_name subsystem_base ;
     #
     def subsystem
       # -> uncomment the next line to manually enable rule tracing
@@ -525,19 +530,19 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 92:13: 'subsystem' ! subsystem_mods subsystem_name subsystem_base
-      string_literal25 = match( T__111, TOKENS_FOLLOWING_T__111_IN_subsystem_179 )
-      @state.following.push( TOKENS_FOLLOWING_subsystem_mods_IN_subsystem_182 )
+      # at line 101:13: 'subsystem' ! subsystem_mods subsystem_name subsystem_base
+      string_literal25 = match( T__120, TOKENS_FOLLOWING_T__120_IN_subsystem_220 )
+      @state.following.push( TOKENS_FOLLOWING_subsystem_mods_IN_subsystem_223 )
       subsystem_mods26 = subsystem_mods
       @state.following.pop
       @adaptor.add_child( root_0, subsystem_mods26.tree )
 
-      @state.following.push( TOKENS_FOLLOWING_subsystem_name_IN_subsystem_184 )
+      @state.following.push( TOKENS_FOLLOWING_subsystem_name_IN_subsystem_225 )
       subsystem_name27 = subsystem_name
       @state.following.pop
       @adaptor.add_child( root_0, subsystem_name27.tree )
 
-      @state.following.push( TOKENS_FOLLOWING_subsystem_base_IN_subsystem_186 )
+      @state.following.push( TOKENS_FOLLOWING_subsystem_base_IN_subsystem_227 )
       subsystem_base28 = subsystem_base
       @state.following.pop
       @adaptor.add_child( root_0, subsystem_base28.tree )
@@ -573,7 +578,7 @@ module Mig
     # parser rule subsystem_mods
     #
     # (in Mig.g)
-    # 93:1: subsystem_mods : ( subsystem_mod )* ;
+    # 102:1: subsystem_mods : ( subsystem_mod )* ;
     #
     def subsystem_mods
       # -> uncomment the next line to manually enable rule tracing
@@ -596,20 +601,20 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 93:18: ( subsystem_mod )*
-      # at line 93:18: ( subsystem_mod )*
+      # at line 102:18: ( subsystem_mod )*
+      # at line 102:18: ( subsystem_mod )*
       while true # decision 3
         alt_3 = 2
         look_3_0 = @input.peek( 1 )
 
-        if ( look_3_0.between?( T__34, T__35 ) || look_3_0.between?( T__85, T__86 ) )
+        if ( look_3_0.between?( T__42, T__43 ) || look_3_0.between?( T__94, T__95 ) )
           alt_3 = 1
 
         end
         case alt_3
         when 1
-          # at line 93:19: subsystem_mod
-          @state.following.push( TOKENS_FOLLOWING_subsystem_mod_IN_subsystem_mods_195 )
+          # at line 102:19: subsystem_mod
+          @state.following.push( TOKENS_FOLLOWING_subsystem_mod_IN_subsystem_mods_236 )
           subsystem_mod29 = subsystem_mod
           @state.following.pop
           @adaptor.add_child( root_0, subsystem_mod29.tree )
@@ -651,7 +656,7 @@ module Mig
     # parser rule subsystem_mod
     #
     # (in Mig.g)
-    # 95:1: subsystem_mod : ( 'kerneluser' | 'kernelserver' | 'KernelUser' | 'KernelServer' );
+    # 104:1: subsystem_mod : ( 'kerneluser' | 'kernelserver' | 'KernelUser' | 'KernelServer' );
     #
     def subsystem_mod
       # -> uncomment the next line to manually enable rule tracing
@@ -678,7 +683,7 @@ module Mig
       # at line 
       set30 = @input.look
 
-      if @input.peek( 1 ).between?( T__34, T__35 ) || @input.peek( 1 ).between?( T__85, T__86 )
+      if @input.peek( 1 ).between?( T__42, T__43 ) || @input.peek( 1 ).between?( T__94, T__95 )
         @input.consume
         @adaptor.add_child( root_0, @adaptor.create_with_payload( set30 ) )
 
@@ -722,7 +727,7 @@ module Mig
     # parser rule subsystem_name
     #
     # (in Mig.g)
-    # 97:1: subsystem_name : IDENT ;
+    # 106:1: subsystem_name : IDENT ;
     #
     def subsystem_name
       # -> uncomment the next line to manually enable rule tracing
@@ -746,8 +751,8 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 97:18: IDENT
-      __IDENT31__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_subsystem_name_229 )
+      # at line 106:18: IDENT
+      __IDENT31__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_subsystem_name_270 )
       tree_for_IDENT31 = @adaptor.create_with_payload( __IDENT31__ )
       @adaptor.add_child( root_0, tree_for_IDENT31 )
 
@@ -783,7 +788,7 @@ module Mig
     # parser rule subsystem_base
     #
     # (in Mig.g)
-    # 99:1: subsystem_base : NUMBER ;
+    # 108:1: subsystem_base : NUMBER ;
     #
     def subsystem_base
       # -> uncomment the next line to manually enable rule tracing
@@ -807,8 +812,8 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 99:18: NUMBER
-      __NUMBER32__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_subsystem_base_239 )
+      # at line 108:18: NUMBER
+      __NUMBER32__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_subsystem_base_280 )
       tree_for_NUMBER32 = @adaptor.create_with_payload( __NUMBER32__ )
       @adaptor.add_child( root_0, tree_for_NUMBER32 )
 
@@ -844,7 +849,7 @@ module Mig
     # parser rule user_type_limit
     #
     # (in Mig.g)
-    # 102:1: user_type_limit : 'UserTypeLimit' ! NUMBER ;
+    # 111:1: user_type_limit : 'UserTypeLimit' ! NUMBER ;
     #
     def user_type_limit
       # -> uncomment the next line to manually enable rule tracing
@@ -870,9 +875,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 102:19: 'UserTypeLimit' ! NUMBER
-      string_literal33 = match( T__67, TOKENS_FOLLOWING_T__67_IN_user_type_limit_249 )
-      __NUMBER34__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_user_type_limit_252 )
+      # at line 111:19: 'UserTypeLimit' ! NUMBER
+      string_literal33 = match( T__75, TOKENS_FOLLOWING_T__75_IN_user_type_limit_290 )
+      __NUMBER34__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_user_type_limit_293 )
       tree_for_NUMBER34 = @adaptor.create_with_payload( __NUMBER34__ )
       @adaptor.add_child( root_0, tree_for_NUMBER34 )
 
@@ -908,7 +913,7 @@ module Mig
     # parser rule on_stack_limit
     #
     # (in Mig.g)
-    # 103:1: on_stack_limit : 'OnStackLimit' ! NUMBER ;
+    # 112:1: on_stack_limit : 'OnStackLimit' ! NUMBER ;
     #
     def on_stack_limit
       # -> uncomment the next line to manually enable rule tracing
@@ -934,9 +939,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 103:18: 'OnStackLimit' ! NUMBER
-      string_literal35 = match( T__61, TOKENS_FOLLOWING_T__61_IN_on_stack_limit_260 )
-      __NUMBER36__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_on_stack_limit_263 )
+      # at line 112:18: 'OnStackLimit' ! NUMBER
+      string_literal35 = match( T__69, TOKENS_FOLLOWING_T__69_IN_on_stack_limit_301 )
+      __NUMBER36__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_on_stack_limit_304 )
       tree_for_NUMBER36 = @adaptor.create_with_payload( __NUMBER36__ )
       @adaptor.add_child( root_0, tree_for_NUMBER36 )
 
@@ -972,7 +977,7 @@ module Mig
     # parser rule error
     #
     # (in Mig.g)
-    # 104:1: error : 'error' ! IDENT ;
+    # 113:1: error : 'error' ! IDENT ;
     #
     def error
       # -> uncomment the next line to manually enable rule tracing
@@ -998,9 +1003,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 104:9: 'error' ! IDENT
-      string_literal37 = match( T__79, TOKENS_FOLLOWING_T__79_IN_error_271 )
-      __IDENT38__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_error_274 )
+      # at line 113:9: 'error' ! IDENT
+      string_literal37 = match( T__88, TOKENS_FOLLOWING_T__88_IN_error_312 )
+      __IDENT38__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_error_315 )
       tree_for_IDENT38 = @adaptor.create_with_payload( __IDENT38__ )
       @adaptor.add_child( root_0, tree_for_IDENT38 )
 
@@ -1036,7 +1041,7 @@ module Mig
     # parser rule server_prefix
     #
     # (in Mig.g)
-    # 105:1: server_prefix : 'ServerPrefix' ! IDENT ;
+    # 114:1: server_prefix : 'ServerPrefix' ! IDENT ;
     #
     def server_prefix
       # -> uncomment the next line to manually enable rule tracing
@@ -1062,9 +1067,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 105:17: 'ServerPrefix' ! IDENT
-      string_literal39 = match( T__65, TOKENS_FOLLOWING_T__65_IN_server_prefix_282 )
-      __IDENT40__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_server_prefix_285 )
+      # at line 114:17: 'ServerPrefix' ! IDENT
+      string_literal39 = match( T__73, TOKENS_FOLLOWING_T__73_IN_server_prefix_323 )
+      __IDENT40__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_server_prefix_326 )
       tree_for_IDENT40 = @adaptor.create_with_payload( __IDENT40__ )
       @adaptor.add_child( root_0, tree_for_IDENT40 )
 
@@ -1100,7 +1105,7 @@ module Mig
     # parser rule user_prefix
     #
     # (in Mig.g)
-    # 106:1: user_prefix : 'UserPrefix' ! IDENT ;
+    # 115:1: user_prefix : 'UserPrefix' ! IDENT ;
     #
     def user_prefix
       # -> uncomment the next line to manually enable rule tracing
@@ -1126,9 +1131,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 106:15: 'UserPrefix' ! IDENT
-      string_literal41 = match( T__66, TOKENS_FOLLOWING_T__66_IN_user_prefix_294 )
-      __IDENT42__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_user_prefix_297 )
+      # at line 115:15: 'UserPrefix' ! IDENT
+      string_literal41 = match( T__74, TOKENS_FOLLOWING_T__74_IN_user_prefix_335 )
+      __IDENT42__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_user_prefix_338 )
       tree_for_IDENT42 = @adaptor.create_with_payload( __IDENT42__ )
       @adaptor.add_child( root_0, tree_for_IDENT42 )
 
@@ -1164,7 +1169,7 @@ module Mig
     # parser rule server_demux
     #
     # (in Mig.g)
-    # 107:1: server_demux : 'serverdemux' ! IDENT ;
+    # 116:1: server_demux : 'serverdemux' ! IDENT ;
     #
     def server_demux
       # -> uncomment the next line to manually enable rule tracing
@@ -1190,9 +1195,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 107:16: 'serverdemux' ! IDENT
-      string_literal43 = match( T__103, TOKENS_FOLLOWING_T__103_IN_server_demux_305 )
-      __IDENT44__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_server_demux_308 )
+      # at line 116:16: 'serverdemux' ! IDENT
+      string_literal43 = match( T__112, TOKENS_FOLLOWING_T__112_IN_server_demux_346 )
+      __IDENT44__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_server_demux_349 )
       tree_for_IDENT44 = @adaptor.create_with_payload( __IDENT44__ )
       @adaptor.add_child( root_0, tree_for_IDENT44 )
 
@@ -1228,7 +1233,7 @@ module Mig
     # parser rule import_decl
     #
     # (in Mig.g)
-    # 108:1: import_decl : import_indicant ( QUOTEDSTRING | ANGLEQUOTEDSTRING ) ;
+    # 117:1: import_decl : import_indicant ( QUOTEDSTRING | ANGLEQUOTEDSTRING ) ;
     #
     def import_decl
       # -> uncomment the next line to manually enable rule tracing
@@ -1253,8 +1258,8 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 108:15: import_indicant ( QUOTEDSTRING | ANGLEQUOTEDSTRING )
-      @state.following.push( TOKENS_FOLLOWING_import_indicant_IN_import_decl_316 )
+      # at line 117:15: import_indicant ( QUOTEDSTRING | ANGLEQUOTEDSTRING )
+      @state.following.push( TOKENS_FOLLOWING_import_indicant_IN_import_decl_357 )
       import_indicant45 = import_indicant
       @state.following.pop
       @adaptor.add_child( root_0, import_indicant45.tree )
@@ -1306,7 +1311,7 @@ module Mig
     # parser rule import_indicant
     #
     # (in Mig.g)
-    # 110:1: import_indicant : ( 'import' | 'uimport' | 'simport' | 'dimport' | 'iimport' );
+    # 119:1: import_indicant : ( 'import' | 'uimport' | 'simport' | 'dimport' | 'iimport' );
     #
     def import_indicant
       # -> uncomment the next line to manually enable rule tracing
@@ -1333,7 +1338,7 @@ module Mig
       # at line 
       set47 = @input.look
 
-      if @input.peek(1) == T__78 || @input.peek( 1 ).between?( T__80, T__81 ) || @input.peek(1) == T__107 || @input.peek(1) == T__113
+      if @input.peek(1) == T__87 || @input.peek( 1 ).between?( T__89, T__90 ) || @input.peek(1) == T__116 || @input.peek(1) == T__122
         @input.consume
         @adaptor.add_child( root_0, @adaptor.create_with_payload( set47 ) )
 
@@ -1377,7 +1382,7 @@ module Mig
     # parser rule type_decl
     #
     # (in Mig.g)
-    # 116:1: type_decl : 'type' ! named_type_spec ;
+    # 125:1: type_decl : 'type' ! named_type_spec ;
     #
     def type_decl
       # -> uncomment the next line to manually enable rule tracing
@@ -1402,9 +1407,9 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 116:13: 'type' ! named_type_spec
-      string_literal48 = match( T__112, TOKENS_FOLLOWING_T__112_IN_type_decl_363 )
-      @state.following.push( TOKENS_FOLLOWING_named_type_spec_IN_type_decl_366 )
+      # at line 125:13: 'type' ! named_type_spec
+      string_literal48 = match( T__121, TOKENS_FOLLOWING_T__121_IN_type_decl_404 )
+      @state.following.push( TOKENS_FOLLOWING_named_type_spec_IN_type_decl_407 )
       named_type_spec49 = named_type_spec
       @state.following.pop
       @adaptor.add_child( root_0, named_type_spec49.tree )
@@ -1440,7 +1445,7 @@ module Mig
     # parser rule named_type_spec
     #
     # (in Mig.g)
-    # 117:1: named_type_spec : IDENT EQUAL ! trans_type_spec ;
+    # 126:1: named_type_spec : IDENT EQUAL trans_type_spec -> ^( TYPE_DEF IDENT trans_type_spec ) ;
     #
     def named_type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -1462,22 +1467,49 @@ module Mig
 
       tree_for_IDENT50 = nil
       tree_for_EQUAL51 = nil
-
+      stream_IDENT = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token IDENT" )
+      stream_EQUAL = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token EQUAL" )
+      stream_trans_type_spec = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule trans_type_spec" )
       begin
-      root_0 = @adaptor.create_flat_list
+      # at line 126:19: IDENT EQUAL trans_type_spec
+      __IDENT50__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_named_type_spec_415 )
+      stream_IDENT.add( __IDENT50__ )
 
+      __EQUAL51__ = match( EQUAL, TOKENS_FOLLOWING_EQUAL_IN_named_type_spec_417 )
+      stream_EQUAL.add( __EQUAL51__ )
 
-      # at line 117:19: IDENT EQUAL ! trans_type_spec
-      __IDENT50__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_named_type_spec_375 )
-      tree_for_IDENT50 = @adaptor.create_with_payload( __IDENT50__ )
-      @adaptor.add_child( root_0, tree_for_IDENT50 )
-
-
-      __EQUAL51__ = match( EQUAL, TOKENS_FOLLOWING_EQUAL_IN_named_type_spec_377 )
-      @state.following.push( TOKENS_FOLLOWING_trans_type_spec_IN_named_type_spec_380 )
+      @state.following.push( TOKENS_FOLLOWING_trans_type_spec_IN_named_type_spec_419 )
       trans_type_spec52 = trans_type_spec
       @state.following.pop
-      @adaptor.add_child( root_0, trans_type_spec52.tree )
+      stream_trans_type_spec.add( trans_type_spec52.tree )
+
+      # AST Rewrite
+      # elements: IDENT, trans_type_spec
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+      root_0 = @adaptor.create_flat_list
+      # 126:47: -> ^( TYPE_DEF IDENT trans_type_spec )
+      # at line 126:50: ^( TYPE_DEF IDENT trans_type_spec )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( TYPE_DEF, "TYPE_DEF" ), root_1 )
+
+      @adaptor.add_child( root_1, stream_IDENT.next_node )
+
+      @adaptor.add_child( root_1, stream_trans_type_spec.next_tree )
+
+      @adaptor.add_child( root_0, root_1 )
+
+
+
+
+      return_value.tree = root_0
+
 
 
       # - - - - - - - rule clean up - - - - - - - -
@@ -1510,7 +1542,7 @@ module Mig
     # parser rule trans_type_spec
     #
     # (in Mig.g)
-    # 118:1: trans_type_spec : type_spec ( trans_type_spec_extended )* ;
+    # 127:1: trans_type_spec : type_spec ( trans_type_spec_extended )* ;
     #
     def trans_type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -1534,25 +1566,25 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 118:20: type_spec ( trans_type_spec_extended )*
-      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_trans_type_spec_389 )
+      # at line 127:20: type_spec ( trans_type_spec_extended )*
+      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_trans_type_spec_437 )
       type_spec53 = type_spec
       @state.following.pop
       @adaptor.add_child( root_0, type_spec53.tree )
 
-      # at line 118:30: ( trans_type_spec_extended )*
+      # at line 127:30: ( trans_type_spec_extended )*
       while true # decision 4
         alt_4 = 2
         look_4_0 = @input.peek( 1 )
 
-        if ( look_4_0.between?( T__74, T__77 ) || look_4_0 == T__84 || look_4_0 == T__91 )
+        if ( look_4_0.between?( T__82, T__84 ) || look_4_0 == T__86 || look_4_0 == T__93 || look_4_0 == T__100 )
           alt_4 = 1
 
         end
         case alt_4
         when 1
-          # at line 118:31: trans_type_spec_extended
-          @state.following.push( TOKENS_FOLLOWING_trans_type_spec_extended_IN_trans_type_spec_392 )
+          # at line 127:31: trans_type_spec_extended
+          @state.following.push( TOKENS_FOLLOWING_trans_type_spec_extended_IN_trans_type_spec_440 )
           trans_type_spec_extended54 = trans_type_spec_extended
           @state.following.pop
           @adaptor.add_child( root_0, trans_type_spec_extended54.tree )
@@ -1594,7 +1626,7 @@ module Mig
     # parser rule trans_type_spec_extended
     #
     # (in Mig.g)
-    # 121:1: trans_type_spec_extended : ( 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !| 'ctype' COLON ! IDENT | 'cusertype' COLON ! IDENT | 'cservertype' COLON ! IDENT );
+    # 130:1: trans_type_spec_extended : ( 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !| 'ctype' COLON ! IDENT | 'cusertype' COLON ! IDENT | 'cservertype' COLON ! IDENT );
     #
     def trans_type_spec_extended
       # -> uncomment the next line to manually enable rule tracing
@@ -1671,15 +1703,15 @@ module Mig
       tree_for_IDENT83 = nil
 
       begin
-      # at line 121:26: ( 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !| 'ctype' COLON ! IDENT | 'cusertype' COLON ! IDENT | 'cservertype' COLON ! IDENT )
+      # at line 130:26: ( 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !| 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !| 'ctype' COLON ! IDENT | 'cusertype' COLON ! IDENT | 'cservertype' COLON ! IDENT )
       alt_5 = 6
       case look_5 = @input.peek( 1 )
-      when T__84 then alt_5 = 1
-      when T__91 then alt_5 = 2
-      when T__77 then alt_5 = 3
-      when T__75 then alt_5 = 4
-      when T__76 then alt_5 = 5
-      when T__74 then alt_5 = 6
+      when T__93 then alt_5 = 1
+      when T__100 then alt_5 = 2
+      when T__86 then alt_5 = 3
+      when T__83 then alt_5 = 4
+      when T__84 then alt_5 = 5
+      when T__82 then alt_5 = 6
       else
         raise NoViableAlternative( "", 5, 0 )
 
@@ -1689,96 +1721,96 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 121:28: 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !
-        string_literal55 = match( T__84, TOKENS_FOLLOWING_T__84_IN_trans_type_spec_extended_405 )
+        # at line 130:28: 'intran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !
+        string_literal55 = match( T__93, TOKENS_FOLLOWING_T__93_IN_trans_type_spec_extended_453 )
         tree_for_string_literal55 = @adaptor.create_with_payload( string_literal55 )
         @adaptor.add_child( root_0, tree_for_string_literal55 )
 
 
-        __COLON56__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_407 )
-        __IDENT57__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_410 )
+        __COLON56__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_455 )
+        __IDENT57__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_458 )
         tree_for_IDENT57 = @adaptor.create_with_payload( __IDENT57__ )
         @adaptor.add_child( root_0, tree_for_IDENT57 )
 
 
-        __IDENT58__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_412 )
+        __IDENT58__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_460 )
         tree_for_IDENT58 = @adaptor.create_with_payload( __IDENT58__ )
         @adaptor.add_child( root_0, tree_for_IDENT58 )
 
 
-        __LPAREN59__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_414 )
-        __IDENT60__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_417 )
+        __LPAREN59__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_462 )
+        __IDENT60__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_465 )
         tree_for_IDENT60 = @adaptor.create_with_payload( __IDENT60__ )
         @adaptor.add_child( root_0, tree_for_IDENT60 )
 
 
-        __RPAREN61__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_419 )
+        __RPAREN61__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_467 )
 
       when 2
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 122:4: 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !
-        string_literal62 = match( T__91, TOKENS_FOLLOWING_T__91_IN_trans_type_spec_extended_425 )
+        # at line 131:4: 'outtran' COLON ! IDENT IDENT LPAREN ! IDENT RPAREN !
+        string_literal62 = match( T__100, TOKENS_FOLLOWING_T__100_IN_trans_type_spec_extended_473 )
         tree_for_string_literal62 = @adaptor.create_with_payload( string_literal62 )
         @adaptor.add_child( root_0, tree_for_string_literal62 )
 
 
-        __COLON63__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_427 )
-        __IDENT64__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_430 )
+        __COLON63__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_475 )
+        __IDENT64__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_478 )
         tree_for_IDENT64 = @adaptor.create_with_payload( __IDENT64__ )
         @adaptor.add_child( root_0, tree_for_IDENT64 )
 
 
-        __IDENT65__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_432 )
+        __IDENT65__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_480 )
         tree_for_IDENT65 = @adaptor.create_with_payload( __IDENT65__ )
         @adaptor.add_child( root_0, tree_for_IDENT65 )
 
 
-        __LPAREN66__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_434 )
-        __IDENT67__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_437 )
+        __LPAREN66__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_482 )
+        __IDENT67__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_485 )
         tree_for_IDENT67 = @adaptor.create_with_payload( __IDENT67__ )
         @adaptor.add_child( root_0, tree_for_IDENT67 )
 
 
-        __RPAREN68__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_439 )
+        __RPAREN68__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_487 )
 
       when 3
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 123:4: 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !
-        string_literal69 = match( T__77, TOKENS_FOLLOWING_T__77_IN_trans_type_spec_extended_445 )
+        # at line 132:4: 'destructor' COLON ! IDENT LPAREN ! IDENT RPAREN !
+        string_literal69 = match( T__86, TOKENS_FOLLOWING_T__86_IN_trans_type_spec_extended_493 )
         tree_for_string_literal69 = @adaptor.create_with_payload( string_literal69 )
         @adaptor.add_child( root_0, tree_for_string_literal69 )
 
 
-        __COLON70__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_447 )
-        __IDENT71__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_450 )
+        __COLON70__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_495 )
+        __IDENT71__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_498 )
         tree_for_IDENT71 = @adaptor.create_with_payload( __IDENT71__ )
         @adaptor.add_child( root_0, tree_for_IDENT71 )
 
 
-        __LPAREN72__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_452 )
-        __IDENT73__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_455 )
+        __LPAREN72__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_500 )
+        __IDENT73__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_503 )
         tree_for_IDENT73 = @adaptor.create_with_payload( __IDENT73__ )
         @adaptor.add_child( root_0, tree_for_IDENT73 )
 
 
-        __RPAREN74__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_457 )
+        __RPAREN74__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_505 )
 
       when 4
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 124:4: 'ctype' COLON ! IDENT
-        string_literal75 = match( T__75, TOKENS_FOLLOWING_T__75_IN_trans_type_spec_extended_463 )
+        # at line 133:4: 'ctype' COLON ! IDENT
+        string_literal75 = match( T__83, TOKENS_FOLLOWING_T__83_IN_trans_type_spec_extended_511 )
         tree_for_string_literal75 = @adaptor.create_with_payload( string_literal75 )
         @adaptor.add_child( root_0, tree_for_string_literal75 )
 
 
-        __COLON76__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_465 )
-        __IDENT77__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_468 )
+        __COLON76__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_513 )
+        __IDENT77__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_516 )
         tree_for_IDENT77 = @adaptor.create_with_payload( __IDENT77__ )
         @adaptor.add_child( root_0, tree_for_IDENT77 )
 
@@ -1788,14 +1820,14 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 125:4: 'cusertype' COLON ! IDENT
-        string_literal78 = match( T__76, TOKENS_FOLLOWING_T__76_IN_trans_type_spec_extended_473 )
+        # at line 134:4: 'cusertype' COLON ! IDENT
+        string_literal78 = match( T__84, TOKENS_FOLLOWING_T__84_IN_trans_type_spec_extended_521 )
         tree_for_string_literal78 = @adaptor.create_with_payload( string_literal78 )
         @adaptor.add_child( root_0, tree_for_string_literal78 )
 
 
-        __COLON79__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_475 )
-        __IDENT80__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_478 )
+        __COLON79__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_523 )
+        __IDENT80__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_526 )
         tree_for_IDENT80 = @adaptor.create_with_payload( __IDENT80__ )
         @adaptor.add_child( root_0, tree_for_IDENT80 )
 
@@ -1805,14 +1837,14 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 126:4: 'cservertype' COLON ! IDENT
-        string_literal81 = match( T__74, TOKENS_FOLLOWING_T__74_IN_trans_type_spec_extended_483 )
+        # at line 135:4: 'cservertype' COLON ! IDENT
+        string_literal81 = match( T__82, TOKENS_FOLLOWING_T__82_IN_trans_type_spec_extended_531 )
         tree_for_string_literal81 = @adaptor.create_with_payload( string_literal81 )
         @adaptor.add_child( root_0, tree_for_string_literal81 )
 
 
-        __COLON82__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_485 )
-        __IDENT83__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_488 )
+        __COLON82__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_533 )
+        __IDENT83__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_536 )
         tree_for_IDENT83 = @adaptor.create_with_payload( __IDENT83__ )
         @adaptor.add_child( root_0, tree_for_IDENT83 )
 
@@ -1849,7 +1881,7 @@ module Mig
     # parser rule type_spec
     #
     # (in Mig.g)
-    # 128:1: type_spec : ( basic_type_spec | prev_type_spec | array_spec | CARET type_spec | struct_head | c_string_spec | native_type_spec );
+    # 137:1: type_spec : ( basic_type_spec | prev_type_spec | array_spec | CARET type_spec | struct_head | c_string_spec | native_type_spec );
     #
     def type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -1877,16 +1909,16 @@ module Mig
       tree_for_CARET87 = nil
 
       begin
-      # at line 128:11: ( basic_type_spec | prev_type_spec | array_spec | CARET type_spec | struct_head | c_string_spec | native_type_spec )
+      # at line 137:11: ( basic_type_spec | prev_type_spec | array_spec | CARET type_spec | struct_head | c_string_spec | native_type_spec )
       alt_6 = 7
       case look_6 = @input.peek( 1 )
-      when LPAREN, NUMBER, T__36, T__37, T__38, T__39, T__40, T__41, T__42, T__43, T__44, T__45, T__46, T__47, T__48, T__49, T__50, T__51, T__52, T__53, T__54, T__55, T__56, T__57, T__58, T__59, T__60, T__94 then alt_6 = 1
+      when LPAREN, NUMBER, T__44, T__45, T__46, T__47, T__48, T__49, T__50, T__51, T__52, T__53, T__54, T__55, T__56, T__57, T__58, T__59, T__60, T__61, T__62, T__63, T__64, T__65, T__66, T__67, T__68, T__103 then alt_6 = 1
       when IDENT then alt_6 = 2
-      when T__69 then alt_6 = 3
+      when T__77 then alt_6 = 3
       when CARET then alt_6 = 4
-      when T__110 then alt_6 = 5
-      when T__72 then alt_6 = 6
-      when T__62, T__63, T__68 then alt_6 = 7
+      when T__119 then alt_6 = 5
+      when T__80 then alt_6 = 6
+      when T__70, T__71, T__76 then alt_6 = 7
       else
         raise NoViableAlternative( "", 6, 0 )
 
@@ -1896,8 +1928,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 128:13: basic_type_spec
-        @state.following.push( TOKENS_FOLLOWING_basic_type_spec_IN_type_spec_498 )
+        # at line 137:13: basic_type_spec
+        @state.following.push( TOKENS_FOLLOWING_basic_type_spec_IN_type_spec_546 )
         basic_type_spec84 = basic_type_spec
         @state.following.pop
         @adaptor.add_child( root_0, basic_type_spec84.tree )
@@ -1907,8 +1939,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 129:4: prev_type_spec
-        @state.following.push( TOKENS_FOLLOWING_prev_type_spec_IN_type_spec_503 )
+        # at line 138:4: prev_type_spec
+        @state.following.push( TOKENS_FOLLOWING_prev_type_spec_IN_type_spec_551 )
         prev_type_spec85 = prev_type_spec
         @state.following.pop
         @adaptor.add_child( root_0, prev_type_spec85.tree )
@@ -1918,8 +1950,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 130:4: array_spec
-        @state.following.push( TOKENS_FOLLOWING_array_spec_IN_type_spec_508 )
+        # at line 139:4: array_spec
+        @state.following.push( TOKENS_FOLLOWING_array_spec_IN_type_spec_556 )
         array_spec86 = array_spec
         @state.following.pop
         @adaptor.add_child( root_0, array_spec86.tree )
@@ -1929,13 +1961,13 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 131:4: CARET type_spec
-        __CARET87__ = match( CARET, TOKENS_FOLLOWING_CARET_IN_type_spec_513 )
+        # at line 141:4: CARET type_spec
+        __CARET87__ = match( CARET, TOKENS_FOLLOWING_CARET_IN_type_spec_564 )
         tree_for_CARET87 = @adaptor.create_with_payload( __CARET87__ )
         @adaptor.add_child( root_0, tree_for_CARET87 )
 
 
-        @state.following.push( TOKENS_FOLLOWING_type_spec_IN_type_spec_515 )
+        @state.following.push( TOKENS_FOLLOWING_type_spec_IN_type_spec_566 )
         type_spec88 = type_spec
         @state.following.pop
         @adaptor.add_child( root_0, type_spec88.tree )
@@ -1945,8 +1977,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 132:4: struct_head
-        @state.following.push( TOKENS_FOLLOWING_struct_head_IN_type_spec_520 )
+        # at line 142:4: struct_head
+        @state.following.push( TOKENS_FOLLOWING_struct_head_IN_type_spec_571 )
         struct_head89 = struct_head
         @state.following.pop
         @adaptor.add_child( root_0, struct_head89.tree )
@@ -1956,8 +1988,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 133:4: c_string_spec
-        @state.following.push( TOKENS_FOLLOWING_c_string_spec_IN_type_spec_525 )
+        # at line 143:4: c_string_spec
+        @state.following.push( TOKENS_FOLLOWING_c_string_spec_IN_type_spec_576 )
         c_string_spec90 = c_string_spec
         @state.following.pop
         @adaptor.add_child( root_0, c_string_spec90.tree )
@@ -1967,8 +1999,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 134:4: native_type_spec
-        @state.following.push( TOKENS_FOLLOWING_native_type_spec_IN_type_spec_530 )
+        # at line 144:4: native_type_spec
+        @state.following.push( TOKENS_FOLLOWING_native_type_spec_IN_type_spec_581 )
         native_type_spec91 = native_type_spec
         @state.following.pop
         @adaptor.add_child( root_0, native_type_spec91.tree )
@@ -2005,7 +2037,7 @@ module Mig
     # parser rule native_type_spec
     #
     # (in Mig.g)
-    # 137:1: native_type_spec : ( 'PointerTo' LPAREN ! type_phrase RPAREN !| 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !| 'ValueOf' LPAREN ! type_phrase RPAREN !);
+    # 147:1: native_type_spec : ( 'PointerTo' LPAREN ! type_phrase RPAREN !| 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !| 'ValueOf' LPAREN ! type_phrase RPAREN !);
     #
     def native_type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -2048,12 +2080,12 @@ module Mig
       tree_for_RPAREN105 = nil
 
       begin
-      # at line 137:18: ( 'PointerTo' LPAREN ! type_phrase RPAREN !| 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !| 'ValueOf' LPAREN ! type_phrase RPAREN !)
+      # at line 147:18: ( 'PointerTo' LPAREN ! type_phrase RPAREN !| 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !| 'ValueOf' LPAREN ! type_phrase RPAREN !)
       alt_7 = 3
       case look_7 = @input.peek( 1 )
-      when T__62 then alt_7 = 1
-      when T__63 then alt_7 = 2
-      when T__68 then alt_7 = 3
+      when T__70 then alt_7 = 1
+      when T__71 then alt_7 = 2
+      when T__76 then alt_7 = 3
       else
         raise NoViableAlternative( "", 7, 0 )
 
@@ -2063,61 +2095,61 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 137:20: 'PointerTo' LPAREN ! type_phrase RPAREN !
-        string_literal92 = match( T__62, TOKENS_FOLLOWING_T__62_IN_native_type_spec_541 )
+        # at line 147:20: 'PointerTo' LPAREN ! type_phrase RPAREN !
+        string_literal92 = match( T__70, TOKENS_FOLLOWING_T__70_IN_native_type_spec_592 )
         tree_for_string_literal92 = @adaptor.create_with_payload( string_literal92 )
         @adaptor.add_child( root_0, tree_for_string_literal92 )
 
 
-        __LPAREN93__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_543 )
-        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_546 )
+        __LPAREN93__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_594 )
+        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_597 )
         type_phrase94 = type_phrase
         @state.following.pop
         @adaptor.add_child( root_0, type_phrase94.tree )
 
-        __RPAREN95__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_548 )
+        __RPAREN95__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_599 )
 
       when 2
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 138:4: 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !
-        string_literal96 = match( T__63, TOKENS_FOLLOWING_T__63_IN_native_type_spec_554 )
+        # at line 148:4: 'PointerToIfNot' LPAREN ! type_phrase COMMA ! type_phrase RPAREN !
+        string_literal96 = match( T__71, TOKENS_FOLLOWING_T__71_IN_native_type_spec_605 )
         tree_for_string_literal96 = @adaptor.create_with_payload( string_literal96 )
         @adaptor.add_child( root_0, tree_for_string_literal96 )
 
 
-        __LPAREN97__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_556 )
-        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_559 )
+        __LPAREN97__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_607 )
+        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_610 )
         type_phrase98 = type_phrase
         @state.following.pop
         @adaptor.add_child( root_0, type_phrase98.tree )
 
-        __COMMA99__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_native_type_spec_561 )
-        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_564 )
+        __COMMA99__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_native_type_spec_612 )
+        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_615 )
         type_phrase100 = type_phrase
         @state.following.pop
         @adaptor.add_child( root_0, type_phrase100.tree )
 
-        __RPAREN101__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_566 )
+        __RPAREN101__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_617 )
 
       when 3
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 139:4: 'ValueOf' LPAREN ! type_phrase RPAREN !
-        string_literal102 = match( T__68, TOKENS_FOLLOWING_T__68_IN_native_type_spec_572 )
+        # at line 149:4: 'ValueOf' LPAREN ! type_phrase RPAREN !
+        string_literal102 = match( T__76, TOKENS_FOLLOWING_T__76_IN_native_type_spec_623 )
         tree_for_string_literal102 = @adaptor.create_with_payload( string_literal102 )
         @adaptor.add_child( root_0, tree_for_string_literal102 )
 
 
-        __LPAREN103__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_574 )
-        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_577 )
+        __LPAREN103__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_625 )
+        @state.following.push( TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_628 )
         type_phrase104 = type_phrase
         @state.following.pop
         @adaptor.add_child( root_0, type_phrase104.tree )
 
-        __RPAREN105__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_579 )
+        __RPAREN105__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_630 )
 
       end
       # - - - - - - - rule clean up - - - - - - - -
@@ -2150,7 +2182,7 @@ module Mig
     # parser rule basic_type_spec
     #
     # (in Mig.g)
-    # 141:1: basic_type_spec : ( ipc_type | LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !);
+    # 151:1: basic_type_spec : ( ipc_type | LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !);
     #
     def basic_type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -2179,11 +2211,11 @@ module Mig
       tree_for_RPAREN112 = nil
 
       begin
-      # at line 141:17: ( ipc_type | LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !)
+      # at line 151:17: ( ipc_type | LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !)
       alt_9 = 2
       look_9_0 = @input.peek( 1 )
 
-      if ( look_9_0 == NUMBER || look_9_0.between?( T__36, T__60 ) || look_9_0 == T__94 )
+      if ( look_9_0 == NUMBER || look_9_0.between?( T__44, T__68 ) || look_9_0 == T__103 )
         alt_9 = 1
       elsif ( look_9_0 == LPAREN )
         alt_9 = 2
@@ -2196,8 +2228,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 141:19: ipc_type
-        @state.following.push( TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_589 )
+        # at line 151:19: ipc_type
+        @state.following.push( TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_640 )
         ipc_type106 = ipc_type
         @state.following.pop
         @adaptor.add_child( root_0, ipc_type106.tree )
@@ -2207,20 +2239,20 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 142:4: LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !
-        __LPAREN107__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_basic_type_spec_594 )
-        @state.following.push( TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_597 )
+        # at line 152:4: LPAREN ! ipc_type COMMA ! int_exp ( ipc_flags )? RPAREN !
+        __LPAREN107__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_basic_type_spec_645 )
+        @state.following.push( TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_648 )
         ipc_type108 = ipc_type
         @state.following.pop
         @adaptor.add_child( root_0, ipc_type108.tree )
 
-        __COMMA109__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_basic_type_spec_599 )
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_basic_type_spec_602 )
+        __COMMA109__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_basic_type_spec_650 )
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_basic_type_spec_653 )
         int_exp110 = int_exp
         @state.following.pop
         @adaptor.add_child( root_0, int_exp110.tree )
 
-        # at line 142:36: ( ipc_flags )?
+        # at line 152:36: ( ipc_flags )?
         alt_8 = 2
         look_8_0 = @input.peek( 1 )
 
@@ -2229,15 +2261,15 @@ module Mig
         end
         case alt_8
         when 1
-          # at line 142:37: ipc_flags
-          @state.following.push( TOKENS_FOLLOWING_ipc_flags_IN_basic_type_spec_605 )
+          # at line 152:37: ipc_flags
+          @state.following.push( TOKENS_FOLLOWING_ipc_flags_IN_basic_type_spec_656 )
           ipc_flags111 = ipc_flags
           @state.following.pop
           @adaptor.add_child( root_0, ipc_flags111.tree )
 
 
         end
-        __RPAREN112__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_basic_type_spec_609 )
+        __RPAREN112__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_basic_type_spec_660 )
 
       end
       # - - - - - - - rule clean up - - - - - - - -
@@ -2270,7 +2302,7 @@ module Mig
     # parser rule prim_ipc_type
     #
     # (in Mig.g)
-    # 145:1: prim_ipc_type : ( NUMBER | symbolic_type );
+    # 155:1: prim_ipc_type : ( NUMBER | symbolic_type );
     #
     def prim_ipc_type
       # -> uncomment the next line to manually enable rule tracing
@@ -2292,13 +2324,13 @@ module Mig
       tree_for_NUMBER113 = nil
 
       begin
-      # at line 145:15: ( NUMBER | symbolic_type )
+      # at line 155:15: ( NUMBER | symbolic_type )
       alt_10 = 2
       look_10_0 = @input.peek( 1 )
 
       if ( look_10_0 == NUMBER )
         alt_10 = 1
-      elsif ( look_10_0.between?( T__36, T__60 ) || look_10_0 == T__94 )
+      elsif ( look_10_0.between?( T__44, T__68 ) || look_10_0 == T__103 )
         alt_10 = 2
       else
         raise NoViableAlternative( "", 10, 0 )
@@ -2309,8 +2341,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 145:17: NUMBER
-        __NUMBER113__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_prim_ipc_type_621 )
+        # at line 155:17: NUMBER
+        __NUMBER113__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_prim_ipc_type_672 )
         tree_for_NUMBER113 = @adaptor.create_with_payload( __NUMBER113__ )
         @adaptor.add_child( root_0, tree_for_NUMBER113 )
 
@@ -2320,8 +2352,8 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 146:4: symbolic_type
-        @state.following.push( TOKENS_FOLLOWING_symbolic_type_IN_prim_ipc_type_626 )
+        # at line 156:4: symbolic_type
+        @state.following.push( TOKENS_FOLLOWING_symbolic_type_IN_prim_ipc_type_677 )
         symbolic_type114 = symbolic_type
         @state.following.pop
         @adaptor.add_child( root_0, symbolic_type114.tree )
@@ -2358,7 +2390,7 @@ module Mig
     # parser rule symbolic_type
     #
     # (in Mig.g)
-    # 149:1: symbolic_type : ( 'polymorphic' | 'MACH_MSG_TYPE_MOVE_RECEIVE' | 'MACH_MSG_TYPE_COPY_SEND' | 'MACH_MSG_TYPE_MAKE_SEND' | 'MACH_MSG_TYPE_MOVE_SEND' | 'MACH_MSG_TYPE_MAKE_SEND_ONCE' | 'MACH_MSG_TYPE_MOVE_SEND_ONCE' | 'MACH_MSG_TYPE_PORT_NAME' | 'MACH_MSG_TYPE_PORT_RECEIVE' | 'MACH_MSG_TYPE_PORT_SEND' | 'MACH_MSG_TYPE_PORT_SEND_ONCE' | 'MACH_MSG_TYPE_POLYMORPHIC' | 'MACH_MSG_TYPE_UNSTRUCTURED' | 'MACH_MSG_TYPE_BIT' | 'MACH_MSG_TYPE_BOOLEAN' | 'MACH_MSG_TYPE_INTEGER_8' | 'MACH_MSG_TYPE_INTEGER_16' | 'MACH_MSG_TYPE_INTEGER_32' | 'MACH_MSG_TYPE_INTEGER_64' | 'MACH_MSG_TYPE_REAL' | 'MACH_MSG_TYPE_REAL_32' | 'MACH_MSG_TYPE_REAL_64' | 'MACH_MSG_TYPE_CHAR' | 'MACH_MSG_TYPE_BYTE' | 'MACH_MSG_TYPE_STRING' | 'MACH_MSG_TYPE_STRING_C' );
+    # 159:1: symbolic_type : ( 'polymorphic' | 'MACH_MSG_TYPE_MOVE_RECEIVE' | 'MACH_MSG_TYPE_COPY_SEND' | 'MACH_MSG_TYPE_MAKE_SEND' | 'MACH_MSG_TYPE_MOVE_SEND' | 'MACH_MSG_TYPE_MAKE_SEND_ONCE' | 'MACH_MSG_TYPE_MOVE_SEND_ONCE' | 'MACH_MSG_TYPE_PORT_NAME' | 'MACH_MSG_TYPE_PORT_RECEIVE' | 'MACH_MSG_TYPE_PORT_SEND' | 'MACH_MSG_TYPE_PORT_SEND_ONCE' | 'MACH_MSG_TYPE_POLYMORPHIC' | 'MACH_MSG_TYPE_UNSTRUCTURED' | 'MACH_MSG_TYPE_BIT' | 'MACH_MSG_TYPE_BOOLEAN' | 'MACH_MSG_TYPE_INTEGER_8' | 'MACH_MSG_TYPE_INTEGER_16' | 'MACH_MSG_TYPE_INTEGER_32' | 'MACH_MSG_TYPE_INTEGER_64' | 'MACH_MSG_TYPE_REAL' | 'MACH_MSG_TYPE_REAL_32' | 'MACH_MSG_TYPE_REAL_64' | 'MACH_MSG_TYPE_CHAR' | 'MACH_MSG_TYPE_BYTE' | 'MACH_MSG_TYPE_STRING' | 'MACH_MSG_TYPE_STRING_C' );
     #
     def symbolic_type
       # -> uncomment the next line to manually enable rule tracing
@@ -2385,7 +2417,7 @@ module Mig
       # at line 
       set115 = @input.look
 
-      if @input.peek( 1 ).between?( T__36, T__60 ) || @input.peek(1) == T__94
+      if @input.peek( 1 ).between?( T__44, T__68 ) || @input.peek(1) == T__103
         @input.consume
         @adaptor.add_child( root_0, @adaptor.create_with_payload( set115 ) )
 
@@ -2429,7 +2461,7 @@ module Mig
     # parser rule ipc_type
     #
     # (in Mig.g)
-    # 176:1: ipc_type : prim_ipc_type ( BAR ! prim_ipc_type )? ;
+    # 186:1: ipc_type : prim_ipc_type ( BAR ! prim_ipc_type )? ;
     #
     def ipc_type
       # -> uncomment the next line to manually enable rule tracing
@@ -2455,13 +2487,13 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 176:12: prim_ipc_type ( BAR ! prim_ipc_type )?
-      @state.following.push( TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_772 )
+      # at line 186:12: prim_ipc_type ( BAR ! prim_ipc_type )?
+      @state.following.push( TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_823 )
       prim_ipc_type116 = prim_ipc_type
       @state.following.pop
       @adaptor.add_child( root_0, prim_ipc_type116.tree )
 
-      # at line 176:26: ( BAR ! prim_ipc_type )?
+      # at line 186:26: ( BAR ! prim_ipc_type )?
       alt_11 = 2
       look_11_0 = @input.peek( 1 )
 
@@ -2470,9 +2502,9 @@ module Mig
       end
       case alt_11
       when 1
-        # at line 176:27: BAR ! prim_ipc_type
-        __BAR117__ = match( BAR, TOKENS_FOLLOWING_BAR_IN_ipc_type_775 )
-        @state.following.push( TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_778 )
+        # at line 186:27: BAR ! prim_ipc_type
+        __BAR117__ = match( BAR, TOKENS_FOLLOWING_BAR_IN_ipc_type_826 )
+        @state.following.push( TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_829 )
         prim_ipc_type118 = prim_ipc_type
         @state.following.pop
         @adaptor.add_child( root_0, prim_ipc_type118.tree )
@@ -2510,7 +2542,7 @@ module Mig
     # parser rule prev_type_spec
     #
     # (in Mig.g)
-    # 177:1: prev_type_spec : IDENT ;
+    # 187:1: prev_type_spec : IDENT ;
     #
     def prev_type_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -2534,8 +2566,8 @@ module Mig
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 177:18: IDENT
-      __IDENT119__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_prev_type_spec_788 )
+      # at line 187:18: IDENT
+      __IDENT119__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_prev_type_spec_839 )
       tree_for_IDENT119 = @adaptor.create_with_payload( __IDENT119__ )
       @adaptor.add_child( root_0, tree_for_IDENT119 )
 
@@ -2571,7 +2603,7 @@ module Mig
     # parser rule array_spec
     #
     # (in Mig.g)
-    # 178:1: array_spec : 'array' ! LBRACK ! ( var_array_head | array_head ) type_spec ;
+    # 188:1: array_spec : 'array' LBRACK ( var_array_head | array_head ) type_spec -> ^( ARRAY type_spec ( var_array_head )? ( array_head )? ) ;
     #
     def array_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -2595,15 +2627,20 @@ module Mig
 
       tree_for_string_literal120 = nil
       tree_for_LBRACK121 = nil
-
+      stream_LBRACK = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token LBRACK" )
+      stream_T__77 = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token T__77" )
+      stream_array_head = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule array_head" )
+      stream_type_spec = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule type_spec" )
+      stream_var_array_head = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule var_array_head" )
       begin
-      root_0 = @adaptor.create_flat_list
+      # at line 188:14: 'array' LBRACK ( var_array_head | array_head ) type_spec
+      string_literal120 = match( T__77, TOKENS_FOLLOWING_T__77_IN_array_spec_848 )
+      stream_T__77.add( string_literal120 )
 
+      __LBRACK121__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_array_spec_850 )
+      stream_LBRACK.add( __LBRACK121__ )
 
-      # at line 178:14: 'array' ! LBRACK ! ( var_array_head | array_head ) type_spec
-      string_literal120 = match( T__69, TOKENS_FOLLOWING_T__69_IN_array_spec_797 )
-      __LBRACK121__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_array_spec_800 )
-      # at line 178:31: ( var_array_head | array_head )
+      # at line 188:29: ( var_array_head | array_head )
       alt_12 = 2
       look_12_0 = @input.peek( 1 )
 
@@ -2617,26 +2654,68 @@ module Mig
       end
       case alt_12
       when 1
-        # at line 178:32: var_array_head
-        @state.following.push( TOKENS_FOLLOWING_var_array_head_IN_array_spec_804 )
+        # at line 188:30: var_array_head
+        @state.following.push( TOKENS_FOLLOWING_var_array_head_IN_array_spec_853 )
         var_array_head122 = var_array_head
         @state.following.pop
-        @adaptor.add_child( root_0, var_array_head122.tree )
+        stream_var_array_head.add( var_array_head122.tree )
 
 
       when 2
-        # at line 178:49: array_head
-        @state.following.push( TOKENS_FOLLOWING_array_head_IN_array_spec_808 )
+        # at line 188:47: array_head
+        @state.following.push( TOKENS_FOLLOWING_array_head_IN_array_spec_857 )
         array_head123 = array_head
         @state.following.pop
-        @adaptor.add_child( root_0, array_head123.tree )
+        stream_array_head.add( array_head123.tree )
 
 
       end
-      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_array_spec_811 )
+      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_array_spec_860 )
       type_spec124 = type_spec
       @state.following.pop
-      @adaptor.add_child( root_0, type_spec124.tree )
+      stream_type_spec.add( type_spec124.tree )
+
+      # AST Rewrite
+      # elements: var_array_head, array_head, type_spec
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+      root_0 = @adaptor.create_flat_list
+      # 188:69: -> ^( ARRAY type_spec ( var_array_head )? ( array_head )? )
+      # at line 188:72: ^( ARRAY type_spec ( var_array_head )? ( array_head )? )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( ARRAY, "ARRAY" ), root_1 )
+
+      @adaptor.add_child( root_1, stream_type_spec.next_tree )
+
+      # at line 188:90: ( var_array_head )?
+      if stream_var_array_head.has_next?
+        @adaptor.add_child( root_1, stream_var_array_head.next_tree )
+
+      end
+
+      stream_var_array_head.reset();
+
+      # at line 188:106: ( array_head )?
+      if stream_array_head.has_next?
+        @adaptor.add_child( root_1, stream_array_head.next_tree )
+
+      end
+
+      stream_array_head.reset();
+
+      @adaptor.add_child( root_0, root_1 )
+
+
+
+
+      return_value.tree = root_0
+
 
 
       # - - - - - - - rule clean up - - - - - - - -
@@ -2669,7 +2748,7 @@ module Mig
     # parser rule var_array_head
     #
     # (in Mig.g)
-    # 180:1: var_array_head : ( RBRACK ! OF !| STAR RBRACK ! OF !| STAR COLON int_exp RBRACK ! OF !);
+    # 190:1: var_array_head : ( RBRACK OF -> ^( UNLIMITED_SIZE ) | STAR COLON int_exp RBRACK OF -> ^( VARIABLE_SIZE int_exp ) );
     #
     def var_array_head
       # -> uncomment the next line to manually enable rule tracing
@@ -2687,91 +2766,115 @@ module Mig
       __RBRACK125__ = nil
       __OF126__ = nil
       __STAR127__ = nil
-      __RBRACK128__ = nil
-      __OF129__ = nil
-      __STAR130__ = nil
-      __COLON131__ = nil
-      __RBRACK133__ = nil
-      __OF134__ = nil
-      int_exp132 = nil
+      __COLON128__ = nil
+      __RBRACK130__ = nil
+      __OF131__ = nil
+      int_exp129 = nil
 
 
       tree_for_RBRACK125 = nil
       tree_for_OF126 = nil
       tree_for_STAR127 = nil
-      tree_for_RBRACK128 = nil
-      tree_for_OF129 = nil
-      tree_for_STAR130 = nil
-      tree_for_COLON131 = nil
-      tree_for_RBRACK133 = nil
-      tree_for_OF134 = nil
-
+      tree_for_COLON128 = nil
+      tree_for_RBRACK130 = nil
+      tree_for_OF131 = nil
+      stream_RBRACK = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token RBRACK" )
+      stream_STAR = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token STAR" )
+      stream_OF = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OF" )
+      stream_COLON = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token COLON" )
+      stream_int_exp = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule int_exp" )
       begin
-      # at line 180:15: ( RBRACK ! OF !| STAR RBRACK ! OF !| STAR COLON int_exp RBRACK ! OF !)
-      alt_13 = 3
+      # at line 190:15: ( RBRACK OF -> ^( UNLIMITED_SIZE ) | STAR COLON int_exp RBRACK OF -> ^( VARIABLE_SIZE int_exp ) )
+      alt_13 = 2
       look_13_0 = @input.peek( 1 )
 
       if ( look_13_0 == RBRACK )
         alt_13 = 1
       elsif ( look_13_0 == STAR )
-        look_13_2 = @input.peek( 2 )
-
-        if ( look_13_2 == RBRACK )
-          alt_13 = 2
-        elsif ( look_13_2 == COLON )
-          alt_13 = 3
-        else
-          raise NoViableAlternative( "", 13, 2 )
-
-        end
+        alt_13 = 2
       else
         raise NoViableAlternative( "", 13, 0 )
 
       end
       case alt_13
       when 1
+        # at line 190:17: RBRACK OF
+        __RBRACK125__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_var_array_head_882 )
+        stream_RBRACK.add( __RBRACK125__ )
+
+        __OF126__ = match( OF, TOKENS_FOLLOWING_OF_IN_var_array_head_884 )
+        stream_OF.add( __OF126__ )
+
+        # AST Rewrite
+        # elements: 
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
         root_0 = @adaptor.create_flat_list
+        # 190:27: -> ^( UNLIMITED_SIZE )
+        # at line 190:30: ^( UNLIMITED_SIZE )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( UNLIMITED_SIZE, "UNLIMITED_SIZE" ), root_1 )
+
+        @adaptor.add_child( root_0, root_1 )
 
 
-        # at line 180:17: RBRACK ! OF !
-        __RBRACK125__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_var_array_head_819 )
-        __OF126__ = match( OF, TOKENS_FOLLOWING_OF_IN_var_array_head_822 )
+
+
+        return_value.tree = root_0
+
+
 
       when 2
-        root_0 = @adaptor.create_flat_list
+        # at line 192:4: STAR COLON int_exp RBRACK OF
+        __STAR127__ = match( STAR, TOKENS_FOLLOWING_STAR_IN_var_array_head_896 )
+        stream_STAR.add( __STAR127__ )
 
+        __COLON128__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_var_array_head_898 )
+        stream_COLON.add( __COLON128__ )
 
-        # at line 181:4: STAR RBRACK ! OF !
-        __STAR127__ = match( STAR, TOKENS_FOLLOWING_STAR_IN_var_array_head_828 )
-        tree_for_STAR127 = @adaptor.create_with_payload( __STAR127__ )
-        @adaptor.add_child( root_0, tree_for_STAR127 )
-
-
-        __RBRACK128__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_var_array_head_830 )
-        __OF129__ = match( OF, TOKENS_FOLLOWING_OF_IN_var_array_head_833 )
-
-      when 3
-        root_0 = @adaptor.create_flat_list
-
-
-        # at line 182:4: STAR COLON int_exp RBRACK ! OF !
-        __STAR130__ = match( STAR, TOKENS_FOLLOWING_STAR_IN_var_array_head_839 )
-        tree_for_STAR130 = @adaptor.create_with_payload( __STAR130__ )
-        @adaptor.add_child( root_0, tree_for_STAR130 )
-
-
-        __COLON131__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_var_array_head_841 )
-        tree_for_COLON131 = @adaptor.create_with_payload( __COLON131__ )
-        @adaptor.add_child( root_0, tree_for_COLON131 )
-
-
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_var_array_head_843 )
-        int_exp132 = int_exp
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_var_array_head_900 )
+        int_exp129 = int_exp
         @state.following.pop
-        @adaptor.add_child( root_0, int_exp132.tree )
+        stream_int_exp.add( int_exp129.tree )
 
-        __RBRACK133__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_var_array_head_845 )
-        __OF134__ = match( OF, TOKENS_FOLLOWING_OF_IN_var_array_head_848 )
+        __RBRACK130__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_var_array_head_902 )
+        stream_RBRACK.add( __RBRACK130__ )
+
+        __OF131__ = match( OF, TOKENS_FOLLOWING_OF_IN_var_array_head_904 )
+        stream_OF.add( __OF131__ )
+
+        # AST Rewrite
+        # elements: int_exp
+        # token labels: 
+        # rule labels: return_value
+        # token list labels: 
+        # rule list labels: 
+        # wildcard labels: 
+        return_value.tree = root_0
+        stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+        root_0 = @adaptor.create_flat_list
+        # 192:33: -> ^( VARIABLE_SIZE int_exp )
+        # at line 192:36: ^( VARIABLE_SIZE int_exp )
+        root_1 = @adaptor.create_flat_list
+        root_1 = @adaptor.become_root( @adaptor.create_from_type( VARIABLE_SIZE, "VARIABLE_SIZE" ), root_1 )
+
+        @adaptor.add_child( root_1, stream_int_exp.next_tree )
+
+        @adaptor.add_child( root_0, root_1 )
+
+
+
+
+        return_value.tree = root_0
+
+
 
       end
       # - - - - - - - rule clean up - - - - - - - -
@@ -2804,7 +2907,7 @@ module Mig
     # parser rule array_head
     #
     # (in Mig.g)
-    # 185:1: array_head : int_exp RBRACK ! OF !;
+    # 195:1: array_head : int_exp RBRACK OF -> ^( FIXED_SIZE int_exp ) ;
     #
     def array_head
       # -> uncomment the next line to manually enable rule tracing
@@ -2819,26 +2922,55 @@ module Mig
 
       root_0 = nil
 
-      __RBRACK136__ = nil
-      __OF137__ = nil
-      int_exp135 = nil
+      __RBRACK133__ = nil
+      __OF134__ = nil
+      int_exp132 = nil
 
 
-      tree_for_RBRACK136 = nil
-      tree_for_OF137 = nil
-
+      tree_for_RBRACK133 = nil
+      tree_for_OF134 = nil
+      stream_RBRACK = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token RBRACK" )
+      stream_OF = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token OF" )
+      stream_int_exp = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule int_exp" )
       begin
-      root_0 = @adaptor.create_flat_list
-
-
-      # at line 185:14: int_exp RBRACK ! OF !
-      @state.following.push( TOKENS_FOLLOWING_int_exp_IN_array_head_861 )
-      int_exp135 = int_exp
+      # at line 195:14: int_exp RBRACK OF
+      @state.following.push( TOKENS_FOLLOWING_int_exp_IN_array_head_924 )
+      int_exp132 = int_exp
       @state.following.pop
-      @adaptor.add_child( root_0, int_exp135.tree )
+      stream_int_exp.add( int_exp132.tree )
 
-      __RBRACK136__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_array_head_863 )
-      __OF137__ = match( OF, TOKENS_FOLLOWING_OF_IN_array_head_866 )
+      __RBRACK133__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_array_head_926 )
+      stream_RBRACK.add( __RBRACK133__ )
+
+      __OF134__ = match( OF, TOKENS_FOLLOWING_OF_IN_array_head_928 )
+      stream_OF.add( __OF134__ )
+
+      # AST Rewrite
+      # elements: int_exp
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+      root_0 = @adaptor.create_flat_list
+      # 195:32: -> ^( FIXED_SIZE int_exp )
+      # at line 195:35: ^( FIXED_SIZE int_exp )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( FIXED_SIZE, "FIXED_SIZE" ), root_1 )
+
+      @adaptor.add_child( root_1, stream_int_exp.next_tree )
+
+      @adaptor.add_child( root_0, root_1 )
+
+
+
+
+      return_value.tree = root_0
+
+
 
       # - - - - - - - rule clean up - - - - - - - -
       return_value.stop = @input.look( -1 )
@@ -2870,7 +3002,7 @@ module Mig
     # parser rule struct_head
     #
     # (in Mig.g)
-    # 186:1: struct_head : 'struct' ! LBRACK ! int_exp RBRACK ! OF ! type_spec ;
+    # 196:1: struct_head : 'struct' ! LBRACK ! int_exp RBRACK ! OF ! type_spec ;
     #
     def struct_head
       # -> uncomment the next line to manually enable rule tracing
@@ -2885,37 +3017,37 @@ module Mig
 
       root_0 = nil
 
-      string_literal138 = nil
-      __LBRACK139__ = nil
-      __RBRACK141__ = nil
-      __OF142__ = nil
-      int_exp140 = nil
-      type_spec143 = nil
+      string_literal135 = nil
+      __LBRACK136__ = nil
+      __RBRACK138__ = nil
+      __OF139__ = nil
+      int_exp137 = nil
+      type_spec140 = nil
 
 
-      tree_for_string_literal138 = nil
-      tree_for_LBRACK139 = nil
-      tree_for_RBRACK141 = nil
-      tree_for_OF142 = nil
+      tree_for_string_literal135 = nil
+      tree_for_LBRACK136 = nil
+      tree_for_RBRACK138 = nil
+      tree_for_OF139 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 186:15: 'struct' ! LBRACK ! int_exp RBRACK ! OF ! type_spec
-      string_literal138 = match( T__110, TOKENS_FOLLOWING_T__110_IN_struct_head_875 )
-      __LBRACK139__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_struct_head_878 )
-      @state.following.push( TOKENS_FOLLOWING_int_exp_IN_struct_head_881 )
-      int_exp140 = int_exp
+      # at line 196:15: 'struct' ! LBRACK ! int_exp RBRACK ! OF ! type_spec
+      string_literal135 = match( T__119, TOKENS_FOLLOWING_T__119_IN_struct_head_944 )
+      __LBRACK136__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_struct_head_947 )
+      @state.following.push( TOKENS_FOLLOWING_int_exp_IN_struct_head_950 )
+      int_exp137 = int_exp
       @state.following.pop
-      @adaptor.add_child( root_0, int_exp140.tree )
+      @adaptor.add_child( root_0, int_exp137.tree )
 
-      __RBRACK141__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_struct_head_883 )
-      __OF142__ = match( OF, TOKENS_FOLLOWING_OF_IN_struct_head_886 )
-      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_struct_head_889 )
-      type_spec143 = type_spec
+      __RBRACK138__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_struct_head_952 )
+      __OF139__ = match( OF, TOKENS_FOLLOWING_OF_IN_struct_head_955 )
+      @state.following.push( TOKENS_FOLLOWING_type_spec_IN_struct_head_958 )
+      type_spec140 = type_spec
       @state.following.pop
-      @adaptor.add_child( root_0, type_spec143.tree )
+      @adaptor.add_child( root_0, type_spec140.tree )
 
 
       # - - - - - - - rule clean up - - - - - - - -
@@ -2948,7 +3080,7 @@ module Mig
     # parser rule c_string_spec
     #
     # (in Mig.g)
-    # 187:1: c_string_spec : 'c_string' ! ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !) ;
+    # 197:1: c_string_spec : 'c_string' ! ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !) ;
     #
     def c_string_spec
       # -> uncomment the next line to manually enable rule tracing
@@ -2963,32 +3095,32 @@ module Mig
 
       root_0 = nil
 
-      string_literal144 = nil
+      string_literal141 = nil
+      __LBRACK142__ = nil
+      __RBRACK144__ = nil
       __LBRACK145__ = nil
-      __RBRACK147__ = nil
-      __LBRACK148__ = nil
-      __STAR149__ = nil
-      __COLON150__ = nil
-      __RBRACK152__ = nil
-      int_exp146 = nil
-      int_exp151 = nil
+      __STAR146__ = nil
+      __COLON147__ = nil
+      __RBRACK149__ = nil
+      int_exp143 = nil
+      int_exp148 = nil
 
 
-      tree_for_string_literal144 = nil
+      tree_for_string_literal141 = nil
+      tree_for_LBRACK142 = nil
+      tree_for_RBRACK144 = nil
       tree_for_LBRACK145 = nil
-      tree_for_RBRACK147 = nil
-      tree_for_LBRACK148 = nil
-      tree_for_STAR149 = nil
-      tree_for_COLON150 = nil
-      tree_for_RBRACK152 = nil
+      tree_for_STAR146 = nil
+      tree_for_COLON147 = nil
+      tree_for_RBRACK149 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 187:17: 'c_string' ! ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !)
-      string_literal144 = match( T__72, TOKENS_FOLLOWING_T__72_IN_c_string_spec_897 )
-      # at line 188:3: ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !)
+      # at line 197:17: 'c_string' ! ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !)
+      string_literal141 = match( T__80, TOKENS_FOLLOWING_T__80_IN_c_string_spec_966 )
+      # at line 198:3: ( LBRACK ! int_exp RBRACK !| LBRACK ! STAR COLON int_exp RBRACK !)
       alt_14 = 2
       look_14_0 = @input.peek( 1 )
 
@@ -3009,34 +3141,34 @@ module Mig
       end
       case alt_14
       when 1
-        # at line 188:4: LBRACK ! int_exp RBRACK !
-        __LBRACK145__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_903 )
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_c_string_spec_906 )
-        int_exp146 = int_exp
+        # at line 198:4: LBRACK ! int_exp RBRACK !
+        __LBRACK142__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_972 )
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_c_string_spec_975 )
+        int_exp143 = int_exp
         @state.following.pop
-        @adaptor.add_child( root_0, int_exp146.tree )
+        @adaptor.add_child( root_0, int_exp143.tree )
 
-        __RBRACK147__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_908 )
+        __RBRACK144__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_977 )
 
       when 2
-        # at line 188:30: LBRACK ! STAR COLON int_exp RBRACK !
-        __LBRACK148__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_913 )
-        __STAR149__ = match( STAR, TOKENS_FOLLOWING_STAR_IN_c_string_spec_916 )
-        tree_for_STAR149 = @adaptor.create_with_payload( __STAR149__ )
-        @adaptor.add_child( root_0, tree_for_STAR149 )
+        # at line 198:30: LBRACK ! STAR COLON int_exp RBRACK !
+        __LBRACK145__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_982 )
+        __STAR146__ = match( STAR, TOKENS_FOLLOWING_STAR_IN_c_string_spec_985 )
+        tree_for_STAR146 = @adaptor.create_with_payload( __STAR146__ )
+        @adaptor.add_child( root_0, tree_for_STAR146 )
 
 
-        __COLON150__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_c_string_spec_918 )
-        tree_for_COLON150 = @adaptor.create_with_payload( __COLON150__ )
-        @adaptor.add_child( root_0, tree_for_COLON150 )
+        __COLON147__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_c_string_spec_987 )
+        tree_for_COLON147 = @adaptor.create_with_payload( __COLON147__ )
+        @adaptor.add_child( root_0, tree_for_COLON147 )
 
 
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_c_string_spec_920 )
-        int_exp151 = int_exp
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_c_string_spec_989 )
+        int_exp148 = int_exp
         @state.following.pop
-        @adaptor.add_child( root_0, int_exp151.tree )
+        @adaptor.add_child( root_0, int_exp148.tree )
 
-        __RBRACK152__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_922 )
+        __RBRACK149__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_991 )
 
       end
 
@@ -3070,7 +3202,7 @@ module Mig
     # parser rule type_phrase
     #
     # (in Mig.g)
-    # 191:1: type_phrase : ( IDENT )+ ;
+    # 201:1: type_phrase : ( IDENT )+ ;
     #
     def type_phrase
       # -> uncomment the next line to manually enable rule tracing
@@ -3085,17 +3217,17 @@ module Mig
 
       root_0 = nil
 
-      __IDENT153__ = nil
+      __IDENT150__ = nil
 
 
-      tree_for_IDENT153 = nil
+      tree_for_IDENT150 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 191:15: ( IDENT )+
-      # at file 191:15: ( IDENT )+
+      # at line 201:15: ( IDENT )+
+      # at file 201:15: ( IDENT )+
       match_count_15 = 0
       while true
         alt_15 = 2
@@ -3107,10 +3239,10 @@ module Mig
         end
         case alt_15
         when 1
-          # at line 191:16: IDENT
-          __IDENT153__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_type_phrase_936 )
-          tree_for_IDENT153 = @adaptor.create_with_payload( __IDENT153__ )
-          @adaptor.add_child( root_0, tree_for_IDENT153 )
+          # at line 201:16: IDENT
+          __IDENT150__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_type_phrase_1005 )
+          tree_for_IDENT150 = @adaptor.create_with_payload( __IDENT150__ )
+          @adaptor.add_child( root_0, tree_for_IDENT150 )
 
 
 
@@ -3156,7 +3288,7 @@ module Mig
     # parser rule int_exp
     #
     # (in Mig.g)
-    # 192:1: int_exp : ( NUMBER | NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp | LPAREN int_exp RPAREN );
+    # 202:1: int_exp : ( NUMBER | NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp | LPAREN int_exp RPAREN );
     #
     def int_exp
       # -> uncomment the next line to manually enable rule tracing
@@ -3171,23 +3303,23 @@ module Mig
 
       root_0 = nil
 
-      __NUMBER154__ = nil
-      __NUMBER155__ = nil
-      set156 = nil
-      __LPAREN158__ = nil
-      __RPAREN160__ = nil
-      int_exp157 = nil
-      int_exp159 = nil
+      __NUMBER151__ = nil
+      __NUMBER152__ = nil
+      set153 = nil
+      __LPAREN155__ = nil
+      __RPAREN157__ = nil
+      int_exp154 = nil
+      int_exp156 = nil
 
 
-      tree_for_NUMBER154 = nil
-      tree_for_NUMBER155 = nil
-      tree_for_set156 = nil
-      tree_for_LPAREN158 = nil
-      tree_for_RPAREN160 = nil
+      tree_for_NUMBER151 = nil
+      tree_for_NUMBER152 = nil
+      tree_for_set153 = nil
+      tree_for_LPAREN155 = nil
+      tree_for_RPAREN157 = nil
 
       begin
-      # at line 192:9: ( NUMBER | NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp | LPAREN int_exp RPAREN )
+      # at line 202:9: ( NUMBER | NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp | LPAREN int_exp RPAREN )
       alt_16 = 3
       look_16_0 = @input.peek( 1 )
 
@@ -3213,10 +3345,10 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 192:11: NUMBER
-        __NUMBER154__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_int_exp_946 )
-        tree_for_NUMBER154 = @adaptor.create_with_payload( __NUMBER154__ )
-        @adaptor.add_child( root_0, tree_for_NUMBER154 )
+        # at line 202:11: NUMBER
+        __NUMBER151__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_int_exp_1015 )
+        tree_for_NUMBER151 = @adaptor.create_with_payload( __NUMBER151__ )
+        @adaptor.add_child( root_0, tree_for_NUMBER151 )
 
 
 
@@ -3224,18 +3356,18 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 193:4: NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp
-        __NUMBER155__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_int_exp_951 )
-        tree_for_NUMBER155 = @adaptor.create_with_payload( __NUMBER155__ )
-        @adaptor.add_child( root_0, tree_for_NUMBER155 )
+        # at line 203:4: NUMBER ( PLUS | MINUS | STAR | DIV ) int_exp
+        __NUMBER152__ = match( NUMBER, TOKENS_FOLLOWING_NUMBER_IN_int_exp_1020 )
+        tree_for_NUMBER152 = @adaptor.create_with_payload( __NUMBER152__ )
+        @adaptor.add_child( root_0, tree_for_NUMBER152 )
 
 
 
-        set156 = @input.look
+        set153 = @input.look
 
         if @input.peek(1) == DIV || @input.peek(1) == MINUS || @input.peek(1) == PLUS || @input.peek(1) == STAR
           @input.consume
-          @adaptor.add_child( root_0, @adaptor.create_with_payload( set156 ) )
+          @adaptor.add_child( root_0, @adaptor.create_with_payload( set153 ) )
 
           @state.error_recovery = false
 
@@ -3246,30 +3378,30 @@ module Mig
         end
 
 
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_int_exp_969 )
-        int_exp157 = int_exp
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_int_exp_1038 )
+        int_exp154 = int_exp
         @state.following.pop
-        @adaptor.add_child( root_0, int_exp157.tree )
+        @adaptor.add_child( root_0, int_exp154.tree )
 
 
       when 3
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 194:4: LPAREN int_exp RPAREN
-        __LPAREN158__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_int_exp_974 )
-        tree_for_LPAREN158 = @adaptor.create_with_payload( __LPAREN158__ )
-        @adaptor.add_child( root_0, tree_for_LPAREN158 )
+        # at line 204:4: LPAREN int_exp RPAREN
+        __LPAREN155__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_int_exp_1043 )
+        tree_for_LPAREN155 = @adaptor.create_with_payload( __LPAREN155__ )
+        @adaptor.add_child( root_0, tree_for_LPAREN155 )
 
 
-        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_int_exp_976 )
-        int_exp159 = int_exp
+        @state.following.push( TOKENS_FOLLOWING_int_exp_IN_int_exp_1045 )
+        int_exp156 = int_exp
         @state.following.pop
-        @adaptor.add_child( root_0, int_exp159.tree )
+        @adaptor.add_child( root_0, int_exp156.tree )
 
-        __RPAREN160__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_int_exp_978 )
-        tree_for_RPAREN160 = @adaptor.create_with_payload( __RPAREN160__ )
-        @adaptor.add_child( root_0, tree_for_RPAREN160 )
+        __RPAREN157__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_int_exp_1047 )
+        tree_for_RPAREN157 = @adaptor.create_with_payload( __RPAREN157__ )
+        @adaptor.add_child( root_0, tree_for_RPAREN157 )
 
 
 
@@ -3304,7 +3436,7 @@ module Mig
     # parser rule routine_decl
     #
     # (in Mig.g)
-    # 196:1: routine_decl : ( routine | simple_routine );
+    # 206:1: routine_decl : ( routine | simple_routine );
     #
     def routine_decl
       # -> uncomment the next line to manually enable rule tracing
@@ -3319,19 +3451,19 @@ module Mig
 
       root_0 = nil
 
-      routine161 = nil
-      simple_routine162 = nil
+      routine158 = nil
+      simple_routine159 = nil
 
 
 
       begin
-      # at line 196:14: ( routine | simple_routine )
+      # at line 206:14: ( routine | simple_routine )
       alt_17 = 2
       look_17_0 = @input.peek( 1 )
 
-      if ( look_17_0 == T__98 )
+      if ( look_17_0 == T__107 )
         alt_17 = 1
-      elsif ( look_17_0 == T__106 )
+      elsif ( look_17_0 == T__115 )
         alt_17 = 2
       else
         raise NoViableAlternative( "", 17, 0 )
@@ -3342,22 +3474,22 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 196:16: routine
-        @state.following.push( TOKENS_FOLLOWING_routine_IN_routine_decl_987 )
-        routine161 = routine
+        # at line 206:16: routine
+        @state.following.push( TOKENS_FOLLOWING_routine_IN_routine_decl_1056 )
+        routine158 = routine
         @state.following.pop
-        @adaptor.add_child( root_0, routine161.tree )
+        @adaptor.add_child( root_0, routine158.tree )
 
 
       when 2
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 197:4: simple_routine
-        @state.following.push( TOKENS_FOLLOWING_simple_routine_IN_routine_decl_992 )
-        simple_routine162 = simple_routine
+        # at line 207:4: simple_routine
+        @state.following.push( TOKENS_FOLLOWING_simple_routine_IN_routine_decl_1061 )
+        simple_routine159 = simple_routine
         @state.following.pop
-        @adaptor.add_child( root_0, simple_routine162.tree )
+        @adaptor.add_child( root_0, simple_routine159.tree )
 
 
       end
@@ -3391,7 +3523,7 @@ module Mig
     # parser rule routine
     #
     # (in Mig.g)
-    # 199:1: routine : 'routine' identifier arguments -> ^( ROUTINE_DEF identifier arguments ) ;
+    # 209:1: routine : 'routine' identifier arguments -> ^( ROUTINE_DEF identifier arguments ) ;
     #
     def routine
       # -> uncomment the next line to manually enable rule tracing
@@ -3406,32 +3538,32 @@ module Mig
 
       root_0 = nil
 
-      string_literal163 = nil
-      identifier164 = nil
-      arguments165 = nil
+      string_literal160 = nil
+      identifier161 = nil
+      arguments162 = nil
 
 
-      tree_for_string_literal163 = nil
-      stream_T__98 = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token T__98" )
+      tree_for_string_literal160 = nil
+      stream_T__107 = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token T__107" )
       stream_identifier = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule identifier" )
       stream_arguments = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule arguments" )
       begin
-      # at line 199:10: 'routine' identifier arguments
-      string_literal163 = match( T__98, TOKENS_FOLLOWING_T__98_IN_routine_1000 )
-      stream_T__98.add( string_literal163 )
+      # at line 209:10: 'routine' identifier arguments
+      string_literal160 = match( T__107, TOKENS_FOLLOWING_T__107_IN_routine_1069 )
+      stream_T__107.add( string_literal160 )
 
-      @state.following.push( TOKENS_FOLLOWING_identifier_IN_routine_1002 )
-      identifier164 = identifier
+      @state.following.push( TOKENS_FOLLOWING_identifier_IN_routine_1071 )
+      identifier161 = identifier
       @state.following.pop
-      stream_identifier.add( identifier164.tree )
+      stream_identifier.add( identifier161.tree )
 
-      @state.following.push( TOKENS_FOLLOWING_arguments_IN_routine_1004 )
-      arguments165 = arguments
+      @state.following.push( TOKENS_FOLLOWING_arguments_IN_routine_1073 )
+      arguments162 = arguments
       @state.following.pop
-      stream_arguments.add( arguments165.tree )
+      stream_arguments.add( arguments162.tree )
 
       # AST Rewrite
-      # elements: arguments, identifier
+      # elements: identifier, arguments
       # token labels: 
       # rule labels: return_value
       # token list labels: 
@@ -3441,8 +3573,8 @@ module Mig
       stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
       root_0 = @adaptor.create_flat_list
-      # 199:41: -> ^( ROUTINE_DEF identifier arguments )
-      # at line 199:44: ^( ROUTINE_DEF identifier arguments )
+      # 209:41: -> ^( ROUTINE_DEF identifier arguments )
+      # at line 209:44: ^( ROUTINE_DEF identifier arguments )
       root_1 = @adaptor.create_flat_list
       root_1 = @adaptor.become_root( @adaptor.create_from_type( ROUTINE_DEF, "ROUTINE_DEF" ), root_1 )
 
@@ -3489,7 +3621,7 @@ module Mig
     # parser rule simple_routine
     #
     # (in Mig.g)
-    # 200:1: simple_routine : 'simpleroutine' identifier arguments -> ^( ROUTINE_DEF identifier arguments ) ;
+    # 210:1: simple_routine : 'simpleroutine' identifier arguments -> ^( ROUTINE_DEF identifier arguments ) ;
     #
     def simple_routine
       # -> uncomment the next line to manually enable rule tracing
@@ -3504,32 +3636,32 @@ module Mig
 
       root_0 = nil
 
-      string_literal166 = nil
-      identifier167 = nil
-      arguments168 = nil
+      string_literal163 = nil
+      identifier164 = nil
+      arguments165 = nil
 
 
-      tree_for_string_literal166 = nil
-      stream_T__106 = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token T__106" )
+      tree_for_string_literal163 = nil
+      stream_T__115 = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token T__115" )
       stream_identifier = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule identifier" )
       stream_arguments = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule arguments" )
       begin
-      # at line 200:18: 'simpleroutine' identifier arguments
-      string_literal166 = match( T__106, TOKENS_FOLLOWING_T__106_IN_simple_routine_1021 )
-      stream_T__106.add( string_literal166 )
+      # at line 210:18: 'simpleroutine' identifier arguments
+      string_literal163 = match( T__115, TOKENS_FOLLOWING_T__115_IN_simple_routine_1090 )
+      stream_T__115.add( string_literal163 )
 
-      @state.following.push( TOKENS_FOLLOWING_identifier_IN_simple_routine_1023 )
-      identifier167 = identifier
+      @state.following.push( TOKENS_FOLLOWING_identifier_IN_simple_routine_1092 )
+      identifier164 = identifier
       @state.following.pop
-      stream_identifier.add( identifier167.tree )
+      stream_identifier.add( identifier164.tree )
 
-      @state.following.push( TOKENS_FOLLOWING_arguments_IN_simple_routine_1025 )
-      arguments168 = arguments
+      @state.following.push( TOKENS_FOLLOWING_arguments_IN_simple_routine_1094 )
+      arguments165 = arguments
       @state.following.pop
-      stream_arguments.add( arguments168.tree )
+      stream_arguments.add( arguments165.tree )
 
       # AST Rewrite
-      # elements: identifier, arguments
+      # elements: arguments, identifier
       # token labels: 
       # rule labels: return_value
       # token list labels: 
@@ -3539,8 +3671,8 @@ module Mig
       stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
       root_0 = @adaptor.create_flat_list
-      # 200:55: -> ^( ROUTINE_DEF identifier arguments )
-      # at line 200:58: ^( ROUTINE_DEF identifier arguments )
+      # 210:55: -> ^( ROUTINE_DEF identifier arguments )
+      # at line 210:58: ^( ROUTINE_DEF identifier arguments )
       root_1 = @adaptor.create_flat_list
       root_1 = @adaptor.become_root( @adaptor.create_from_type( ROUTINE_DEF, "ROUTINE_DEF" ), root_1 )
 
@@ -3587,7 +3719,7 @@ module Mig
     # parser rule arguments
     #
     # (in Mig.g)
-    # 201:1: arguments : LPAREN ! ( argument_list )? RPAREN !;
+    # 211:1: arguments : LPAREN ! ( argument_list )? RPAREN !;
     #
     def arguments
       # -> uncomment the next line to manually enable rule tracing
@@ -3602,38 +3734,38 @@ module Mig
 
       root_0 = nil
 
-      __LPAREN169__ = nil
-      __RPAREN171__ = nil
-      argument_list170 = nil
+      __LPAREN166__ = nil
+      __RPAREN168__ = nil
+      argument_list167 = nil
 
 
-      tree_for_LPAREN169 = nil
-      tree_for_RPAREN171 = nil
+      tree_for_LPAREN166 = nil
+      tree_for_RPAREN168 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 201:12: LPAREN ! ( argument_list )? RPAREN !
-      __LPAREN169__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_arguments_1041 )
-      # at line 201:20: ( argument_list )?
+      # at line 211:12: LPAREN ! ( argument_list )? RPAREN !
+      __LPAREN166__ = match( LPAREN, TOKENS_FOLLOWING_LPAREN_IN_arguments_1110 )
+      # at line 211:20: ( argument_list )?
       alt_18 = 2
       look_18_0 = @input.peek( 1 )
 
-      if ( look_18_0 == IDENT || look_18_0 == T__70 || look_18_0.between?( T__82, T__83 ) || look_18_0.between?( T__87, T__88 ) || look_18_0 == T__90 || look_18_0.between?( T__95, T__96 ) || look_18_0.between?( T__99, T__101 ) || look_18_0.between?( T__104, T__105 ) || look_18_0 == T__109 || look_18_0.between?( T__114, T__118 ) )
+      if ( look_18_0 == IDENT || look_18_0 == T__78 || look_18_0.between?( T__91, T__92 ) || look_18_0.between?( T__96, T__97 ) || look_18_0 == T__99 || look_18_0.between?( T__104, T__105 ) || look_18_0.between?( T__108, T__110 ) || look_18_0.between?( T__113, T__114 ) || look_18_0 == T__118 || look_18_0.between?( T__123, T__127 ) )
         alt_18 = 1
       end
       case alt_18
       when 1
-        # at line 201:21: argument_list
-        @state.following.push( TOKENS_FOLLOWING_argument_list_IN_arguments_1045 )
-        argument_list170 = argument_list
+        # at line 211:21: argument_list
+        @state.following.push( TOKENS_FOLLOWING_argument_list_IN_arguments_1114 )
+        argument_list167 = argument_list
         @state.following.pop
-        @adaptor.add_child( root_0, argument_list170.tree )
+        @adaptor.add_child( root_0, argument_list167.tree )
 
 
       end
-      __RPAREN171__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_arguments_1049 )
+      __RPAREN168__ = match( RPAREN, TOKENS_FOLLOWING_RPAREN_IN_arguments_1118 )
 
       # - - - - - - - rule clean up - - - - - - - -
       return_value.stop = @input.look( -1 )
@@ -3665,7 +3797,7 @@ module Mig
     # parser rule argument_list
     #
     # (in Mig.g)
-    # 202:1: argument_list : ( argument ( SEMI ! argument_list )? | trailer ( SEMI ! argument_list )? );
+    # 212:1: argument_list : ( argument ( SEMI ! argument_list )? | trailer ( SEMI ! argument_list )? );
     #
     def argument_list
       # -> uncomment the next line to manually enable rule tracing
@@ -3680,25 +3812,25 @@ module Mig
 
       root_0 = nil
 
+      __SEMI170__ = nil
       __SEMI173__ = nil
-      __SEMI176__ = nil
-      argument172 = nil
+      argument169 = nil
+      argument_list171 = nil
+      trailer172 = nil
       argument_list174 = nil
-      trailer175 = nil
-      argument_list177 = nil
 
 
+      tree_for_SEMI170 = nil
       tree_for_SEMI173 = nil
-      tree_for_SEMI176 = nil
 
       begin
-      # at line 202:15: ( argument ( SEMI ! argument_list )? | trailer ( SEMI ! argument_list )? )
+      # at line 212:15: ( argument ( SEMI ! argument_list )? | trailer ( SEMI ! argument_list )? )
       alt_21 = 2
       look_21_0 = @input.peek( 1 )
 
-      if ( look_21_0 == IDENT || look_21_0 == T__70 || look_21_0.between?( T__82, T__83 ) || look_21_0.between?( T__87, T__88 ) || look_21_0 == T__90 || look_21_0.between?( T__95, T__96 ) || look_21_0.between?( T__99, T__101 ) || look_21_0 == T__105 || look_21_0 == T__109 || look_21_0.between?( T__114, T__115 ) || look_21_0.between?( T__117, T__118 ) )
+      if ( look_21_0 == IDENT || look_21_0 == T__78 || look_21_0.between?( T__91, T__92 ) || look_21_0.between?( T__96, T__97 ) || look_21_0 == T__99 || look_21_0.between?( T__104, T__105 ) || look_21_0.between?( T__108, T__110 ) || look_21_0 == T__114 || look_21_0 == T__118 || look_21_0.between?( T__123, T__124 ) || look_21_0.between?( T__126, T__127 ) )
         alt_21 = 1
-      elsif ( look_21_0 == T__104 || look_21_0 == T__116 )
+      elsif ( look_21_0 == T__113 || look_21_0 == T__125 )
         alt_21 = 2
       else
         raise NoViableAlternative( "", 21, 0 )
@@ -3709,13 +3841,13 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 202:17: argument ( SEMI ! argument_list )?
-        @state.following.push( TOKENS_FOLLOWING_argument_IN_argument_list_1058 )
-        argument172 = argument
+        # at line 212:17: argument ( SEMI ! argument_list )?
+        @state.following.push( TOKENS_FOLLOWING_argument_IN_argument_list_1127 )
+        argument169 = argument
         @state.following.pop
-        @adaptor.add_child( root_0, argument172.tree )
+        @adaptor.add_child( root_0, argument169.tree )
 
-        # at line 202:26: ( SEMI ! argument_list )?
+        # at line 212:26: ( SEMI ! argument_list )?
         alt_19 = 2
         look_19_0 = @input.peek( 1 )
 
@@ -3724,12 +3856,12 @@ module Mig
         end
         case alt_19
         when 1
-          # at line 202:27: SEMI ! argument_list
-          __SEMI173__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_argument_list_1061 )
-          @state.following.push( TOKENS_FOLLOWING_argument_list_IN_argument_list_1064 )
-          argument_list174 = argument_list
+          # at line 212:27: SEMI ! argument_list
+          __SEMI170__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_argument_list_1130 )
+          @state.following.push( TOKENS_FOLLOWING_argument_list_IN_argument_list_1133 )
+          argument_list171 = argument_list
           @state.following.pop
-          @adaptor.add_child( root_0, argument_list174.tree )
+          @adaptor.add_child( root_0, argument_list171.tree )
 
 
         end
@@ -3738,13 +3870,13 @@ module Mig
         root_0 = @adaptor.create_flat_list
 
 
-        # at line 203:4: trailer ( SEMI ! argument_list )?
-        @state.following.push( TOKENS_FOLLOWING_trailer_IN_argument_list_1071 )
-        trailer175 = trailer
+        # at line 213:4: trailer ( SEMI ! argument_list )?
+        @state.following.push( TOKENS_FOLLOWING_trailer_IN_argument_list_1140 )
+        trailer172 = trailer
         @state.following.pop
-        @adaptor.add_child( root_0, trailer175.tree )
+        @adaptor.add_child( root_0, trailer172.tree )
 
-        # at line 203:12: ( SEMI ! argument_list )?
+        # at line 213:12: ( SEMI ! argument_list )?
         alt_20 = 2
         look_20_0 = @input.peek( 1 )
 
@@ -3753,12 +3885,12 @@ module Mig
         end
         case alt_20
         when 1
-          # at line 203:13: SEMI ! argument_list
-          __SEMI176__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_argument_list_1074 )
-          @state.following.push( TOKENS_FOLLOWING_argument_list_IN_argument_list_1077 )
-          argument_list177 = argument_list
+          # at line 213:13: SEMI ! argument_list
+          __SEMI173__ = match( SEMI, TOKENS_FOLLOWING_SEMI_IN_argument_list_1143 )
+          @state.following.push( TOKENS_FOLLOWING_argument_list_IN_argument_list_1146 )
+          argument_list174 = argument_list
           @state.following.pop
-          @adaptor.add_child( root_0, argument_list177.tree )
+          @adaptor.add_child( root_0, argument_list174.tree )
 
 
         end
@@ -3794,7 +3926,7 @@ module Mig
     # parser rule argument
     #
     # (in Mig.g)
-    # 205:1: argument : ( direction )? identifier argument_type ( ipc_flags )? -> ^( ARG_DEF identifier ( direction )? ) ;
+    # 215:1: argument : ( direction )? identifier argument_type ( ipc_flags )? -> ^( ARG_DEF identifier argument_type ( direction )? ( ipc_flags )? ) ;
     #
     def argument
       # -> uncomment the next line to manually enable rule tracing
@@ -3809,10 +3941,10 @@ module Mig
 
       root_0 = nil
 
-      direction178 = nil
-      identifier179 = nil
-      argument_type180 = nil
-      ipc_flags181 = nil
+      direction175 = nil
+      identifier176 = nil
+      argument_type177 = nil
+      ipc_flags178 = nil
 
 
       stream_identifier = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule identifier" )
@@ -3820,35 +3952,35 @@ module Mig
       stream_ipc_flags = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule ipc_flags" )
       stream_direction = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule direction" )
       begin
-      # at line 205:12: ( direction )? identifier argument_type ( ipc_flags )?
-      # at line 205:12: ( direction )?
+      # at line 215:12: ( direction )? identifier argument_type ( ipc_flags )?
+      # at line 215:12: ( direction )?
       alt_22 = 2
       look_22_0 = @input.peek( 1 )
 
-      if ( look_22_0 == T__70 || look_22_0.between?( T__82, T__83 ) || look_22_0.between?( T__87, T__88 ) || look_22_0 == T__90 || look_22_0.between?( T__95, T__96 ) || look_22_0.between?( T__99, T__101 ) || look_22_0 == T__105 || look_22_0 == T__109 || look_22_0.between?( T__114, T__115 ) || look_22_0.between?( T__117, T__118 ) )
+      if ( look_22_0 == T__78 || look_22_0.between?( T__91, T__92 ) || look_22_0.between?( T__96, T__97 ) || look_22_0 == T__99 || look_22_0.between?( T__104, T__105 ) || look_22_0.between?( T__108, T__110 ) || look_22_0 == T__114 || look_22_0 == T__118 || look_22_0.between?( T__123, T__124 ) || look_22_0.between?( T__126, T__127 ) )
         alt_22 = 1
       end
       case alt_22
       when 1
-        # at line 205:13: direction
-        @state.following.push( TOKENS_FOLLOWING_direction_IN_argument_1089 )
-        direction178 = direction
+        # at line 215:13: direction
+        @state.following.push( TOKENS_FOLLOWING_direction_IN_argument_1158 )
+        direction175 = direction
         @state.following.pop
-        stream_direction.add( direction178.tree )
+        stream_direction.add( direction175.tree )
 
 
       end
-      @state.following.push( TOKENS_FOLLOWING_identifier_IN_argument_1093 )
-      identifier179 = identifier
+      @state.following.push( TOKENS_FOLLOWING_identifier_IN_argument_1162 )
+      identifier176 = identifier
       @state.following.pop
-      stream_identifier.add( identifier179.tree )
+      stream_identifier.add( identifier176.tree )
 
-      @state.following.push( TOKENS_FOLLOWING_argument_type_IN_argument_1095 )
-      argument_type180 = argument_type
+      @state.following.push( TOKENS_FOLLOWING_argument_type_IN_argument_1164 )
+      argument_type177 = argument_type
       @state.following.pop
-      stream_argument_type.add( argument_type180.tree )
+      stream_argument_type.add( argument_type177.tree )
 
-      # at line 205:50: ( ipc_flags )?
+      # at line 215:50: ( ipc_flags )?
       alt_23 = 2
       look_23_0 = @input.peek( 1 )
 
@@ -3857,16 +3989,16 @@ module Mig
       end
       case alt_23
       when 1
-        # at line 205:51: ipc_flags
-        @state.following.push( TOKENS_FOLLOWING_ipc_flags_IN_argument_1098 )
-        ipc_flags181 = ipc_flags
+        # at line 215:51: ipc_flags
+        @state.following.push( TOKENS_FOLLOWING_ipc_flags_IN_argument_1167 )
+        ipc_flags178 = ipc_flags
         @state.following.pop
-        stream_ipc_flags.add( ipc_flags181.tree )
+        stream_ipc_flags.add( ipc_flags178.tree )
 
 
       end
       # AST Rewrite
-      # elements: identifier, direction
+      # elements: identifier, direction, ipc_flags, argument_type
       # token labels: 
       # rule labels: return_value
       # token list labels: 
@@ -3876,20 +4008,30 @@ module Mig
       stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
 
       root_0 = @adaptor.create_flat_list
-      # 205:63: -> ^( ARG_DEF identifier ( direction )? )
-      # at line 205:66: ^( ARG_DEF identifier ( direction )? )
+      # 215:63: -> ^( ARG_DEF identifier argument_type ( direction )? ( ipc_flags )? )
+      # at line 215:66: ^( ARG_DEF identifier argument_type ( direction )? ( ipc_flags )? )
       root_1 = @adaptor.create_flat_list
       root_1 = @adaptor.become_root( @adaptor.create_from_type( ARG_DEF, "ARG_DEF" ), root_1 )
 
       @adaptor.add_child( root_1, stream_identifier.next_tree )
 
-      # at line 205:87: ( direction )?
+      @adaptor.add_child( root_1, stream_argument_type.next_tree )
+
+      # at line 215:101: ( direction )?
       if stream_direction.has_next?
         @adaptor.add_child( root_1, stream_direction.next_tree )
 
       end
 
       stream_direction.reset();
+
+      # at line 215:112: ( ipc_flags )?
+      if stream_ipc_flags.has_next?
+        @adaptor.add_child( root_1, stream_ipc_flags.next_tree )
+
+      end
+
+      stream_ipc_flags.reset();
 
       @adaptor.add_child( root_0, root_1 )
 
@@ -3930,7 +4072,7 @@ module Mig
     # parser rule identifier
     #
     # (in Mig.g)
-    # 206:1: identifier : IDENT ;
+    # 216:1: identifier : IDENT ;
     #
     def identifier
       # -> uncomment the next line to manually enable rule tracing
@@ -3945,19 +4087,19 @@ module Mig
 
       root_0 = nil
 
-      __IDENT182__ = nil
+      __IDENT179__ = nil
 
 
-      tree_for_IDENT182 = nil
+      tree_for_IDENT179 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 206:13: IDENT
-      __IDENT182__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_identifier_1117 )
-      tree_for_IDENT182 = @adaptor.create_with_payload( __IDENT182__ )
-      @adaptor.add_child( root_0, tree_for_IDENT182 )
+      # at line 216:13: IDENT
+      __IDENT179__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_identifier_1191 )
+      tree_for_IDENT179 = @adaptor.create_with_payload( __IDENT179__ )
+      @adaptor.add_child( root_0, tree_for_IDENT179 )
 
 
 
@@ -3991,7 +4133,7 @@ module Mig
     # parser rule trailer
     #
     # (in Mig.g)
-    # 207:1: trailer : tr_impl_keyword IDENT argument_type ;
+    # 217:1: trailer : tr_impl_keyword IDENT argument_type ;
     #
     def trailer
       # -> uncomment the next line to manually enable rule tracing
@@ -4006,32 +4148,32 @@ module Mig
 
       root_0 = nil
 
-      __IDENT184__ = nil
-      tr_impl_keyword183 = nil
-      argument_type185 = nil
+      __IDENT181__ = nil
+      tr_impl_keyword180 = nil
+      argument_type182 = nil
 
 
-      tree_for_IDENT184 = nil
+      tree_for_IDENT181 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
-      # at line 207:11: tr_impl_keyword IDENT argument_type
-      @state.following.push( TOKENS_FOLLOWING_tr_impl_keyword_IN_trailer_1124 )
-      tr_impl_keyword183 = tr_impl_keyword
+      # at line 217:11: tr_impl_keyword IDENT argument_type
+      @state.following.push( TOKENS_FOLLOWING_tr_impl_keyword_IN_trailer_1198 )
+      tr_impl_keyword180 = tr_impl_keyword
       @state.following.pop
-      @adaptor.add_child( root_0, tr_impl_keyword183.tree )
+      @adaptor.add_child( root_0, tr_impl_keyword180.tree )
 
-      __IDENT184__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trailer_1126 )
-      tree_for_IDENT184 = @adaptor.create_with_payload( __IDENT184__ )
-      @adaptor.add_child( root_0, tree_for_IDENT184 )
+      __IDENT181__ = match( IDENT, TOKENS_FOLLOWING_IDENT_IN_trailer_1200 )
+      tree_for_IDENT181 = @adaptor.create_with_payload( __IDENT181__ )
+      @adaptor.add_child( root_0, tree_for_IDENT181 )
 
 
-      @state.following.push( TOKENS_FOLLOWING_argument_type_IN_trailer_1128 )
-      argument_type185 = argument_type
+      @state.following.push( TOKENS_FOLLOWING_argument_type_IN_trailer_1202 )
+      argument_type182 = argument_type
       @state.following.pop
-      @adaptor.add_child( root_0, argument_type185.tree )
+      @adaptor.add_child( root_0, argument_type182.tree )
 
 
       # - - - - - - - rule clean up - - - - - - - -
@@ -4064,7 +4206,7 @@ module Mig
     # parser rule direction
     #
     # (in Mig.g)
-    # 208:1: direction : ( 'in' | 'out' | 'inout' | 'requestport' | 'replyport' | 'sreplyport' | 'ureplyport' | 'waittime' | 'sendtime' | 'msgoption' | 'sectoken' | 'serversectoken' | 'usersectoken' | 'audittoken' | 'serveraudittoken' | 'useraudittoken' | 'msgseqno' );
+    # 218:1: direction : direction_flag -> ^( DIRECTION direction_flag ) ;
     #
     def direction
       # -> uncomment the next line to manually enable rule tracing
@@ -4079,29 +4221,41 @@ module Mig
 
       root_0 = nil
 
-      set186 = nil
+      direction_flag183 = nil
 
 
-      tree_for_set186 = nil
-
+      stream_direction_flag = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule direction_flag" )
       begin
+      # at line 218:13: direction_flag
+      @state.following.push( TOKENS_FOLLOWING_direction_flag_IN_direction_1210 )
+      direction_flag183 = direction_flag
+      @state.following.pop
+      stream_direction_flag.add( direction_flag183.tree )
+
+      # AST Rewrite
+      # elements: direction_flag
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
       root_0 = @adaptor.create_flat_list
+      # 218:28: -> ^( DIRECTION direction_flag )
+      # at line 218:31: ^( DIRECTION direction_flag )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( DIRECTION, "DIRECTION" ), root_1 )
+
+      @adaptor.add_child( root_1, stream_direction_flag.next_tree )
+
+      @adaptor.add_child( root_0, root_1 )
 
 
-      # at line 
-      set186 = @input.look
 
-      if @input.peek(1) == T__70 || @input.peek( 1 ).between?( T__82, T__83 ) || @input.peek( 1 ).between?( T__87, T__88 ) || @input.peek(1) == T__90 || @input.peek( 1 ).between?( T__95, T__96 ) || @input.peek( 1 ).between?( T__99, T__101 ) || @input.peek(1) == T__105 || @input.peek(1) == T__109 || @input.peek( 1 ).between?( T__114, T__115 ) || @input.peek( 1 ).between?( T__117, T__118 )
-        @input.consume
-        @adaptor.add_child( root_0, @adaptor.create_with_payload( set186 ) )
 
-        @state.error_recovery = false
-
-      else
-        mse = MismatchedSet( nil )
-        raise mse
-
-      end
+      return_value.tree = root_0
 
 
 
@@ -4129,20 +4283,20 @@ module Mig
       return return_value
     end
 
-    TrImplKeywordReturnValue = define_return_scope
+    DirectionFlagReturnValue = define_return_scope
 
     #
-    # parser rule tr_impl_keyword
+    # parser rule direction_flag
     #
     # (in Mig.g)
-    # 226:1: tr_impl_keyword : ( 'serverimpl' | 'userimpl' );
+    # 219:1: direction_flag : ( 'in' | 'out' | 'inout' | 'requestport' | 'replyport' | 'sreplyport' | 'ureplyport' | 'waittime' | 'sendtime' | 'msgoption' | 'sectoken' | 'serversectoken' | 'usersectoken' | 'audittoken' | 'serveraudittoken' | 'useraudittoken' | 'msgseqno' );
     #
-    def tr_impl_keyword
+    def direction_flag
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 43 )
 
 
-      return_value = TrImplKeywordReturnValue.new
+      return_value = DirectionFlagReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
@@ -4150,21 +4304,21 @@ module Mig
 
       root_0 = nil
 
-      set187 = nil
+      set184 = nil
 
 
-      tree_for_set187 = nil
+      tree_for_set184 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
       # at line 
-      set187 = @input.look
+      set184 = @input.look
 
-      if @input.peek(1) == T__104 || @input.peek(1) == T__116
+      if @input.peek(1) == T__78 || @input.peek( 1 ).between?( T__91, T__92 ) || @input.peek( 1 ).between?( T__96, T__97 ) || @input.peek(1) == T__99 || @input.peek( 1 ).between?( T__104, T__105 ) || @input.peek( 1 ).between?( T__108, T__110 ) || @input.peek(1) == T__114 || @input.peek(1) == T__118 || @input.peek( 1 ).between?( T__123, T__124 ) || @input.peek( 1 ).between?( T__126, T__127 )
         @input.consume
-        @adaptor.add_child( root_0, @adaptor.create_with_payload( set187 ) )
+        @adaptor.add_child( root_0, @adaptor.create_with_payload( set184 ) )
 
         @state.error_recovery = false
 
@@ -4200,20 +4354,20 @@ module Mig
       return return_value
     end
 
-    ArgumentTypeReturnValue = define_return_scope
+    TrImplKeywordReturnValue = define_return_scope
 
     #
-    # parser rule argument_type
+    # parser rule tr_impl_keyword
     #
     # (in Mig.g)
-    # 227:1: argument_type : COLON ! ( identifier | named_type_spec | native_type_spec ) ;
+    # 237:1: tr_impl_keyword : ( 'serverimpl' | 'userimpl' );
     #
-    def argument_type
+    def tr_impl_keyword
       # -> uncomment the next line to manually enable rule tracing
       # trace_in( __method__, 44 )
 
 
-      return_value = ArgumentTypeReturnValue.new
+      return_value = TrImplKeywordReturnValue.new
 
       # $rule.start = the first token seen before matching
       return_value.start = @input.look
@@ -4221,242 +4375,21 @@ module Mig
 
       root_0 = nil
 
-      __COLON188__ = nil
-      identifier189 = nil
-      named_type_spec190 = nil
-      native_type_spec191 = nil
+      set185 = nil
 
 
-      tree_for_COLON188 = nil
-
-      begin
-      root_0 = @adaptor.create_flat_list
-
-
-      # at line 227:17: COLON ! ( identifier | named_type_spec | native_type_spec )
-      __COLON188__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_argument_type_1237 )
-      # at line 227:24: ( identifier | named_type_spec | native_type_spec )
-      alt_24 = 3
-      look_24_0 = @input.peek( 1 )
-
-      if ( look_24_0 == IDENT )
-        look_24_1 = @input.peek( 2 )
-
-        if ( look_24_1 == EQUAL )
-          alt_24 = 2
-        elsif ( look_24_1 == COMMA || look_24_1.between?( RPAREN, SEMI ) )
-          alt_24 = 1
-        else
-          raise NoViableAlternative( "", 24, 1 )
-
-        end
-      elsif ( look_24_0.between?( T__62, T__63 ) || look_24_0 == T__68 )
-        alt_24 = 3
-      else
-        raise NoViableAlternative( "", 24, 0 )
-
-      end
-      case alt_24
-      when 1
-        # at line 227:25: identifier
-        @state.following.push( TOKENS_FOLLOWING_identifier_IN_argument_type_1241 )
-        identifier189 = identifier
-        @state.following.pop
-        @adaptor.add_child( root_0, identifier189.tree )
-
-
-      when 2
-        # at line 227:38: named_type_spec
-        @state.following.push( TOKENS_FOLLOWING_named_type_spec_IN_argument_type_1245 )
-        named_type_spec190 = named_type_spec
-        @state.following.pop
-        @adaptor.add_child( root_0, named_type_spec190.tree )
-
-
-      when 3
-        # at line 227:56: native_type_spec
-        @state.following.push( TOKENS_FOLLOWING_native_type_spec_IN_argument_type_1249 )
-        native_type_spec191 = native_type_spec
-        @state.following.pop
-        @adaptor.add_child( root_0, native_type_spec191.tree )
-
-
-      end
-
-      # - - - - - - - rule clean up - - - - - - - -
-      return_value.stop = @input.look( -1 )
-
-
-      return_value.tree = @adaptor.rule_post_processing( root_0 )
-      @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
-
-
-      rescue ANTLR3::Error::RecognitionError => re
-        report_error(re)
-        recover(re)
-        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
-
-
-      ensure
-        # -> uncomment the next line to manually enable rule tracing
-        # trace_out( __method__, 44 )
-
-
-      end
-
-      return return_value
-    end
-
-    IpcFlagsReturnValue = define_return_scope
-
-    #
-    # parser rule ipc_flags
-    #
-    # (in Mig.g)
-    # 228:1: ipc_flags : ( COMMA ! ipc_flag )+ ( LBRACK RBRACK )? ;
-    #
-    def ipc_flags
-      # -> uncomment the next line to manually enable rule tracing
-      # trace_in( __method__, 45 )
-
-
-      return_value = IpcFlagsReturnValue.new
-
-      # $rule.start = the first token seen before matching
-      return_value.start = @input.look
-
-
-      root_0 = nil
-
-      __COMMA192__ = nil
-      __LBRACK194__ = nil
-      __RBRACK195__ = nil
-      ipc_flag193 = nil
-
-
-      tree_for_COMMA192 = nil
-      tree_for_LBRACK194 = nil
-      tree_for_RBRACK195 = nil
-
-      begin
-      root_0 = @adaptor.create_flat_list
-
-
-      # at line 228:13: ( COMMA ! ipc_flag )+ ( LBRACK RBRACK )?
-      # at file 228:13: ( COMMA ! ipc_flag )+
-      match_count_25 = 0
-      while true
-        alt_25 = 2
-        look_25_0 = @input.peek( 1 )
-
-        if ( look_25_0 == COMMA )
-          alt_25 = 1
-
-        end
-        case alt_25
-        when 1
-          # at line 228:14: COMMA ! ipc_flag
-          __COMMA192__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_ipc_flags_1259 )
-          @state.following.push( TOKENS_FOLLOWING_ipc_flag_IN_ipc_flags_1262 )
-          ipc_flag193 = ipc_flag
-          @state.following.pop
-          @adaptor.add_child( root_0, ipc_flag193.tree )
-
-
-        else
-          match_count_25 > 0 and break
-          eee = EarlyExit(25)
-
-
-          raise eee
-        end
-        match_count_25 += 1
-      end
-
-
-      # at line 228:32: ( LBRACK RBRACK )?
-      alt_26 = 2
-      look_26_0 = @input.peek( 1 )
-
-      if ( look_26_0 == LBRACK )
-        alt_26 = 1
-      end
-      case alt_26
-      when 1
-        # at line 228:33: LBRACK RBRACK
-        __LBRACK194__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_ipc_flags_1267 )
-        tree_for_LBRACK194 = @adaptor.create_with_payload( __LBRACK194__ )
-        @adaptor.add_child( root_0, tree_for_LBRACK194 )
-
-
-        __RBRACK195__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_ipc_flags_1269 )
-        tree_for_RBRACK195 = @adaptor.create_with_payload( __RBRACK195__ )
-        @adaptor.add_child( root_0, tree_for_RBRACK195 )
-
-
-
-      end
-
-      # - - - - - - - rule clean up - - - - - - - -
-      return_value.stop = @input.look( -1 )
-
-
-      return_value.tree = @adaptor.rule_post_processing( root_0 )
-      @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
-
-
-      rescue ANTLR3::Error::RecognitionError => re
-        report_error(re)
-        recover(re)
-        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
-
-
-      ensure
-        # -> uncomment the next line to manually enable rule tracing
-        # trace_out( __method__, 45 )
-
-
-      end
-
-      return return_value
-    end
-
-    IpcFlagReturnValue = define_return_scope
-
-    #
-    # parser rule ipc_flag
-    #
-    # (in Mig.g)
-    # 229:1: ipc_flag : ( 'SameCount' | 'retcode' | 'physicalcopy' | 'servercopy' | 'overwrite' | 'Dealloc' | 'notdealloc' | 'CountInOut' | 'auto' | 'const' );
-    #
-    def ipc_flag
-      # -> uncomment the next line to manually enable rule tracing
-      # trace_in( __method__, 46 )
-
-
-      return_value = IpcFlagReturnValue.new
-
-      # $rule.start = the first token seen before matching
-      return_value.start = @input.look
-
-
-      root_0 = nil
-
-      set196 = nil
-
-
-      tree_for_set196 = nil
+      tree_for_set185 = nil
 
       begin
       root_0 = @adaptor.create_flat_list
 
 
       # at line 
-      set196 = @input.look
+      set185 = @input.look
 
-      if @input.peek( 1 ).between?( T__32, T__33 ) || @input.peek(1) == T__64 || @input.peek(1) == T__71 || @input.peek(1) == T__73 || @input.peek(1) == T__89 || @input.peek( 1 ).between?( T__92, T__93 ) || @input.peek(1) == T__97 || @input.peek(1) == T__102
+      if @input.peek(1) == T__113 || @input.peek(1) == T__125
         @input.consume
-        @adaptor.add_child( root_0, @adaptor.create_with_payload( set196 ) )
+        @adaptor.add_child( root_0, @adaptor.create_with_payload( set185 ) )
 
         @state.error_recovery = false
 
@@ -4484,7 +4417,357 @@ module Mig
 
       ensure
         # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 44 )
+
+
+      end
+
+      return return_value
+    end
+
+    ArgumentTypeReturnValue = define_return_scope
+
+    #
+    # parser rule argument_type
+    #
+    # (in Mig.g)
+    # 238:1: argument_type : COLON ( identifier | named_type_spec | native_type_spec ) -> ^( ARG_TYPE ( identifier )? ) ;
+    #
+    def argument_type
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 45 )
+
+
+      return_value = ArgumentTypeReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+
+      root_0 = nil
+
+      __COLON186__ = nil
+      identifier187 = nil
+      named_type_spec188 = nil
+      native_type_spec189 = nil
+
+
+      tree_for_COLON186 = nil
+      stream_COLON = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token COLON" )
+      stream_identifier = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule identifier" )
+      stream_named_type_spec = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule named_type_spec" )
+      stream_native_type_spec = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule native_type_spec" )
+      begin
+      # at line 238:17: COLON ( identifier | named_type_spec | native_type_spec )
+      __COLON186__ = match( COLON, TOKENS_FOLLOWING_COLON_IN_argument_type_1326 )
+      stream_COLON.add( __COLON186__ )
+
+      # at line 238:23: ( identifier | named_type_spec | native_type_spec )
+      alt_24 = 3
+      look_24_0 = @input.peek( 1 )
+
+      if ( look_24_0 == IDENT )
+        look_24_1 = @input.peek( 2 )
+
+        if ( look_24_1 == EQUAL )
+          alt_24 = 2
+        elsif ( look_24_1 == COMMA || look_24_1.between?( RPAREN, SEMI ) )
+          alt_24 = 1
+        else
+          raise NoViableAlternative( "", 24, 1 )
+
+        end
+      elsif ( look_24_0.between?( T__70, T__71 ) || look_24_0 == T__76 )
+        alt_24 = 3
+      else
+        raise NoViableAlternative( "", 24, 0 )
+
+      end
+      case alt_24
+      when 1
+        # at line 238:24: identifier
+        @state.following.push( TOKENS_FOLLOWING_identifier_IN_argument_type_1329 )
+        identifier187 = identifier
+        @state.following.pop
+        stream_identifier.add( identifier187.tree )
+
+
+      when 2
+        # at line 238:37: named_type_spec
+        @state.following.push( TOKENS_FOLLOWING_named_type_spec_IN_argument_type_1333 )
+        named_type_spec188 = named_type_spec
+        @state.following.pop
+        stream_named_type_spec.add( named_type_spec188.tree )
+
+
+      when 3
+        # at line 238:55: native_type_spec
+        @state.following.push( TOKENS_FOLLOWING_native_type_spec_IN_argument_type_1337 )
+        native_type_spec189 = native_type_spec
+        @state.following.pop
+        stream_native_type_spec.add( native_type_spec189.tree )
+
+
+      end
+      # AST Rewrite
+      # elements: identifier
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+      root_0 = @adaptor.create_flat_list
+      # 238:73: -> ^( ARG_TYPE ( identifier )? )
+      # at line 238:76: ^( ARG_TYPE ( identifier )? )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( ARG_TYPE, "ARG_TYPE" ), root_1 )
+
+      # at line 238:87: ( identifier )?
+      if stream_identifier.has_next?
+        @adaptor.add_child( root_1, stream_identifier.next_tree )
+
+      end
+
+      stream_identifier.reset();
+
+      @adaptor.add_child( root_0, root_1 )
+
+
+
+
+      return_value.tree = root_0
+
+
+
+      # - - - - - - - rule clean up - - - - - - - -
+      return_value.stop = @input.look( -1 )
+
+
+      return_value.tree = @adaptor.rule_post_processing( root_0 )
+      @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 45 )
+
+
+      end
+
+      return return_value
+    end
+
+    IpcFlagsReturnValue = define_return_scope
+
+    #
+    # parser rule ipc_flags
+    #
+    # (in Mig.g)
+    # 239:1: ipc_flags : ( COMMA ipc_flag )+ ( LBRACK RBRACK )? -> ^( IPC_FLAGS ipc_flag ) ;
+    #
+    def ipc_flags
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 46 )
+
+
+      return_value = IpcFlagsReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+
+      root_0 = nil
+
+      __COMMA190__ = nil
+      __LBRACK192__ = nil
+      __RBRACK193__ = nil
+      ipc_flag191 = nil
+
+
+      tree_for_COMMA190 = nil
+      tree_for_LBRACK192 = nil
+      tree_for_RBRACK193 = nil
+      stream_COMMA = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token COMMA" )
+      stream_RBRACK = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token RBRACK" )
+      stream_LBRACK = ANTLR3::AST::RewriteRuleTokenStream.new( @adaptor, "token LBRACK" )
+      stream_ipc_flag = ANTLR3::AST::RewriteRuleSubtreeStream.new( @adaptor, "rule ipc_flag" )
+      begin
+      # at line 239:13: ( COMMA ipc_flag )+ ( LBRACK RBRACK )?
+      # at file 239:13: ( COMMA ipc_flag )+
+      match_count_25 = 0
+      while true
+        alt_25 = 2
+        look_25_0 = @input.peek( 1 )
+
+        if ( look_25_0 == COMMA )
+          alt_25 = 1
+
+        end
+        case alt_25
+        when 1
+          # at line 239:14: COMMA ipc_flag
+          __COMMA190__ = match( COMMA, TOKENS_FOLLOWING_COMMA_IN_ipc_flags_1355 )
+          stream_COMMA.add( __COMMA190__ )
+
+          @state.following.push( TOKENS_FOLLOWING_ipc_flag_IN_ipc_flags_1357 )
+          ipc_flag191 = ipc_flag
+          @state.following.pop
+          stream_ipc_flag.add( ipc_flag191.tree )
+
+
+        else
+          match_count_25 > 0 and break
+          eee = EarlyExit(25)
+
+
+          raise eee
+        end
+        match_count_25 += 1
+      end
+
+
+      # at line 239:31: ( LBRACK RBRACK )?
+      alt_26 = 2
+      look_26_0 = @input.peek( 1 )
+
+      if ( look_26_0 == LBRACK )
+        alt_26 = 1
+      end
+      case alt_26
+      when 1
+        # at line 239:32: LBRACK RBRACK
+        __LBRACK192__ = match( LBRACK, TOKENS_FOLLOWING_LBRACK_IN_ipc_flags_1362 )
+        stream_LBRACK.add( __LBRACK192__ )
+
+        __RBRACK193__ = match( RBRACK, TOKENS_FOLLOWING_RBRACK_IN_ipc_flags_1364 )
+        stream_RBRACK.add( __RBRACK193__ )
+
+
+      end
+      # AST Rewrite
+      # elements: ipc_flag
+      # token labels: 
+      # rule labels: return_value
+      # token list labels: 
+      # rule list labels: 
+      # wildcard labels: 
+      return_value.tree = root_0
+      stream_return_value = return_value ? subtree_stream( "rule return_value", return_value.tree ) : subtree_stream( "token return_value" )
+
+      root_0 = @adaptor.create_flat_list
+      # 239:48: -> ^( IPC_FLAGS ipc_flag )
+      # at line 239:51: ^( IPC_FLAGS ipc_flag )
+      root_1 = @adaptor.create_flat_list
+      root_1 = @adaptor.become_root( @adaptor.create_from_type( IPC_FLAGS, "IPC_FLAGS" ), root_1 )
+
+      @adaptor.add_child( root_1, stream_ipc_flag.next_tree )
+
+      @adaptor.add_child( root_0, root_1 )
+
+
+
+
+      return_value.tree = root_0
+
+
+
+      # - - - - - - - rule clean up - - - - - - - -
+      return_value.stop = @input.look( -1 )
+
+
+      return_value.tree = @adaptor.rule_post_processing( root_0 )
+      @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
         # trace_out( __method__, 46 )
+
+
+      end
+
+      return return_value
+    end
+
+    IpcFlagReturnValue = define_return_scope
+
+    #
+    # parser rule ipc_flag
+    #
+    # (in Mig.g)
+    # 240:1: ipc_flag : ( 'SameCount' | 'retcode' | 'physicalcopy' | 'servercopy' | 'overwrite' | 'Dealloc' | 'dealloc' | 'notdealloc' | 'CountInOut' | 'auto' | 'const' );
+    #
+    def ipc_flag
+      # -> uncomment the next line to manually enable rule tracing
+      # trace_in( __method__, 47 )
+
+
+      return_value = IpcFlagReturnValue.new
+
+      # $rule.start = the first token seen before matching
+      return_value.start = @input.look
+
+
+      root_0 = nil
+
+      set194 = nil
+
+
+      tree_for_set194 = nil
+
+      begin
+      root_0 = @adaptor.create_flat_list
+
+
+      # at line 
+      set194 = @input.look
+
+      if @input.peek( 1 ).between?( T__40, T__41 ) || @input.peek(1) == T__72 || @input.peek(1) == T__79 || @input.peek(1) == T__81 || @input.peek(1) == T__85 || @input.peek(1) == T__98 || @input.peek( 1 ).between?( T__101, T__102 ) || @input.peek(1) == T__106 || @input.peek(1) == T__111
+        @input.consume
+        @adaptor.add_child( root_0, @adaptor.create_with_payload( set194 ) )
+
+        @state.error_recovery = false
+
+      else
+        mse = MismatchedSet( nil )
+        raise mse
+
+      end
+
+
+
+      # - - - - - - - rule clean up - - - - - - - -
+      return_value.stop = @input.look( -1 )
+
+
+      return_value.tree = @adaptor.rule_post_processing( root_0 )
+      @adaptor.set_token_boundaries( return_value.tree, return_value.start, return_value.stop )
+
+
+      rescue ANTLR3::Error::RecognitionError => re
+        report_error(re)
+        recover(re)
+        return_value.tree = @adaptor.create_error_node( @input, return_value.start, @input.look(-1), re )
+
+
+      ensure
+        # -> uncomment the next line to manually enable rule tracing
+        # trace_out( __method__, 47 )
 
 
       end
@@ -4494,196 +4777,194 @@ module Mig
 
 
 
-    TOKENS_FOLLOWING_statement_IN_statements_56 = Set[ 1, 28, 61, 65, 66, 67, 78, 79, 80, 81, 98, 103, 106, 107, 108, 111, 112, 113 ]
-    TOKENS_FOLLOWING_subsystem_IN_statement_67 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_69 = Set[ 1 ]
-    TOKENS_FOLLOWING_user_type_limit_IN_statement_78 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_80 = Set[ 1 ]
-    TOKENS_FOLLOWING_on_stack_limit_IN_statement_87 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_89 = Set[ 1 ]
-    TOKENS_FOLLOWING_error_IN_statement_96 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_98 = Set[ 1 ]
-    TOKENS_FOLLOWING_server_prefix_IN_statement_105 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_107 = Set[ 1 ]
-    TOKENS_FOLLOWING_user_prefix_IN_statement_114 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_116 = Set[ 1 ]
-    TOKENS_FOLLOWING_server_demux_IN_statement_123 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_125 = Set[ 1 ]
-    TOKENS_FOLLOWING_type_decl_IN_statement_132 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_134 = Set[ 1 ]
-    TOKENS_FOLLOWING_routine_decl_IN_statement_141 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_143 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__108_IN_statement_150 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_152 = Set[ 1 ]
-    TOKENS_FOLLOWING_import_decl_IN_statement_159 = Set[ 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_161 = Set[ 1 ]
-    TOKENS_FOLLOWING_SEMI_IN_statement_169 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__111_IN_subsystem_179 = Set[ 14, 34, 35, 85, 86 ]
-    TOKENS_FOLLOWING_subsystem_mods_IN_subsystem_182 = Set[ 14 ]
-    TOKENS_FOLLOWING_subsystem_name_IN_subsystem_184 = Set[ 20 ]
-    TOKENS_FOLLOWING_subsystem_base_IN_subsystem_186 = Set[ 1 ]
-    TOKENS_FOLLOWING_subsystem_mod_IN_subsystem_mods_195 = Set[ 1, 34, 35, 85, 86 ]
-    TOKENS_FOLLOWING_IDENT_IN_subsystem_name_229 = Set[ 1 ]
-    TOKENS_FOLLOWING_NUMBER_IN_subsystem_base_239 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__67_IN_user_type_limit_249 = Set[ 20 ]
-    TOKENS_FOLLOWING_NUMBER_IN_user_type_limit_252 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__61_IN_on_stack_limit_260 = Set[ 20 ]
-    TOKENS_FOLLOWING_NUMBER_IN_on_stack_limit_263 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__79_IN_error_271 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_error_274 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__65_IN_server_prefix_282 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_server_prefix_285 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__66_IN_user_prefix_294 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_user_prefix_297 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__103_IN_server_demux_305 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_server_demux_308 = Set[ 1 ]
-    TOKENS_FOLLOWING_import_indicant_IN_import_decl_316 = Set[ 4, 23 ]
-    TOKENS_FOLLOWING_set_IN_import_decl_318 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__112_IN_type_decl_363 = Set[ 14 ]
-    TOKENS_FOLLOWING_named_type_spec_IN_type_decl_366 = Set[ 1 ]
-    TOKENS_FOLLOWING_IDENT_IN_named_type_spec_375 = Set[ 13 ]
-    TOKENS_FOLLOWING_EQUAL_IN_named_type_spec_377 = Set[ 7, 14, 18, 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 68, 69, 72, 94, 110 ]
-    TOKENS_FOLLOWING_trans_type_spec_IN_named_type_spec_380 = Set[ 1 ]
-    TOKENS_FOLLOWING_type_spec_IN_trans_type_spec_389 = Set[ 1, 74, 75, 76, 77, 84, 91 ]
-    TOKENS_FOLLOWING_trans_type_spec_extended_IN_trans_type_spec_392 = Set[ 1, 74, 75, 76, 77, 84, 91 ]
-    TOKENS_FOLLOWING_T__84_IN_trans_type_spec_extended_405 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_407 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_410 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_412 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_414 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_417 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_419 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__91_IN_trans_type_spec_extended_425 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_427 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_430 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_432 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_434 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_437 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_439 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__77_IN_trans_type_spec_extended_445 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_447 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_450 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_452 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_455 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_457 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__75_IN_trans_type_spec_extended_463 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_465 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_468 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__76_IN_trans_type_spec_extended_473 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_475 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_478 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__74_IN_trans_type_spec_extended_483 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_485 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_488 = Set[ 1 ]
-    TOKENS_FOLLOWING_basic_type_spec_IN_type_spec_498 = Set[ 1 ]
-    TOKENS_FOLLOWING_prev_type_spec_IN_type_spec_503 = Set[ 1 ]
-    TOKENS_FOLLOWING_array_spec_IN_type_spec_508 = Set[ 1 ]
-    TOKENS_FOLLOWING_CARET_IN_type_spec_513 = Set[ 7, 14, 18, 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 68, 69, 72, 94, 110 ]
-    TOKENS_FOLLOWING_type_spec_IN_type_spec_515 = Set[ 1 ]
-    TOKENS_FOLLOWING_struct_head_IN_type_spec_520 = Set[ 1 ]
-    TOKENS_FOLLOWING_c_string_spec_IN_type_spec_525 = Set[ 1 ]
-    TOKENS_FOLLOWING_native_type_spec_IN_type_spec_530 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__62_IN_native_type_spec_541 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_543 = Set[ 14 ]
-    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_546 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_548 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__63_IN_native_type_spec_554 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_556 = Set[ 14 ]
-    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_559 = Set[ 9 ]
-    TOKENS_FOLLOWING_COMMA_IN_native_type_spec_561 = Set[ 14 ]
-    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_564 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_566 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__68_IN_native_type_spec_572 = Set[ 18 ]
-    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_574 = Set[ 14 ]
-    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_577 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_579 = Set[ 1 ]
-    TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_589 = Set[ 1 ]
-    TOKENS_FOLLOWING_LPAREN_IN_basic_type_spec_594 = Set[ 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 94 ]
-    TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_597 = Set[ 9 ]
-    TOKENS_FOLLOWING_COMMA_IN_basic_type_spec_599 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_basic_type_spec_602 = Set[ 9, 27 ]
-    TOKENS_FOLLOWING_ipc_flags_IN_basic_type_spec_605 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_basic_type_spec_609 = Set[ 1 ]
-    TOKENS_FOLLOWING_NUMBER_IN_prim_ipc_type_621 = Set[ 1 ]
-    TOKENS_FOLLOWING_symbolic_type_IN_prim_ipc_type_626 = Set[ 1 ]
-    TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_772 = Set[ 1, 6 ]
-    TOKENS_FOLLOWING_BAR_IN_ipc_type_775 = Set[ 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 94 ]
-    TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_778 = Set[ 1 ]
-    TOKENS_FOLLOWING_IDENT_IN_prev_type_spec_788 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__69_IN_array_spec_797 = Set[ 16 ]
-    TOKENS_FOLLOWING_LBRACK_IN_array_spec_800 = Set[ 18, 20, 25, 29 ]
-    TOKENS_FOLLOWING_var_array_head_IN_array_spec_804 = Set[ 7, 14, 18, 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 68, 69, 72, 94, 110 ]
-    TOKENS_FOLLOWING_array_head_IN_array_spec_808 = Set[ 7, 14, 18, 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 68, 69, 72, 94, 110 ]
-    TOKENS_FOLLOWING_type_spec_IN_array_spec_811 = Set[ 1 ]
-    TOKENS_FOLLOWING_RBRACK_IN_var_array_head_819 = Set[ 21 ]
-    TOKENS_FOLLOWING_OF_IN_var_array_head_822 = Set[ 1 ]
-    TOKENS_FOLLOWING_STAR_IN_var_array_head_828 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_var_array_head_830 = Set[ 21 ]
-    TOKENS_FOLLOWING_OF_IN_var_array_head_833 = Set[ 1 ]
-    TOKENS_FOLLOWING_STAR_IN_var_array_head_839 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_var_array_head_841 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_var_array_head_843 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_var_array_head_845 = Set[ 21 ]
-    TOKENS_FOLLOWING_OF_IN_var_array_head_848 = Set[ 1 ]
-    TOKENS_FOLLOWING_int_exp_IN_array_head_861 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_array_head_863 = Set[ 21 ]
-    TOKENS_FOLLOWING_OF_IN_array_head_866 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__110_IN_struct_head_875 = Set[ 16 ]
-    TOKENS_FOLLOWING_LBRACK_IN_struct_head_878 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_struct_head_881 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_struct_head_883 = Set[ 21 ]
-    TOKENS_FOLLOWING_OF_IN_struct_head_886 = Set[ 7, 14, 18, 20, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 62, 63, 68, 69, 72, 94, 110 ]
-    TOKENS_FOLLOWING_type_spec_IN_struct_head_889 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__72_IN_c_string_spec_897 = Set[ 16 ]
-    TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_903 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_c_string_spec_906 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_908 = Set[ 1 ]
-    TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_913 = Set[ 29 ]
-    TOKENS_FOLLOWING_STAR_IN_c_string_spec_916 = Set[ 8 ]
-    TOKENS_FOLLOWING_COLON_IN_c_string_spec_918 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_c_string_spec_920 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_922 = Set[ 1 ]
-    TOKENS_FOLLOWING_IDENT_IN_type_phrase_936 = Set[ 1, 14 ]
-    TOKENS_FOLLOWING_NUMBER_IN_int_exp_946 = Set[ 1 ]
-    TOKENS_FOLLOWING_NUMBER_IN_int_exp_951 = Set[ 12, 19, 22, 29 ]
-    TOKENS_FOLLOWING_set_IN_int_exp_953 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_int_exp_969 = Set[ 1 ]
-    TOKENS_FOLLOWING_LPAREN_IN_int_exp_974 = Set[ 18, 20 ]
-    TOKENS_FOLLOWING_int_exp_IN_int_exp_976 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_int_exp_978 = Set[ 1 ]
-    TOKENS_FOLLOWING_routine_IN_routine_decl_987 = Set[ 1 ]
-    TOKENS_FOLLOWING_simple_routine_IN_routine_decl_992 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__98_IN_routine_1000 = Set[ 14 ]
-    TOKENS_FOLLOWING_identifier_IN_routine_1002 = Set[ 18 ]
-    TOKENS_FOLLOWING_arguments_IN_routine_1004 = Set[ 1 ]
-    TOKENS_FOLLOWING_T__106_IN_simple_routine_1021 = Set[ 14 ]
-    TOKENS_FOLLOWING_identifier_IN_simple_routine_1023 = Set[ 18 ]
-    TOKENS_FOLLOWING_arguments_IN_simple_routine_1025 = Set[ 1 ]
-    TOKENS_FOLLOWING_LPAREN_IN_arguments_1041 = Set[ 14, 27, 70, 82, 83, 87, 88, 90, 95, 96, 99, 100, 101, 104, 105, 109, 114, 115, 116, 117, 118 ]
-    TOKENS_FOLLOWING_argument_list_IN_arguments_1045 = Set[ 27 ]
-    TOKENS_FOLLOWING_RPAREN_IN_arguments_1049 = Set[ 1 ]
-    TOKENS_FOLLOWING_argument_IN_argument_list_1058 = Set[ 1, 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_argument_list_1061 = Set[ 14, 70, 82, 83, 87, 88, 90, 95, 96, 99, 100, 101, 104, 105, 109, 114, 115, 116, 117, 118 ]
-    TOKENS_FOLLOWING_argument_list_IN_argument_list_1064 = Set[ 1 ]
-    TOKENS_FOLLOWING_trailer_IN_argument_list_1071 = Set[ 1, 28 ]
-    TOKENS_FOLLOWING_SEMI_IN_argument_list_1074 = Set[ 14, 70, 82, 83, 87, 88, 90, 95, 96, 99, 100, 101, 104, 105, 109, 114, 115, 116, 117, 118 ]
-    TOKENS_FOLLOWING_argument_list_IN_argument_list_1077 = Set[ 1 ]
-    TOKENS_FOLLOWING_direction_IN_argument_1089 = Set[ 14 ]
-    TOKENS_FOLLOWING_identifier_IN_argument_1093 = Set[ 8 ]
-    TOKENS_FOLLOWING_argument_type_IN_argument_1095 = Set[ 1, 9 ]
-    TOKENS_FOLLOWING_ipc_flags_IN_argument_1098 = Set[ 1 ]
-    TOKENS_FOLLOWING_IDENT_IN_identifier_1117 = Set[ 1 ]
-    TOKENS_FOLLOWING_tr_impl_keyword_IN_trailer_1124 = Set[ 14 ]
-    TOKENS_FOLLOWING_IDENT_IN_trailer_1126 = Set[ 8 ]
-    TOKENS_FOLLOWING_argument_type_IN_trailer_1128 = Set[ 1 ]
-    TOKENS_FOLLOWING_COLON_IN_argument_type_1237 = Set[ 14, 62, 63, 68 ]
-    TOKENS_FOLLOWING_identifier_IN_argument_type_1241 = Set[ 1 ]
-    TOKENS_FOLLOWING_named_type_spec_IN_argument_type_1245 = Set[ 1 ]
-    TOKENS_FOLLOWING_native_type_spec_IN_argument_type_1249 = Set[ 1 ]
-    TOKENS_FOLLOWING_COMMA_IN_ipc_flags_1259 = Set[ 32, 33, 64, 71, 73, 89, 92, 93, 97, 102 ]
-    TOKENS_FOLLOWING_ipc_flag_IN_ipc_flags_1262 = Set[ 1, 9, 16 ]
-    TOKENS_FOLLOWING_LBRACK_IN_ipc_flags_1267 = Set[ 25 ]
-    TOKENS_FOLLOWING_RBRACK_IN_ipc_flags_1269 = Set[ 1 ]
+    TOKENS_FOLLOWING_statement_IN_statements_97 = Set[ 1, 33, 69, 73, 74, 75, 87, 88, 89, 90, 107, 112, 115, 116, 117, 120, 121, 122 ]
+    TOKENS_FOLLOWING_subsystem_IN_statement_108 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_110 = Set[ 1 ]
+    TOKENS_FOLLOWING_user_type_limit_IN_statement_119 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_121 = Set[ 1 ]
+    TOKENS_FOLLOWING_on_stack_limit_IN_statement_128 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_130 = Set[ 1 ]
+    TOKENS_FOLLOWING_error_IN_statement_137 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_139 = Set[ 1 ]
+    TOKENS_FOLLOWING_server_prefix_IN_statement_146 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_148 = Set[ 1 ]
+    TOKENS_FOLLOWING_user_prefix_IN_statement_155 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_157 = Set[ 1 ]
+    TOKENS_FOLLOWING_server_demux_IN_statement_164 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_166 = Set[ 1 ]
+    TOKENS_FOLLOWING_type_decl_IN_statement_173 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_175 = Set[ 1 ]
+    TOKENS_FOLLOWING_routine_decl_IN_statement_182 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_184 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__117_IN_statement_191 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_193 = Set[ 1 ]
+    TOKENS_FOLLOWING_import_decl_IN_statement_200 = Set[ 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_202 = Set[ 1 ]
+    TOKENS_FOLLOWING_SEMI_IN_statement_210 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__120_IN_subsystem_220 = Set[ 18, 42, 43, 94, 95 ]
+    TOKENS_FOLLOWING_subsystem_mods_IN_subsystem_223 = Set[ 18 ]
+    TOKENS_FOLLOWING_subsystem_name_IN_subsystem_225 = Set[ 25 ]
+    TOKENS_FOLLOWING_subsystem_base_IN_subsystem_227 = Set[ 1 ]
+    TOKENS_FOLLOWING_subsystem_mod_IN_subsystem_mods_236 = Set[ 1, 42, 43, 94, 95 ]
+    TOKENS_FOLLOWING_IDENT_IN_subsystem_name_270 = Set[ 1 ]
+    TOKENS_FOLLOWING_NUMBER_IN_subsystem_base_280 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__75_IN_user_type_limit_290 = Set[ 25 ]
+    TOKENS_FOLLOWING_NUMBER_IN_user_type_limit_293 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__69_IN_on_stack_limit_301 = Set[ 25 ]
+    TOKENS_FOLLOWING_NUMBER_IN_on_stack_limit_304 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__88_IN_error_312 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_error_315 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__73_IN_server_prefix_323 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_server_prefix_326 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__74_IN_user_prefix_335 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_user_prefix_338 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__112_IN_server_demux_346 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_server_demux_349 = Set[ 1 ]
+    TOKENS_FOLLOWING_import_indicant_IN_import_decl_357 = Set[ 4, 28 ]
+    TOKENS_FOLLOWING_set_IN_import_decl_359 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__121_IN_type_decl_404 = Set[ 18 ]
+    TOKENS_FOLLOWING_named_type_spec_IN_type_decl_407 = Set[ 1 ]
+    TOKENS_FOLLOWING_IDENT_IN_named_type_spec_415 = Set[ 16 ]
+    TOKENS_FOLLOWING_EQUAL_IN_named_type_spec_417 = Set[ 9, 18, 23, 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 70, 71, 76, 77, 80, 103, 119 ]
+    TOKENS_FOLLOWING_trans_type_spec_IN_named_type_spec_419 = Set[ 1 ]
+    TOKENS_FOLLOWING_type_spec_IN_trans_type_spec_437 = Set[ 1, 82, 83, 84, 86, 93, 100 ]
+    TOKENS_FOLLOWING_trans_type_spec_extended_IN_trans_type_spec_440 = Set[ 1, 82, 83, 84, 86, 93, 100 ]
+    TOKENS_FOLLOWING_T__93_IN_trans_type_spec_extended_453 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_455 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_458 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_460 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_462 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_465 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_467 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__100_IN_trans_type_spec_extended_473 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_475 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_478 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_480 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_482 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_485 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_487 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__86_IN_trans_type_spec_extended_493 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_495 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_498 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_trans_type_spec_extended_500 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_503 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_trans_type_spec_extended_505 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__83_IN_trans_type_spec_extended_511 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_513 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_516 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__84_IN_trans_type_spec_extended_521 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_523 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_526 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__82_IN_trans_type_spec_extended_531 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_trans_type_spec_extended_533 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trans_type_spec_extended_536 = Set[ 1 ]
+    TOKENS_FOLLOWING_basic_type_spec_IN_type_spec_546 = Set[ 1 ]
+    TOKENS_FOLLOWING_prev_type_spec_IN_type_spec_551 = Set[ 1 ]
+    TOKENS_FOLLOWING_array_spec_IN_type_spec_556 = Set[ 1 ]
+    TOKENS_FOLLOWING_CARET_IN_type_spec_564 = Set[ 9, 18, 23, 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 70, 71, 76, 77, 80, 103, 119 ]
+    TOKENS_FOLLOWING_type_spec_IN_type_spec_566 = Set[ 1 ]
+    TOKENS_FOLLOWING_struct_head_IN_type_spec_571 = Set[ 1 ]
+    TOKENS_FOLLOWING_c_string_spec_IN_type_spec_576 = Set[ 1 ]
+    TOKENS_FOLLOWING_native_type_spec_IN_type_spec_581 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__70_IN_native_type_spec_592 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_594 = Set[ 18 ]
+    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_597 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_599 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__71_IN_native_type_spec_605 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_607 = Set[ 18 ]
+    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_610 = Set[ 11 ]
+    TOKENS_FOLLOWING_COMMA_IN_native_type_spec_612 = Set[ 18 ]
+    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_615 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_617 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__76_IN_native_type_spec_623 = Set[ 23 ]
+    TOKENS_FOLLOWING_LPAREN_IN_native_type_spec_625 = Set[ 18 ]
+    TOKENS_FOLLOWING_type_phrase_IN_native_type_spec_628 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_native_type_spec_630 = Set[ 1 ]
+    TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_640 = Set[ 1 ]
+    TOKENS_FOLLOWING_LPAREN_IN_basic_type_spec_645 = Set[ 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 103 ]
+    TOKENS_FOLLOWING_ipc_type_IN_basic_type_spec_648 = Set[ 11 ]
+    TOKENS_FOLLOWING_COMMA_IN_basic_type_spec_650 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_basic_type_spec_653 = Set[ 11, 32 ]
+    TOKENS_FOLLOWING_ipc_flags_IN_basic_type_spec_656 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_basic_type_spec_660 = Set[ 1 ]
+    TOKENS_FOLLOWING_NUMBER_IN_prim_ipc_type_672 = Set[ 1 ]
+    TOKENS_FOLLOWING_symbolic_type_IN_prim_ipc_type_677 = Set[ 1 ]
+    TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_823 = Set[ 1, 8 ]
+    TOKENS_FOLLOWING_BAR_IN_ipc_type_826 = Set[ 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 103 ]
+    TOKENS_FOLLOWING_prim_ipc_type_IN_ipc_type_829 = Set[ 1 ]
+    TOKENS_FOLLOWING_IDENT_IN_prev_type_spec_839 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__77_IN_array_spec_848 = Set[ 21 ]
+    TOKENS_FOLLOWING_LBRACK_IN_array_spec_850 = Set[ 23, 25, 30, 34 ]
+    TOKENS_FOLLOWING_var_array_head_IN_array_spec_853 = Set[ 9, 18, 23, 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 70, 71, 76, 77, 80, 103, 119 ]
+    TOKENS_FOLLOWING_array_head_IN_array_spec_857 = Set[ 9, 18, 23, 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 70, 71, 76, 77, 80, 103, 119 ]
+    TOKENS_FOLLOWING_type_spec_IN_array_spec_860 = Set[ 1 ]
+    TOKENS_FOLLOWING_RBRACK_IN_var_array_head_882 = Set[ 26 ]
+    TOKENS_FOLLOWING_OF_IN_var_array_head_884 = Set[ 1 ]
+    TOKENS_FOLLOWING_STAR_IN_var_array_head_896 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_var_array_head_898 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_var_array_head_900 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_var_array_head_902 = Set[ 26 ]
+    TOKENS_FOLLOWING_OF_IN_var_array_head_904 = Set[ 1 ]
+    TOKENS_FOLLOWING_int_exp_IN_array_head_924 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_array_head_926 = Set[ 26 ]
+    TOKENS_FOLLOWING_OF_IN_array_head_928 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__119_IN_struct_head_944 = Set[ 21 ]
+    TOKENS_FOLLOWING_LBRACK_IN_struct_head_947 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_struct_head_950 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_struct_head_952 = Set[ 26 ]
+    TOKENS_FOLLOWING_OF_IN_struct_head_955 = Set[ 9, 18, 23, 25, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 70, 71, 76, 77, 80, 103, 119 ]
+    TOKENS_FOLLOWING_type_spec_IN_struct_head_958 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__80_IN_c_string_spec_966 = Set[ 21 ]
+    TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_972 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_c_string_spec_975 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_977 = Set[ 1 ]
+    TOKENS_FOLLOWING_LBRACK_IN_c_string_spec_982 = Set[ 34 ]
+    TOKENS_FOLLOWING_STAR_IN_c_string_spec_985 = Set[ 10 ]
+    TOKENS_FOLLOWING_COLON_IN_c_string_spec_987 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_c_string_spec_989 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_c_string_spec_991 = Set[ 1 ]
+    TOKENS_FOLLOWING_IDENT_IN_type_phrase_1005 = Set[ 1, 18 ]
+    TOKENS_FOLLOWING_NUMBER_IN_int_exp_1015 = Set[ 1 ]
+    TOKENS_FOLLOWING_NUMBER_IN_int_exp_1020 = Set[ 15, 24, 27, 34 ]
+    TOKENS_FOLLOWING_set_IN_int_exp_1022 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_int_exp_1038 = Set[ 1 ]
+    TOKENS_FOLLOWING_LPAREN_IN_int_exp_1043 = Set[ 23, 25 ]
+    TOKENS_FOLLOWING_int_exp_IN_int_exp_1045 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_int_exp_1047 = Set[ 1 ]
+    TOKENS_FOLLOWING_routine_IN_routine_decl_1056 = Set[ 1 ]
+    TOKENS_FOLLOWING_simple_routine_IN_routine_decl_1061 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__107_IN_routine_1069 = Set[ 18 ]
+    TOKENS_FOLLOWING_identifier_IN_routine_1071 = Set[ 23 ]
+    TOKENS_FOLLOWING_arguments_IN_routine_1073 = Set[ 1 ]
+    TOKENS_FOLLOWING_T__115_IN_simple_routine_1090 = Set[ 18 ]
+    TOKENS_FOLLOWING_identifier_IN_simple_routine_1092 = Set[ 23 ]
+    TOKENS_FOLLOWING_arguments_IN_simple_routine_1094 = Set[ 1 ]
+    TOKENS_FOLLOWING_LPAREN_IN_arguments_1110 = Set[ 18, 32, 78, 91, 92, 96, 97, 99, 104, 105, 108, 109, 110, 113, 114, 118, 123, 124, 125, 126, 127 ]
+    TOKENS_FOLLOWING_argument_list_IN_arguments_1114 = Set[ 32 ]
+    TOKENS_FOLLOWING_RPAREN_IN_arguments_1118 = Set[ 1 ]
+    TOKENS_FOLLOWING_argument_IN_argument_list_1127 = Set[ 1, 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_argument_list_1130 = Set[ 18, 78, 91, 92, 96, 97, 99, 104, 105, 108, 109, 110, 113, 114, 118, 123, 124, 125, 126, 127 ]
+    TOKENS_FOLLOWING_argument_list_IN_argument_list_1133 = Set[ 1 ]
+    TOKENS_FOLLOWING_trailer_IN_argument_list_1140 = Set[ 1, 33 ]
+    TOKENS_FOLLOWING_SEMI_IN_argument_list_1143 = Set[ 18, 78, 91, 92, 96, 97, 99, 104, 105, 108, 109, 110, 113, 114, 118, 123, 124, 125, 126, 127 ]
+    TOKENS_FOLLOWING_argument_list_IN_argument_list_1146 = Set[ 1 ]
+    TOKENS_FOLLOWING_direction_IN_argument_1158 = Set[ 18 ]
+    TOKENS_FOLLOWING_identifier_IN_argument_1162 = Set[ 10 ]
+    TOKENS_FOLLOWING_argument_type_IN_argument_1164 = Set[ 1, 11 ]
+    TOKENS_FOLLOWING_ipc_flags_IN_argument_1167 = Set[ 1 ]
+    TOKENS_FOLLOWING_IDENT_IN_identifier_1191 = Set[ 1 ]
+    TOKENS_FOLLOWING_tr_impl_keyword_IN_trailer_1198 = Set[ 18 ]
+    TOKENS_FOLLOWING_IDENT_IN_trailer_1200 = Set[ 10 ]
+    TOKENS_FOLLOWING_argument_type_IN_trailer_1202 = Set[ 1 ]
+    TOKENS_FOLLOWING_direction_flag_IN_direction_1210 = Set[ 1 ]
+    TOKENS_FOLLOWING_COLON_IN_argument_type_1326 = Set[ 18, 70, 71, 76 ]
+    TOKENS_FOLLOWING_identifier_IN_argument_type_1329 = Set[ 1 ]
+    TOKENS_FOLLOWING_named_type_spec_IN_argument_type_1333 = Set[ 1 ]
+    TOKENS_FOLLOWING_native_type_spec_IN_argument_type_1337 = Set[ 1 ]
+    TOKENS_FOLLOWING_COMMA_IN_ipc_flags_1355 = Set[ 40, 41, 72, 79, 81, 85, 98, 101, 102, 106, 111 ]
+    TOKENS_FOLLOWING_ipc_flag_IN_ipc_flags_1357 = Set[ 1, 11, 21 ]
+    TOKENS_FOLLOWING_LBRACK_IN_ipc_flags_1362 = Set[ 30 ]
+    TOKENS_FOLLOWING_RBRACK_IN_ipc_flags_1364 = Set[ 1 ]
 
   end # class Parser < ANTLR3::Parser
 

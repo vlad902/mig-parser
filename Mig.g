@@ -67,6 +67,15 @@ options {
 tokens {
   ROUTINE_DEF;
   ARG_DEF;
+  ARG_TYPE;
+  DIRECTION;
+  IPC_FLAGS;
+
+  TYPE_DEF;
+  ARRAY;
+  VARIABLE_SIZE;
+  UNLIMITED_SIZE;
+  FIXED_SIZE;
 }
 
 
@@ -113,8 +122,8 @@ import_indicant : 'import'
 	| 'dimport'
 	| 'iimport'
 	;
-type_decl : 'type'! named_type_spec ; 
-named_type_spec : IDENT EQUAL! trans_type_spec ;
+type_decl : 'type'! named_type_spec ;
+named_type_spec : IDENT EQUAL trans_type_spec -> ^(TYPE_DEF IDENT trans_type_spec);
 trans_type_spec :  type_spec (trans_type_spec_extended)*
 	;
 	
@@ -128,6 +137,7 @@ trans_type_spec_extended : 'intran' COLON! IDENT IDENT LPAREN! IDENT RPAREN!
 type_spec : basic_type_spec
 	| prev_type_spec
 	| array_spec
+  // TODO: CARET! ?????
 	| CARET type_spec
 	| struct_head
 	| c_string_spec
@@ -175,14 +185,14 @@ symbolic_type : 'polymorphic'
 	;
 ipc_type : prim_ipc_type (BAR! prim_ipc_type)? ;
 prev_type_spec : IDENT ; 
-array_spec : 'array'! LBRACK! (var_array_head | array_head) type_spec
+array_spec : 'array' LBRACK (var_array_head | array_head) type_spec -> ^(ARRAY type_spec var_array_head? array_head?)
 	;
-var_array_head: RBRACK! OF!
-	| STAR RBRACK! OF!
-	| STAR COLON int_exp RBRACK! OF!
+var_array_head: RBRACK OF -> ^(UNLIMITED_SIZE)
+//	| STAR RBRACK! OF!
+	| STAR COLON int_exp RBRACK OF -> ^(VARIABLE_SIZE int_exp)
 	;
 		
-array_head : int_exp RBRACK! OF! ;
+array_head : int_exp RBRACK OF -> ^(FIXED_SIZE int_exp) ;
 struct_head : 'struct'! LBRACK! int_exp RBRACK! OF! type_spec ;
 c_string_spec : 'c_string'!
 		(LBRACK! int_exp RBRACK! | LBRACK! STAR COLON int_exp RBRACK!)
@@ -202,10 +212,11 @@ arguments: LPAREN! (argument_list)? RPAREN! ;
 argument_list : argument (SEMI! argument_list)?
 	| trailer (SEMI! argument_list)?
 	;
-argument : (direction)? identifier argument_type (ipc_flags)? -> ^(ARG_DEF identifier direction?);
+argument : (direction)? identifier argument_type (ipc_flags)? -> ^(ARG_DEF identifier argument_type direction? ipc_flags?);
 identifier: IDENT;
 trailer : tr_impl_keyword IDENT argument_type ;
-direction : 'in'
+direction : direction_flag -> ^(DIRECTION direction_flag);
+direction_flag : 'in'
 	| 'out'
 	| 'inout'
 	| 'requestport'
@@ -224,14 +235,15 @@ direction : 'in'
 	| 'msgseqno'
 	;
 tr_impl_keyword : 'serverimpl' | 'userimpl' ;
-argument_type : COLON! (identifier | named_type_spec | native_type_spec) ;
-ipc_flags : (COMMA! ipc_flag)+ (LBRACK RBRACK)?;
+argument_type : COLON (identifier | named_type_spec | native_type_spec) -> ^(ARG_TYPE identifier?);
+ipc_flags : (COMMA ipc_flag)+ (LBRACK RBRACK)? -> ^(IPC_FLAGS ipc_flag);
 ipc_flag : 'SameCount'
 	| 'retcode'
 	| 'physicalcopy'
 	| 'servercopy'
 	| 'overwrite'
 	| 'Dealloc'
+	| 'dealloc'
 	| 'notdealloc'
 	| 'CountInOut'
 	| 'auto'
@@ -256,8 +268,8 @@ LBRACK : '[' ;
 RBRACK : ']' ;
 BAR : '|' ;
 OF: 'of'; 
-protected LETTER : ('A'..'Z') | ('a'..'z') ;
-protected DIGIT : '0'..'9' ;
+fragment LETTER : ('A'..'Z') | ('a'..'z') ;
+fragment DIGIT : '0'..'9' ;
 IDENT : (LETTER | '_')  (LETTER | DIGIT | '_')* ;
 NUMBER : (DIGIT)+ ;
 QUOTEDSTRING : ('"' (LETTER | '-' | DIGIT | '.' | '_' | '/')+ '"') ;
