@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+#
+# TODO: Warn when parser errors out before reaching EOF
+
+require 'set'
 
 require_relative './generated/MigParser'
 
@@ -23,7 +27,7 @@ types.each { |t|
 }
 
 puts <<-END
-enum __MIGDirection { IN, INOUT, OUT };
+enum __MIGDirection { IN, INOUT, OUT, SERVERAUDITTOKEN, REQUESTPORT, MSGOPTION };
 struct {
   int idx;
   enum __MIGDirection direction;
@@ -33,8 +37,11 @@ struct {
 } mig_routines[] = {
 END
 
-PARSED_TO_ENUM = { '' => 'IN', 'in' => 'IN', 'inout' => 'INOUT', 'out' => 'OUT' }
+processed_routines = Set.new
 routines.each { |r|
+  # Routines can be included multiple times in the master MIG output.
+  next if processed_routines.include?(r[0].to_s)
+
   idx = 0
   r[1, r.length].each { |arg|
 #    puts "/* #{arg.inspect} */"
@@ -64,5 +71,7 @@ routines.each { |r|
       idx += 1
     end
   }
+
+  processed_routines.add(r[0].to_s)
 }
 puts '};'

@@ -60,7 +60,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 grammar Mig;
 
 options {
-	language = Ruby;
+  language = Ruby;
   output = AST;
 }
 
@@ -111,8 +111,8 @@ subsystem_base : NUMBER ;
 user_type_limit : 'UserTypeLimit'! NUMBER ;
 on_stack_limit : 'OnStackLimit'! NUMBER ;
 error : 'error'! IDENT ;
-server_prefix : 'ServerPrefix'! IDENT ; 
-user_prefix : 'UserPrefix'! IDENT ;
+server_prefix : ('ServerPrefix' | 'serverprefix') IDENT ; 
+user_prefix : ('UserPrefix' | 'userprefix') IDENT ;
 server_demux : 'serverdemux'! IDENT ;
 import_decl : import_indicant (QUOTEDSTRING | ANGLEQUOTEDSTRING) ;
 //rcs_decl : RCSDECL;
@@ -206,8 +206,8 @@ int_exp : NUMBER
 routine_decl : routine
 	| simple_routine
 	;
-routine: 'routine' identifier arguments -> ^(ROUTINE_DEF identifier arguments);
-simple_routine : 'simpleroutine' identifier arguments -> ^(ROUTINE_DEF identifier arguments);
+routine: ('routine' | 'Routine') identifier arguments -> ^(ROUTINE_DEF identifier arguments);
+simple_routine : ('simpleroutine' | 'SimpleRoutine') identifier arguments -> ^(ROUTINE_DEF identifier arguments);
 arguments: LPAREN! (argument_list)? RPAREN! ;
 argument_list : argument (SEMI! argument_list)?
 	| trailer (SEMI! argument_list)?
@@ -220,6 +220,7 @@ direction_flag : 'in'
 	| 'out'
 	| 'inout'
 	| 'requestport'
+	| 'RequestPort'
 	| 'replyport'
 	| 'sreplyport'
 	| 'ureplyport'
@@ -231,6 +232,7 @@ direction_flag : 'in'
 	| 'usersectoken'
 	| 'audittoken'
 	| 'serveraudittoken'
+	| 'ServerAuditToken'
 	| 'useraudittoken'
 	| 'msgseqno'
 	;
